@@ -62,7 +62,8 @@
               "buildTarget": "HomeTurismoWeb:build:production"
             },
             "development": {
-              "buildTarget": "HomeTurismoWeb:build:development"
+              "buildTarget": "HomeTurismoWeb:build:development",
+              "port": 4201
             }
           },
           "defaultConfiguration": "development"
@@ -92,5 +93,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
