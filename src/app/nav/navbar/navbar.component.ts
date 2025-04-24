@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {Router} from '@angular/router';
+import { Component, HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +8,15 @@ import {Router} from '@angular/router';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
+  isScrolled = false;
+
   constructor(private router: Router) {}
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    this.isScrolled = window.scrollY > 50; // Ajusta este valor según necesites
+  }
+
   navigateTo(route: string): void {
     if (route.startsWith('http')) {
       window.location.href = route;  // Redirige a una URL externa

@@ -14,4 +14,12 @@ export class AppComponent {
   constructor(private router: Router) {
     this.router.config = routes;  // Configura las rutas directamente
   }
+  isLoading = true;
+
+  ngOnInit() {
+    // Simulamos un retraso para simular carga (puedes usar tu propio servicio)
+    setTimeout(() => {
+      this.isLoading = false;
+    }, 2000); // Cambia el tiempo según sea necesario
+  }
 }

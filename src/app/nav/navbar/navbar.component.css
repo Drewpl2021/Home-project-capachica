@@ -1,26 +1,49 @@
 nav {
   background-color: #333;
   padding: 10px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  position: fixed; /* Para que se quede fijo en la parte superior */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+nav.scrolled {
+  background-color: #555; /* Fondo gris al hacer scroll */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil al hacer scroll */
 }
 
 nav ul {
   list-style: none;
   display: flex;
+  padding: 0;
+  margin: 0;
 }
 
 nav ul li {
   margin-right: 15px;
 }
 
+nav ul li:last-child {
+  margin-right: 0;
+}
+
 nav ul li a {
   color: white;
   text-decoration: none;
+  padding: 8px 12px;
+  display: block;
 }
 
 nav ul li a:hover {
-  text-decoration: underline;
+  background-color: #fbed50; /* Fondo amarillo al pasar el mouse */
+  color: #333; /* Cambia el color del texto para contraste */
+  text-decoration: none;
+  border-width: 1px;
+  border-radius: 10px;
 }
 
 nav ul li a.active {
-  color: yellow;  /* Resalta el enlace activo */
+  color: yellow; /* Resalta el enlace activo */
 }
