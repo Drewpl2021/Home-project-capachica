@@ -1,10 +1,22 @@
-<div class="hero-wrap js-fullheight" id="{{ sectionDetails[0]?.code }}" style="background-image: url('assets/images/image04.jpg'); width: 100%; height: 700px;">
+<div class="hero-wrap js-fullheight" id="{{ sectionDetails[0]?.code }}"    [ngStyle]="{
+    'background-image': 'url(' + sectionDetails[0]?.detail[0]?.image + ')',
+    'background-size': 'cover',
+    'background-position': 'center center',
+    'background-repeat': 'no-repeat',
+    'width': '100%',
+    'height': '950px',
+    'object-fit': 'cover',
+    'max-width': '100%',
+    'max-height': '1000px'
+  }">
   <div class="overlay"></div>
   <div class="container">
     <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start">
       <div class="col-md-9 text-center text-sm-left">
         <h1 class="mb-4">{{ sectionDetails[0]?.title }}</h1>  <!-- Mostramos el título dinámicamente -->
-        <p>{{ sectionDetails[0]?.description }}</p>
+        <!--<p>{{ sectionDetails[0]?.description }}</p>-->
+        <p>{{ sectionDetails[0]?.detail[0]?.description }}</p>
+
       </div>
     </div>
   </div>
@@ -14,29 +26,29 @@
 
 
 <section class="ftco-section bg-light">
-  <div class="container" id="{{ sectionDetails[5]?.code }}" >
+  <div class="container" id="{{ sectionDetails[1]?.code }}" >
     <!-- Título centrado con el color de fondo -->
     <h2 style="text-align: center; background-color: #2AD9B3; color: white; padding: 20px; border-radius: 10px; font-size: 2.5rem; font-weight: bold;">
-      {{ sectionDetails[5]?.title }}
+      {{ sectionDetails[1]?.title }}
     </h2>
     <br>
     <div class="row">
       <div class="col-md-4">
         <div class="intro">
-          <h3><span>01</span> Discover Capachica</h3>
-          <p>A unique corner on the shores of the majestic Lake Titicaca, where nature and ancient culture intertwine. Let yourself be captivated by its breathtaking landscapes and welcoming people.</p>
+          <h3><span>01</span> {{ sectionDetails[1]?.detail[0]?.title }}</h3>
+          <p>{{ sectionDetails[1]?.detail[1]?.description }}</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="intro">
-          <h3><span>02</span> Live the Experience</h3>
-          <p>Immerse yourself in the authenticity of its Quechua communities, enjoy the local cuisine, and explore its floating and natural islands. A destination full of history and tradition.</p>
+          <h3><span>02</span> {{ sectionDetails[1]?.detail[1]?.title }}</h3>
+          <p>{{ sectionDetails[1]?.detail[1]?.description }}</p>
         </div>
       </div>
       <div class="col-md-4">
         <div class="intro">
-          <h3><span>03</span> Relax and Connect</h3>
-          <p>In Capachica, the tranquility of the lake and the pure Andean air invite you to disconnect from daily stress. An ideal place to recharge and create unforgettable moments.</p>
+          <h3><span>03</span> {{ sectionDetails[1]?.detail[2]?.title }}</h3>
+          <p>{{ sectionDetails[1]?.detail[2]?.description }}</p>
         </div>
       </div>
     </div>
@@ -48,29 +60,29 @@
 <section class="ftco-section">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 heading-section text-center"  id="{{ sectionDetails[3]?.code }}" >
-        <h2 class="mb-4">{{ sectionDetails[3]?.title }}</h2>
+      <div class="col-md-7 heading-section text-center"  id="{{ sectionDetails[2]?.code }}" >
+        <h2 class="mb-4" style="">{{ sectionDetails[2]?.title }}</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-md-4">
-        <a href="#" class="destination-entry img" style="background-image: url(assets/images/image05.jpg);">
+        <a href="#" class="destination-entry img"  [ngStyle]="{'background-image': 'url(' + sectionDetails[2]?.detail[1]?.image + ')'}">
           <div class="text text-center">
-            <h3>Beachfront Scape</h3>
+            <h3>{{ sectionDetails[2]?.detail[1]?.title }}</h3>
           </div>
         </a>
       </div>
       <div class="col-md-4">
-        <a href="#" class="destination-entry img" style="background-image: url(assets/images/image06.jpg);">
+        <a href="#" class="destination-entry img" [ngStyle]="{'background-image': 'url(' + sectionDetails[2]?.detail[0]?.image + ')'}">
           <div class="text text-center">
-            <h3>Group Holidays</h3>
+            <h3>{{ sectionDetails[2]?.detail[0]?.title }}</h3>
           </div>
         </a>
       </div>
       <div class="col-md-4">
-        <a href="#" class="destination-entry img" style="background-image: url(assets/images/image07.jpeg);">
+        <a href="#" class="destination-entry img" [ngStyle]="{'background-image': 'url(' + sectionDetails[2]?.detail[2]?.image + ')'}">
           <div class="text text-center">
-            <h3>City Breaks</h3>
+            <h3>{{ sectionDetails[2]?.detail[2]?.title }}</h3>
           </div>
         </a>
       </div>
@@ -79,65 +91,23 @@
 </section>
 
 <section class="ftco-about d-md-flex">
-  <div class="one-half img" style="background-image: url(assets/images/image08.jpg);"></div>
+  <div class="one-half img" [ngStyle]="{'background-image': 'url(' + sectionDetails[3]?.detail[0]?.image + ')'}"></div>
   <div class="one-half">
-    <div class="heading-section"  id="{{ sectionDetails[2]?.code }}">
-      <h2 class="mb-4">{{ sectionDetails[2]?.title }}</h2>
+    <div class="heading-section"  id="{{ sectionDetails[3]?.code }}">
+      <h2 class="mb-4">{{ sectionDetails[3]?.title }}</h2>
     </div>
     <div>
-      <p>{{ sectionDetails[2]?.description }}</p>
+      <p>{{ sectionDetails[3]?.description }}</p>
     </div>
   </div>
 </section>
 
-<section class="ftco-section services-section bg-light">
-  <div class="container">
-    <div class="row d-flex">
-      <div class="col-md-3 d-flex align-self-stretch">
-        <div class="media block-6 services d-block">
-          <div class="icon"><span class="flaticon-yatch"></span></div>
-          <div class="media-body">
-            <h3 class="heading mb-3">Special Activities</h3>
-            <p>A small river named Duden flows by their place and supplies.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 d-flex align-self-stretch">
-        <div class="media block-6 services d-block">
-          <div class="icon"><span class="flaticon-around"></span></div>
-          <div class="media-body">
-            <h3 class="heading mb-3">Travel Arrangements</h3>
-            <p>A small river named Duden flows by their place and supplies.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 d-flex align-self-stretch">
-        <div class="media block-6 services d-block">
-          <div class="icon"><span class="flaticon-compass"></span></div>
-          <div class="media-body">
-            <h3 class="heading mb-3">Private Guide</h3>
-            <p>A small river named Duden flows by their place and supplies.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 d-flex align-self-stretch">
-        <div class="media block-6 services d-block">
-          <div class="icon"><span class="flaticon-map-of-roads"></span></div>
-          <div class="media-body">
-            <h3 class="heading mb-3">Location Manager</h3>
-            <p>A small river named Duden flows by their place and supplies.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="ftco-section">
-  <div class="container">
+<section class="ftco-section" >
+  <div class="container" style="background-color: #2AD9B3; color: white;">
     <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 heading-section text-center" id="{{ sectionDetails[6]?.code }}">
-        <h2 class="mb-4">{{ sectionDetails[6]?.title }}</h2>
+      <div class="col-md-7 heading-section text-center" id="{{ sectionDetails[4]?.code }}">
+        <h2 class="mb-4" style="background-color: #2AD9B3; color: white;">{{ sectionDetails[4]?.title }}</h2>
       </div>
     </div>
   </div>
@@ -145,7 +115,7 @@
     <div class="row">
       <div class="col-sm col-md-6 col-lg">
         <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/destination-1.jpg);">
+          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[4]?.detail[0]?.image + ')'}">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -153,33 +123,21 @@
           <div class="text p-3">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">Paris, Italy</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
-              </div>
-              <div class="two">
-                <span class="price">$200</span>
+                <h3><a href="#">{{ sectionDetails[4]?.detail[0]?.title }}</a></h3>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
-            <p class="days"><span>2 days 3 nights</span></p>
+            <p>{{ sectionDetails[4]?.detail[0]?.description }}</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Discover</a></span>
+              <span><i class="icon-map-o"></i> Capachica, Puno</span>
+              <span class="ml-auto"><a href="#">Reservar</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-sm col-md-6 col-lg">
         <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/destination-2.jpg);">
+          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[4]?.detail[1]?.image + ')'}">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -187,33 +145,21 @@
           <div class="text p-3">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">Paris, Italy</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
-              </div>
-              <div class="two">
-                <span class="price">$200</span>
+                <h3><a href="#">{{ sectionDetails[4]?.detail[1]?.title }}</a></h3>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
-            <p class="days"><span>2 days 3 nights</span></p>
+            <p>{{ sectionDetails[4]?.detail[1]?.description }}</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Discover</a></span>
+              <span><i class="icon-map-o"></i> Capachica, Puno</span>
+              <span class="ml-auto"><a href="#">Reservar</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-sm col-md-6 col-lg">
         <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/destination-3.jpg);">
+          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[4]?.detail[2]?.image + ')'}">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -221,33 +167,21 @@
           <div class="text p-3">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">Paris, Italy</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
-              </div>
-              <div class="two">
-                <span class="price">$200</span>
+                <h3><a href="#">{{ sectionDetails[4]?.detail[2]?.title }}</a></h3>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
-            <p class="days"><span>2 days 3 nights</span></p>
+            <p>{{ sectionDetails[4]?.detail[2]?.description }}</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Discover</a></span>
+              <span><i class="icon-map-o"></i> Capachica, Puno</span>
+              <span class="ml-auto"><a href="#">Reservar</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-sm col-md-6 col-lg">
         <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/destination-4.jpg);">
+          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[4]?.detail[3]?.image + ')'}">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -255,26 +189,14 @@
           <div class="text p-3">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">Paris, Italy</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
-              </div>
-              <div class="two">
-                <span class="price">$200</span>
+                <h3><a href="#">{{ sectionDetails[4]?.detail[3]?.title }}</a></h3>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
-            <p class="days"><span>2 days 3 nights</span></p>
+            <p>{{ sectionDetails[4]?.detail[3]?.description }}</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Discover</a></span>
+              <span><i class="icon-map-o"></i> Capachica, Puno</span>
+              <span class="ml-auto"><a href="#">Reservar</a></span>
             </p>
           </div>
         </div>
@@ -329,8 +251,8 @@
 <section class="ftco-section">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 heading-section text-center" id="{{ sectionDetails[4]?.code }}">
-        <h2 class="mb-4">{{ sectionDetails[4]?.title }} </h2>
+      <div class="col-md-7 heading-section text-center" id="{{ sectionDetails[5]?.code }}">
+        <h2 class="mb-4">{{ sectionDetails[5]?.title }} </h2>
       </div>
     </div>
   </div>
@@ -338,7 +260,7 @@
     <div class="row">
       <div class="col-sm col-md-6 col-lg">
         <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/hotel-1.jpg);">
+          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[5]?.detail[0]?.image + ')'}">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -346,32 +268,24 @@
           <div class="text p-3">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">New Orleans, Hotel</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
+                <h3><a href="#">{{ sectionDetails[5]?.detail[0]?.title }}</a></h3>
               </div>
               <div class="two">
-                <span class="price per-price">$40<br><small>/night</small></span>
+                <span class="price per-price">$20<br><small>/noche</small></span>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <p>{{ sectionDetails[5]?.detail[0]?.description }}</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Miami, Fl</span>
-              <span class="ml-auto"><a href="#">Book Now</a></span>
+              <span><i class="icon-map-o"></i> Capachica, Puno</span>
+              <span class="ml-auto"><a href="#">Reservar </a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-sm col-md-6 col-lg">
         <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/hotel-2.jpg);">
+          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[5]?.detail[1]?.image + ')'}">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -379,32 +293,24 @@
           <div class="text p-3">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">New Orleans, Hotel</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
+                <h3><a href="#">{{ sectionDetails[5]?.detail[1]?.title }}</a></h3>
               </div>
               <div class="two">
-                <span class="price per-price">$40<br><small>/night</small></span>
+                <span class="price per-price">$15<br><small>/noche</small></span>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <p>{{ sectionDetails[5]?.detail[1]?.description }}</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Miami, Fl</span>
-              <span class="ml-auto"><a href="#">Book Now</a></span>
+              <span><i class="icon-map-o"></i> Capachica, Puno</span>
+              <span class="ml-auto"><a href="#">Reservar </a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-sm col-md-6 col-lg">
         <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/hotel-3.jpg);">
+          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[5]?.detail[2]?.image + ')'}">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -412,32 +318,24 @@
           <div class="text p-3">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">New Orleans, Hotel</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
+                <h3><a href="#">{{ sectionDetails[5]?.detail[2]?.title }}</a></h3>
               </div>
               <div class="two">
-                <span class="price per-price">$40<br><small>/night</small></span>
+                <span class="price per-price">$18<br><small>/noche</small></span>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <p>{{ sectionDetails[5]?.detail[2]?.description }}</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Miami, Fl</span>
-              <span class="ml-auto"><a href="#">Book Now</a></span>
+              <span><i class="icon-map-o"></i> Capachica, Puno</span>
+              <span class="ml-auto"><a href="#">Reservar </a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-sm col-md-6 col-lg">
         <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/hotel-4.jpg);">
+          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[5]?.detail[3]?.image + ')'}">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -445,32 +343,24 @@
           <div class="text p-3">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">New Orleans, Hotel</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
+                <h3><a href="#">{{ sectionDetails[5]?.detail[3]?.title }}</a></h3>
               </div>
               <div class="two">
-                <span class="price per-price">$40<br><small>/night</small></span>
+                <span class="price per-price">$18<br><small>/noche</small></span>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <p>{{ sectionDetails[5]?.detail[3]?.description }}</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Miami, Fl</span>
-              <span class="ml-auto"><a href="#">Book Now</a></span>
+              <span><i class="icon-map-o"></i> Capachica, Puno</span>
+              <span class="ml-auto"><a href="#">Reservar </a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-sm col-md-6 col-lg">
         <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/hotel-5.jpg);">
+          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[5]?.detail[4]?.image + ')'}">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -478,25 +368,17 @@
           <div class="text p-3">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">New Orleans, Hotel</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
+                <h3><a href="#">{{ sectionDetails[5]?.detail[4]?.title }}</a></h3>
               </div>
               <div class="two">
-                <span class="price per-price">$40<br><small>/night</small></span>
+                <span class="price per-price">$20<br><small>/noche</small></span>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <p>{{ sectionDetails[5]?.detail[4]?.description }}</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Miami, Fl</span>
-              <span class="ml-auto"><a href="#">Book Now</a></span>
+              <span><i class="icon-map-o"></i> Capachica, Puno</span>
+              <span class="ml-auto"><a href="#">Reservar </a></span>
             </p>
           </div>
         </div>
@@ -567,111 +449,79 @@
 <section class="ftco-section">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 heading-section text-center" id="{{ sectionDetails[1]?.code }}">
-        <h2 class="mb-4">{{ sectionDetails[1]?.title }}</h2>
+      <div class="col-md-7 heading-section text-center" id="{{ sectionDetails[6]?.code }}">
+        <h2 class="mb-4">{{ sectionDetails[6]?.title }}</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6 col-lg-3">
         <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/restaurant-1.jpg);">
+          <a href="#" class="img img-2 d-flex justify-content-center align-items-center"  [ngStyle]="{'background-image': 'url(' + sectionDetails[6]?.detail[0]?.image + ')'}">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
           </a>
           <div class="text p-3">
-            <h3><a href="#">Luxury Restaurant</a></h3>
-            <p class="rate">
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star-o"></i>
-              <span>8 Rating</span>
-            </p>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <h3><a href="#">{{ sectionDetails[5]?.detail[0]?.title }}</a></h3>
+            <p>{{ sectionDetails[5]?.detail[0]?.description }}</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Discover</a></span>
+              <span><i class="icon-map-o"></i> Capachica, Puno</span>
+              <span class="ml-auto"><a href="#">Reservar</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/restaurant-2.jpg);">
+          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[6]?.detail[1]?.image + ')'}">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
           </a>
           <div class="text p-3">
-            <h3><a href="#">Luxury Restaurant</a></h3>
-            <p class="rate">
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star-o"></i>
-              <span>8 Rating</span>
-            </p>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <h3><a href="#">{{ sectionDetails[5]?.detail[1]?.title }}</a></h3>
+            <p>{{ sectionDetails[5]?.detail[1]?.description }}</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Book Now</a></span>
+              <span><i class="icon-map-o"></i> Capachica, Puno</span>
+              <span class="ml-auto"><a href="#">Reservar</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/restaurant-3.jpg);">
+          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[6]?.detail[2]?.image + ')'}">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
           </a>
           <div class="text p-3">
-            <h3><a href="#">Luxury Restaurant</a></h3>
-            <p class="rate">
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star-o"></i>
-              <span>8 Rating</span>
-            </p>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <h3><a href="#">{{ sectionDetails[5]?.detail[2]?.title }}</a></h3>
+            <p>{{ sectionDetails[5]?.detail[2]?.description }}</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Discover</a></span>
+              <span><i class="icon-map-o"></i> Capachica, Puno</span>
+              <span class="ml-auto"><a href="#">Reservar</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/restaurant-4.jpg);">
+          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[6]?.detail[3]?.image + ')'}">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
           </a>
           <div class="text p-3">
-            <h3><a href="#">Luxury Restaurant</a></h3>
-            <p class="rate">
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star-o"></i>
-              <span>8 Rating</span>
-            </p>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <h3><a href="#">{{ sectionDetails[5]?.detail[3]?.title }}</a></h3>
+            <p>{{ sectionDetails[5]?.detail[3]?.description }}</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Book Now</a></span>
+              <span><i class="icon-map-o"></i> Capachica, Puno</span>
+              <span class="ml-auto"><a href="#">Reservar</a></span>
             </p>
           </div>
         </div>
@@ -680,7 +530,7 @@
   </div>
 </section>
 
-
+<!--
 <section class="ftco-section bg-light">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
@@ -736,7 +586,7 @@
       </div>
     </div>
   </div>
-</section>
+</section>-->
 
 <section class="ftco-section-parallax">
   <div class="parallax-img d-flex align-items-center">
