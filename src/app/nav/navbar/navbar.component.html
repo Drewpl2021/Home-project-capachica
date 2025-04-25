@@ -1,15 +1,16 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar" >
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
   <div class="container">
-    <a class="navbar-brand" href="index.html">Capachica Tours</a>
+    <a class="navbar-brand" href="index.html">{{ distrito }} Tours</a>
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><a href="javascript:void(0)" (click)="navigateTo('/')">Inicio</a></li>
-        <li class="nav-item"><a href="javascript:void(0)" (click)="navigateTo('/about')">Acerca de</a></li>
-        <li class="nav-item"><a href="javascript:void(0)" (click)="navigateTo('/places')">Lugares</a></li>
-        <li class="nav-item"><a href="javascript:void(0)" (click)="navigateTo('/hotel')">Hoteles</a></li>
-        <li class="nav-item"><a href="javascript:void(0)" (click)="navigateTo('/blog')">Blog</a></li>
-        <li class="nav-item"><a href="javascript:void(0)" (click)="navigateTo('/contact')">Contacto</a></li>
-        <li class="nav-item"><a href="javascript:void(0)" (click)="navigateTo('http://localhost:4200/sign-in')">Iniciar Sesion</a></li>
+        <!-- Utilizamos ngFor para recorrer los enlaces y mostrar el nombre dinámicamente -->
+        <li class="nav-item" *ngFor="let link of navbarLinks">
+          <a href="javascript:void(0)"
+             [id]="link.id"
+             (click)="navigateTo(link.route, link.id)">
+            {{ link.name }}
+          </a>
+        </li>
       </ul>
     </div>
   </div>

@@ -7,10 +7,10 @@ import {BlogComponent} from './view/blog/blog.component';
 import {ContactComponent} from './view/contact/contact.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'places', component: PlacesComponent },
-  { path: 'hotel', component: HotelComponent },
-  { path: 'blog', component: BlogComponent },
-  { path: 'contact', component: ContactComponent },
+  { path: 'home/:id', component: HomeComponent },
+  { path: 'about/:id', component: AboutComponent },  // Ahora 'about' acepta un parámetro 'id'
+  { path: 'places/:id', component: PlacesComponent }, // Ahora 'places' acepta un parámetro 'id'
+  { path: 'hotel/:id', component: HotelComponent },  // Ahora 'hotel' acepta un parámetro 'id'
+  { path: 'blog/:id', component: BlogComponent },  // Ahora 'blog' acepta un parámetro 'id'
+  { path: 'contact/:id', component: ContactComponent },
 ];
