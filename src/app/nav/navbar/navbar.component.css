@@ -1,7 +1,7 @@
 nav {
-  background-color: #333;
+  background-color: transparent; /* Fondo inicial transparente */
   padding: 10px;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Añadimos transición para el color */
   position: fixed; /* Para que se quede fijo en la parte superior */
   top: 0;
   left: 0;
@@ -12,6 +12,11 @@ nav {
 nav.scrolled {
   background-color: #555; /* Fondo gris al hacer scroll */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil al hacer scroll */
+  /* No necesitamos cambiar el color aquí a menos que sea un color base diferente al blanco */
+}
+
+nav.scrolled ul li a {
+  color: white; /* Mantenemos el color blanco o el color que desees al hacer scroll */
 }
 
 nav ul {
@@ -30,15 +35,16 @@ nav ul li:last-child {
 }
 
 nav ul li a {
-  color: white;
+  color: white; /* Color inicial de las letras */
   text-decoration: none;
   padding: 8px 12px;
   display: block;
+  transition: color 0.3s ease; /* Añadimos transición para el color al hacer hover */
 }
 
 nav ul li a:hover {
-  background-color: #fbed50; /* Fondo amarillo al pasar el mouse */
-  color: #333; /* Cambia el color del texto para contraste */
+  background-color: rgba(255,250,151,0.17); /* Fondo amarillo al pasar el mouse */
+  color: #333; /* Cambia el color del texto para contraste al hacer hover */
   text-decoration: none;
   border-width: 1px;
   border-radius: 10px;

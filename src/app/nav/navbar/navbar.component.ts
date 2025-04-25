@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router'; // Importa NavigationEnd
+import { filter } from 'rxjs/operators'; // Importa el operador filter
 
 @Component({
   selector: 'app-navbar',
@@ -10,7 +11,14 @@ import { Router } from '@angular/router';
 export class NavbarComponent {
   isScrolled = false;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    // Escucha los eventos de NavigationEnd para resetear el scroll
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      window.scrollTo(0, 0); // Establece la posición del scroll a la parte superior
+    });
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -21,7 +29,7 @@ export class NavbarComponent {
     if (route.startsWith('http')) {
       window.location.href = route;  // Redirige a una URL externa
     } else {
-      this.router.navigate([route]);  // Redirige a una ruta interna
+      this.router.navigate([route]).then(r => route);  // Redirige a una ruta interna
     }
   }
 }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import * as Aos from 'aos';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-contact',
@@ -8,4 +10,9 @@ import { Component } from '@angular/core';
 })
 export class ContactComponent {
 
+  ngOnInit() {
+    AOS.init({
+      once: false,
+    });
+  }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import AOS from 'aos';  // Importar la librería AOS
-import 'aos/dist/aos.css';  // Importar el archivo CSS de AOS
 
 @Component({
   selector: 'app-home',
@@ -11,7 +10,9 @@ import 'aos/dist/aos.css';  // Importar el archivo CSS de AOS
 export class HomeComponent implements OnInit {
 
   ngOnInit() {
-    AOS.init(); // Inicia AOS en el componente
+    AOS.init({
+      once: false,
+    });
   }
 
 }
