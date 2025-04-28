@@ -22,6 +22,10 @@ export class HomeComponent implements OnInit {
               ) {}
 
   ngOnInit(): void {
+    AOS.init({
+      once: false,
+    });
+
     this.route.paramMap.subscribe(params => {
       this.sectionId = params.get('id') || '';  // Asignar el 'id' a la variable
       console.log(`Section ID from URL: ${this.sectionId}`);
