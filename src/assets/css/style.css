@@ -5581,8 +5581,11 @@ button.bg-dark:focus {
   position: fixed !important; }
 
 .position-sticky {
-  position: -webkit-sticky !important;
   position: sticky !important; }
+
+.position-sticky {
+  position: -webkit-sticky !important;
+}
 
 .fixed-top {
   position: fixed;
