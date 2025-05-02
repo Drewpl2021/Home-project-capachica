@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import * as Aos from 'aos';
 import AOS from 'aos';
 
 @Component({

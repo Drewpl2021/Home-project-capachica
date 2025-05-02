@@ -7301,6 +7301,25 @@ h1, h2, h3, h4, h5,
 
 .intro {
   display: block; }
+.intro1 {
+  border: 2px solid #0b0b0b;  /* Establece el borde */
+  padding: 20px;           /* Espaciado dentro del contenedor */
+  border-radius: 8px;      /* Opcional, para bordes redondeados */
+  background-color: transparent; /* Fondo blanco translúcido */
+  height: auto;             /* Establecer la altura en auto para que ajuste al contenido */
+  display: flex;            /* Usamos flexbox para centrar el contenido */
+  flex-direction: column;   /* Aseguramos que los elementos estén en columna */
+  justify-content: center;  /* Centrar el contenido verticalmente */
+}
+.intro1 ul li {
+  font-size: 1.0rem;       /* Tamaño de texto de la lista */
+  margin-bottom: -5px;      /* Espaciado entre los elementos de la lista */
+}
+.intro1 p {
+  margin-top: 5px;        /* Espaciado en la parte superior del párrafo */
+  font-size: 1.0rem;         /* Tamaño de texto del párrafo */
+  line-height: 1.6;        /* Altura de línea para mejorar la legibilidad */
+}
   @media (max-width: 767.98px) {
     .intro {
       margin-bottom: 40px; } }
@@ -8176,13 +8195,13 @@ textarea.form-control {
   border-top: 0;
   border-radius: 2px; }
   .blog-entry .text .tag {
-    font-size: 14px;
+    font-size: 20px;
     color: #fff;
     padding: 2px 8px;
     display: inline-block;
     background: #08c299;
     position: absolute;
-    top: -45px;
+    top: -56px;
     left: 0; }
   .blog-entry .text .heading {
     font-size: 20px;
@@ -8879,7 +8898,7 @@ textarea.form-control {
     color: #000000;
     font-style: italic; }
 
-/*#ftco-loader {
+#ftco-loader {
   position: fixed;
   width: 96px;
   height: 96px;
@@ -8968,4 +8987,4 @@ textarea.form-control {
     stroke-dashoffset: -35px; }
   100% {
     stroke-dasharray: 89, 200;
-    stroke-dashoffset: -136px; } }*/
+    stroke-dashoffset: -136px; } }

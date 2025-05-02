@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit  } from '@angular/core';
 import {Router, RouterOutlet} from '@angular/router';
 import {NavbarComponent} from './nav/navbar/navbar.component';
 import {routes} from './app.routes';
@@ -9,7 +9,7 @@ import {routes} from './app.routes';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   title = 'HomeTurismoWeb';
   constructor(private router: Router) {
     this.router.config = routes;  // Configura las rutas directamente
@@ -21,5 +21,14 @@ export class AppComponent {
     setTimeout(() => {
       this.isLoading = false;
     }, 2000); // Cambia el tiempo según sea necesario
+  }
+  ngAfterViewInit(): void {
+    // Espera a que se haya completado la carga de la vista
+    setTimeout(() => {
+      const loader = document.getElementById('ftco-loader');
+      if (loader) {
+        loader.classList.remove('show');
+      }
+    }, 500); // Ajusta el tiempo si es necesario
   }
 }
