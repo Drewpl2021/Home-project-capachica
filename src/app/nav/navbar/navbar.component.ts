@@ -1,18 +1,19 @@
-import { Component, HostListener } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router'; // Importa NavigationEnd
+import {Component, HostListener, OnInit} from '@angular/core';
+import {Router, NavigationEnd, RouterModule} from '@angular/router'; // Importa NavigationEnd
 import { filter } from 'rxjs/operators';
-import {NgClass} from '@angular/common'; // Importa el operador filter
+import {CommonModule, NgClass} from '@angular/common'; // Importa el operador filter
+
 
 @Component({
   selector: 'app-navbar',
-  imports: [
-    NgClass
-  ],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   isScrolled = false;
+  navItems: { label: string; path: string }[] = [];
 
   constructor(private router: Router) {
     // Escucha los eventos de NavigationEnd para resetear el scroll
@@ -23,19 +24,63 @@ export class NavbarComponent {
     });
   }
 
+  ngOnInit(): void {
+    this.setupScrollListener();
+    this.setupNavItems();
+  }
+
+  setupNavItems(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const url = event.urlAfterRedirects;
+        if (url.includes('/llachon') ||
+          url.includes('/chifron') ||
+          url.includes('/ccotos') ||
+          url.includes('/isla-tikonata') ||
+          url.includes('/siale-paramis') ||
+          url.includes('/escallani')) {
+          this.navItems = [
+            { label: 'Inicio', path: '/' },
+            { label: 'Llachon', path: '/llachon' },
+            { label: 'Chifron', path: '/chifron' },
+            { label: 'Ccotos', path: '/ccotos' },
+            { label: 'Isla-Tikonata', path: '/isla-tikonata' },
+            { label: 'Siale-Paramis', path: '/siale-paramis' },
+            { label: 'Escallani', path: '/escallani' },
+            { label: 'Iniciar Sesión', path: '/sign-in' }
+          ];
+        } else {
+          this.navItems = [
+            { label: 'Inicio', path: '/' },
+            { label: 'Acerca de', path: '/about' },
+            { label: 'Lugares', path: '/places' },
+            { label: 'Hoteles', path: '/hotel' },
+            { label: 'Blog', path: '/blog' },
+            { label: 'Contacto', path: '/contact' },
+            { label: 'Iniciar Sesión', path: '/sign-in' }
+          ];
+        }
+      }
+    });
+  }
+
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.isScrolled = window.scrollY > 50; // Ajusta este valor según necesites
   }
 
-  navigateTo(route: string): void {
-    if (route.startsWith('http')) {
-      window.location.href = route;  // Redirige a una URL externa
-    } else {
-      this.router.navigate([route]).then(r => route);  // Redirige a una ruta interna
-    }
+  navigateTo(path: string): void {
+    this.router.navigate([path]);
   }
-  isActive(route: string): boolean {
-    return this.router.url === route;
+
+  isActive(path: string): boolean {
+    return this.router.url === path;
+  }
+
+  setupScrollListener(): void {
+    window.addEventListener('scroll', () => {
+      this.isScrolled = window.scrollY > 50;
+    });
   }
 }

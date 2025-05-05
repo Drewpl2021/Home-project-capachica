@@ -6,26 +6,8 @@
     </button>
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item" [ngClass]="{'active': isActive('/')}">
-          <a href="javascript:void(0)" (click)="navigateTo('/')" class="nav-link">Inicio</a>
-        </li>
-        <li class="nav-item" [ngClass]="{'active': isActive('/about')}">
-          <a href="javascript:void(0)" (click)="navigateTo('/about')" class="nav-link">Acerca de</a>
-        </li>
-        <li class="nav-item" [ngClass]="{'active': isActive('/places')}">
-          <a href="javascript:void(0)" (click)="navigateTo('/places')" class="nav-link">Lugares</a>
-        </li>
-        <li class="nav-item" [ngClass]="{'active': isActive('/hotel')}">
-          <a href="javascript:void(0)" (click)="navigateTo('/hotel')" class="nav-link">Hoteles</a>
-        </li>
-        <li class="nav-item" [ngClass]="{'active': isActive('/blog')}">
-          <a href="javascript:void(0)" (click)="navigateTo('/blog')" class="nav-link">Blog</a>
-        </li>
-        <li class="nav-item" [ngClass]="{'active': isActive('/contact')}">
-          <a href="javascript:void(0)" (click)="navigateTo('/contact')" class="nav-link">Contacto</a>
-        </li>
-        <li class="nav-item">
-          <a href="javascript:void(0)" (click)="navigateTo('http://localhost:4200/sign-in')" class="nav-link">Iniciar Sesion</a>
+        <li class="nav-item" *ngFor="let item of navItems" [ngClass]="{ 'active': isActive(item.path) }">
+          <a href="javascript:void(0)" (click)="navigateTo(item.path)" class="nav-link">{{ item.label }}</a>
         </li>
       </ul>
     </div>

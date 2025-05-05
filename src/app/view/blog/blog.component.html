@@ -104,40 +104,29 @@
   </div>
 </section>
 
-<section class="ftco-section-parallax">
-  <div class="parallax-img d-flex align-items-center">
-    <div class="container">
-      <div class="row d-flex justify-content-center">
-        <div class="section">
-          <div class="container" data-aos="zoom-in-up" data-aos-duration="1000">
-            <h2 class="text-wrapper">Deja una Reseña de tu visita</h2>
-            <p class="div">
-              Queremos saber todo sobre tu visita a Capachica. Deja tu reseña y comparte con nosotros tus momentos
-              favoritos. ¡Tu opinión ayuda a mejorar y a que otros viajeros descubran lo mejor de este hermoso lugar!
-            </p>
-          </div>
-          <div class="col-md-6 order-md-last pr-md-5" data-aos="zoom-in-up" data-aos-duration="1000">
-            <form action="#">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Lugar de Visita">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Calificacion">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Fecha">
-              </div>
-              <div class="form-group">
-                <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Mensaje"></textarea>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
+<section class="reseña-section">
+  <div class="reseña-container">
+
+    <!-- Izquierda: Texto -->
+    <div class="reseña-texto" data-aos="fade-right" data-aos-duration="1000">
+      <h2>Deja una Reseña de tu visita</h2>
+      <p>
+        Queremos saber todo sobre tu visita a Capachica. Deja tu reseña y comparte con nosotros tus momentos favoritos.
+        ¡Tu opinión ayuda a mejorar y a que otros viajeros descubran lo mejor de este hermoso lugar!
+      </p>
     </div>
+
+    <!-- Derecha: Formulario -->
+    <div class="reseña-formulario" data-aos="fade-left" data-aos-duration="1000">
+      <form>
+        <input type="text" placeholder="Lugar de visita" required />
+        <input type="text" placeholder="Calificación" required />
+        <input type="date" placeholder="Fecha" required />
+        <textarea placeholder="Mensaje" rows="5" required></textarea>
+        <button type="submit">Enviar Reseña</button>
+      </form>
+    </div>
+
   </div>
 </section>
 
