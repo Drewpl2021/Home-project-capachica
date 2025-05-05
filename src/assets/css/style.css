@@ -935,6 +935,12 @@ pre {
     -ms-flex: 0 0 75%;
     flex: 0 0 75%;
     max-width: 75%;}
+  .col-md-91 {
+    top: 250px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;}
   .col-md-10 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 83.33333%;
@@ -6975,6 +6981,7 @@ h1, h2, h3, h4, h5,
   height: 100%;
   background-size: cover; /* Asegura que la imagen cubra toda el área */
   background-position: center center; /* Centra la imagen de fondo */
+  transition: background-image 1s ease-in-out;
   position: relative;}
   .hero-wrap .overlay {
     position: absolute;
@@ -7328,7 +7335,7 @@ h1, h2, h3, h4, h5,
     font-weight: 600; }
     .intro h3 span {
       font-weight: 200;
-      color: #f9be37; }
+      color: #00c9a7; }
 
 .ftco-about .one-half {
   width: 100%;
@@ -7415,6 +7422,7 @@ h1, h2, h3, h4, h5,
     display: block;
     height: 300px; }
   .destination .img-2 {
+    border-radius: 30px;
     height: 300px; }
   .destination .icon {
     width: 60px;
@@ -9165,4 +9173,25 @@ textarea.form-control {
 
 .carousel-btn.right {
   right: -10px;
+}
+/*home*/
+.section-title-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.section-decorated-title {
+  background-color: #00c9a7;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 'Georgia', serif;
+  display: inline-block;
+}
+
+.section-decorated-title .divider {
+  margin: 0 15px;
+  font-size: 1.5rem;
 }
