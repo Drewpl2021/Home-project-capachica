@@ -1,10 +1,13 @@
 import { Component, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router'; // Importa NavigationEnd
-import { filter } from 'rxjs/operators'; // Importa el operador filter
+import { filter } from 'rxjs/operators';
+import {NgClass} from '@angular/common'; // Importa el operador filter
 
 @Component({
   selector: 'app-navbar',
-  imports: [],
+  imports: [
+    NgClass
+  ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
@@ -31,5 +34,8 @@ export class NavbarComponent {
     } else {
       this.router.navigate([route]).then(r => route);  // Redirige a una ruta interna
     }
+  }
+  isActive(route: string): boolean {
+    return this.router.url === route;
   }
 }
