@@ -58,7 +58,6 @@
               "node_modules/owl.carousel/dist/owl.carousel.min.js",
               "node_modules/magnific-popup/dist/jquery.magnific-popup.min.js",
               "node_modules/aos/dist/aos.js",
-              "src/assets/js/aos.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/bootstrap-datepicker.js",
               "src/assets/js/google-map.js",

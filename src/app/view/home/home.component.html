@@ -677,61 +677,96 @@
   </div>
 </section>
 
-<section class="ftco-section testimony-section">
-  <div class="container">
-    <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 text-center heading-section heading-section-white">
-        <h2 class="mb-4">Our satisfied customer says</h2>
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="carousel-testimony owl-carousel">
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div class="user-img mb-5" style="background-image: url(assets/images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-              </div>
-              <div class="text">
-                <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <p class="name">Mark Web</p>
-                <span class="position">Marketing Manager</span>
-              </div>
-            </div>
+<section class="testimonials-section">
+  <div class="container text-center">
+    <p class="sub-title">Testimonial</p>
+    <h2 class="title">Comentarios de los turistas</h2>
+
+    <div class="testimonials-carousel-wrapper">
+      <button class="carousel-btn left" (click)="scrollLeft()">&lt;</button>
+
+      <div class="testimonials-carousel" id="carousel">
+        <div class="testimonial-card">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
           </div>
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div class="user-img mb-5" style="background-image: url(assets/images/person_2.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-              </div>
-              <div class="text">
-                <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <p class="name">Mark Web</p>
-                <span class="position">Interface Designer</span>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div class="user-img mb-5" style="background-image: url(assets/images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-              </div>
-              <div class="text">
-                <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <p class="name">Mark Web</p>
-                <span class="position">UI Designer</span>
-              </div>
+          <p class="message">Desde el primer contacto, la agencia nos ayudó a planificar una visita perfecta a Capachica. ¡Un servicio excepcional!</p>
+          <div class="user-info">
+            <img src="assets/images/person_1.jpg" alt="Sapito" />
+            <div>
+              <p class="name">Sapito</p>
+              <p class="role">Visitante</p>
             </div>
           </div>
         </div>
+
+        <div class="testimonial-card">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">Llachón fue simplemente mágico. La vista del lago al amanecer y la amabilidad de los lugareños lo hicieron...</p>
+          <div class="user-info">
+            <img src="assets/images/person_2.jpg" alt="Alessandro Pastor" />
+            <div>
+              <p class="name">Alessandro Pastor</p>
+              <p class="role">Viajero de Estados Unidos</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">La playa de Chifrón es una joya escondida. Aguas cristalinas y un ambiente tranquilo; no podría pedir más.</p>
+          <div class="user-info">
+            <img src="assets/images/person_3.jpg" alt="Andrés Lino" />
+            <div>
+              <p class="name">Andrés Lino</p>
+              <p class="role">Fotógrafo de Argentina</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">La playa de Chifrón es una joya escondida. Aguas cristalinas y un ambiente tranquilo; no podría pedir más.</p>
+          <div class="user-info">
+            <img src="assets/images/person_3.jpg" alt="Andrés Lino" />
+            <div>
+              <p class="name">Andrés Lino</p>
+              <p class="role">Fotógrafo de Argentina</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">La playa de Chifrón es una joya escondida. Aguas cristalinas y un ambiente tranquilo; no podría pedir más.</p>
+          <div class="user-info">
+            <img src="assets/images/person_3.jpg" alt="Andrés Lino" />
+            <div>
+              <p class="name">Andrés Lino</p>
+              <p class="role">Fotógrafo de Argentina</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">La playa de Chifrón es una joya escondida. Aguas cristalinas y un ambiente tranquilo; no podría pedir más.</p>
+          <div class="user-info">
+            <img src="assets/images/person_3.jpg" alt="Andrés Lino" />
+            <div>
+              <p class="name">Andrés Lino</p>
+              <p class="role">Fotógrafo de Argentina</p>
+            </div>
+          </div>
+        </div>
+        <!-- Puedes añadir más tarjetas aquí -->
       </div>
+
+      <button class="carousel-btn right" (click)="scrollRight()">&gt;</button>
     </div>
   </div>
 </section>

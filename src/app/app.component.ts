@@ -1,7 +1,8 @@
-import { Component, AfterViewInit  } from '@angular/core';
+import {Component, AfterViewInit, OnInit} from '@angular/core';
 import {Router, RouterOutlet} from '@angular/router';
 import {NavbarComponent} from './nav/navbar/navbar.component';
 import {routes} from './app.routes';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import {routes} from './app.routes';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
   title = 'HomeTurismoWeb';
   constructor(private router: Router) {
     this.router.config = routes;  // Configura las rutas directamente
@@ -20,8 +21,13 @@ export class AppComponent implements AfterViewInit {
     // Simulamos un retraso para simular carga (puedes usar tu propio servicio)
     setTimeout(() => {
       this.isLoading = false;
-    }, 2000); // Cambia el tiempo según sea necesario
+    }, 200);
+    AOS.init({
+      duration: 1000,
+      once: true
+    });// Cambia el tiempo según sea necesario
   }
+
   ngAfterViewInit(): void {
     // Espera a que se haya completado la carga de la vista
     setTimeout(() => {
