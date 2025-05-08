@@ -8,10 +8,4 @@ import AOS from 'aos';
   styleUrl: './contact.component.css'
 })
 export class ContactComponent {
-
-  ngOnInit() {
-    AOS.init({
-      once: false,
-    });
-  }
 }

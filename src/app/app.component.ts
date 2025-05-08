@@ -24,7 +24,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     }, 200);
     AOS.init({
       duration: 1000,
-      once: true
+      once: false
     });// Cambia el tiempo según sea necesario
   }
 

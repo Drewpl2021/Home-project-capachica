@@ -103,7 +103,7 @@
       <div class="col-sm col-md-6 col-lg">
         <div class="destination">
           <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/Llachon.png);" data-aos="flip-left" data-aos-duration="1500">
+             style="background-image: url(assets/images/llanchon.png);" data-aos="flip-left" data-aos-duration="1500">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -528,19 +528,19 @@
 
 <section class="section-featured">
   <!-- Fondo superior tipo cabecera -->
-  <div class="featured-background">
+  <div class="featured-background" >
     <img src="assets/images/fondo.png" alt="Fondo turístico">
   </div>
 
   <!-- Contenido superpuesto -->
   <div class="featured-content">
     <!-- Imagen superpuesta con sombra -->
-    <div class="featured-image-card">
+    <div class="featured-image-card" data-aos="flip-left" data-aos-duration="1500">
       <img src="assets/images/fondo1.png" alt="Vista Capachica">
     </div>
 
     <!-- Texto -->
-    <div class="featured-text">
+    <div class="featured-text" data-aos="zoom-in" data-aos-duration="1000">
       <h2>Haga que su recorrido <br>sea memorable y <br>seguro con nosotros</h2>
       <p>
         Somos una agencia de viajes local con sede en Capachica, Puno, un lugar mágico a orillas del lago Titicaca.
@@ -557,29 +557,40 @@
 
 
 
-<section class="reseña-section">
-  <div class="reseña-container">
+<section class="review-section" id="section-counter" style="background-image: url(assets/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+  <div class="container">
+    <div class="row">
+      <!-- Texto a la izquierda -->
+      <div class="col-md-6" data-aos="fade-right" data-aos-duration="1000">
+        <div class="section-title">
+          <h2>Deja una Reseña de tu visita</h2>
+          <p>Queremos saber todo sobre tu visita a Capachica. Deja tu reseña y comparte con nosotros tus momentos favoritos. ¡Tu opinión ayuda a mejorar y a que otros viajeros descubran lo mejor de este hermoso lugar!</p>
+        </div>
+      </div>
 
-    <!-- Izquierda: Texto -->
-    <div class="reseña-texto" data-aos="fade-right" data-aos-duration="1000">
-      <h2>Deja una Reseña de tu visita</h2>
-      <p>
-        Queremos saber todo sobre tu visita a Capachica. Deja tu reseña y comparte con nosotros tus momentos favoritos.
-        ¡Tu opinión ayuda a mejorar y a que otros viajeros descubran lo mejor de este hermoso lugar!
-      </p>
+      <!-- Formulario a la derecha -->
+      <div class="col-md-6" data-aos="fade-left" data-aos-duration="1000">
+        <form class="review-form">
+          <div class="form-group">
+            <label for="place">Lugar de visita</label>
+            <input type="text" class="form-control" id="place" placeholder="Lugar de visita">
+          </div>
+          <div class="form-group">
+            <label for="rating">Calificación</label>
+            <input type="number" class="form-control" id="rating" placeholder="Calificación" max="5" min="1">
+          </div>
+          <div class="form-group">
+            <label for="date">Fecha</label>
+            <input type="date" class="form-control" id="date">
+          </div>
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea class="form-control" id="message" rows="4" placeholder="Mensaje"></textarea>
+          </div>
+          <button type="submit" class="btn btn-submit">Enviar Reseña</button>
+        </form>
+      </div>
     </div>
-
-    <!-- Derecha: Formulario -->
-    <div class="reseña-formulario" data-aos="fade-left" data-aos-duration="1000">
-      <form>
-        <input type="text" placeholder="Lugar de visita" required />
-        <input type="text" placeholder="Calificación" required />
-        <input type="date" placeholder="Fecha" required />
-        <textarea placeholder="Mensaje" rows="5" required></textarea>
-        <button type="submit">Enviar Reseña</button>
-      </form>
-    </div>
-
   </div>
 </section>
 

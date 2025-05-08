@@ -54,29 +54,40 @@
   </div>
 </section>
 
-<section class="reseña-section">
-  <div class="reseña-container">
+<section class="review-section" id="section-counter" style="background-image: url(assets/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+  <div class="container">
+    <div class="row">
+      <!-- Texto a la izquierda -->
+      <div class="col-md-6" data-aos="fade-right" data-aos-duration="1000">
+        <div class="section-title">
+          <h2>Deja una Reseña de tu visita</h2>
+          <p>Queremos saber todo sobre tu visita a Capachica. Deja tu reseña y comparte con nosotros tus momentos favoritos. ¡Tu opinión ayuda a mejorar y a que otros viajeros descubran lo mejor de este hermoso lugar!</p>
+        </div>
+      </div>
 
-    <!-- Izquierda: Texto -->
-    <div class="reseña-texto" data-aos="fade-right" data-aos-duration="1000">
-      <h2>Deja una Reseña de tu visita</h2>
-      <p>
-        Queremos saber todo sobre tu visita a Capachica. Deja tu reseña y comparte con nosotros tus momentos favoritos.
-        ¡Tu opinión ayuda a mejorar y a que otros viajeros descubran lo mejor de este hermoso lugar!
-      </p>
+      <!-- Formulario a la derecha -->
+      <div class="col-md-6" data-aos="fade-left" data-aos-duration="1000">
+        <form class="review-form">
+          <div class="form-group">
+            <label for="place">Lugar de visita</label>
+            <input type="text" class="form-control" id="place" placeholder="Lugar de visita">
+          </div>
+          <div class="form-group">
+            <label for="rating">Calificación</label>
+            <input type="number" class="form-control" id="rating" placeholder="Calificación" max="5" min="1">
+          </div>
+          <div class="form-group">
+            <label for="date">Fecha</label>
+            <input type="date" class="form-control" id="date">
+          </div>
+          <div class="form-group">
+            <label for="message">Mensaje</label>
+            <textarea class="form-control" id="message" rows="4" placeholder="Mensaje"></textarea>
+          </div>
+          <button type="submit" class="btn btn-submit">Enviar Reseña</button>
+        </form>
+      </div>
     </div>
-
-    <!-- Derecha: Formulario -->
-    <div class="reseña-formulario" data-aos="fade-left" data-aos-duration="1000">
-      <form>
-        <input type="text" placeholder="Lugar de visita" required />
-        <input type="text" placeholder="Calificación" required />
-        <input type="date" placeholder="Fecha" required />
-        <textarea placeholder="Mensaje" rows="5" required></textarea>
-        <button type="submit">Enviar Reseña</button>
-      </form>
-    </div>
-
   </div>
 </section>
 

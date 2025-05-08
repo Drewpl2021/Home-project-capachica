@@ -20,7 +20,7 @@
     "@popperjs/core": "^2.11.8",
     "@types/aos": "^3.0.7",
     "aos": "^2.3.4",
-    "bootstrap": "^5.3.5",
+    "bootstrap": "^5.3.6",
     "jquery": "^3.7.1",
     "magnific-popup": "^1.2.0",
     "ngx-owl-carousel-o": "^19.0.2",

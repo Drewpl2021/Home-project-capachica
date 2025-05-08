@@ -1,80 +1,109 @@
 /* You can add global styles to this file, and also import other style files */
 /*Reseña*/
-.reseña-section {
-  background: linear-gradient(to right, #07c2a1, #07d3a6);
-  padding: 100px 20px;
-  color: white;
+.row {
   display: flex;
   align-items: center;
-  min-height: 100vh;
-}
-
-.reseña-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: center;
-  gap: 40px;
 }
 
-.reseña-texto {
-  flex: 1 1 45%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
+.review-section {
+  background-color: #4db8b4;
+  padding: 50px 0;
 }
 
-.reseña-texto h2 {
-  font-size: 2rem;
+.section-title h2 {
+  font-size: 36px;
   font-weight: 700;
+  color: white;
+  margin-bottom: 15px;
+  font-family: "Latin Modern Roman", serif;
+  font-style: italic;
+}
+
+.section-title p {
+  font-size: 18px;
+  color: white;
+  margin-bottom: 30px;
+  font-family: "Latin Modern Roman", 'Georgia', serif;
+
+}
+
+.review-form .form-group {
   margin-bottom: 20px;
-  color: white;
 }
 
-.reseña-texto p {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: white;
+.review-form label {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
 }
 
-.reseña-formulario {
-  flex: 1 1 35%;
-}
-
-.reseña-formulario form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.reseña-formulario input,
-.reseña-formulario textarea {
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  font-size: 0.95rem;
+.review-form .form-control {
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
   width: 100%;
 }
 
-.reseña-formulario textarea {
-  resize: none;
-}
-
-.reseña-formulario button {
-  background-color: #ffbd39;
+.review-form .btn-submit {
+  background-color: #f8a300;
   color: white;
   border: none;
-  padding: 12px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  width: 100%;
   cursor: pointer;
-  transition: background 0.3s ease;
 }
 
-.reseña-formulario button:hover {
-  background-color: #ffb722;
+.review-form .btn-submit:hover {
+  background-color: #e38d00;
+}
+
+/*welcome*/
+.hero-section {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 760px;
+}
+
+.hero-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-text {
+  color: white;
+}
+
+.breadcrumb-trail {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.breadcrumb-trail a {
+  color: white;
+  text-decoration: none;
+}
+
+.breadcrumb-trail span {
+  color: #ddd;
+}
+
+.hero-title {
+  font-family: "Latin Modern Roman", serif;
+  font-size: 60px;
+  font-weight: bold;
+  color: #00c9a7; /* Ajusta este color según el color que más te guste */
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: #00c9a7;
+  font-family: "Latin Modern Roman", serif;
 }
