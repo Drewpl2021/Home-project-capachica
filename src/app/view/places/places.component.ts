@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-places',
-  imports: [],
+  imports: [
+    RouterLink
+  ],
   templateUrl: './places.component.html',
   styleUrl: './places.component.css'
 })
