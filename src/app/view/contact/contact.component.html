@@ -14,19 +14,20 @@
   <div class="container" data-aos="zoom-in-up" data-aos-duration="1000">
     <div class="row d-flex mb-5 contact-info">
       <div class="col-md-12 mb-4">
-        <h2 class="h4">Nuestra Informacion</h2>
+        <h2 class="h4">Nuestra Información</h2>
       </div>
       <div class="w-100"></div>
       <div class="col-md-3">
-        <p><span>Direccion:</span> Plaza de Armas S/N-Capachica</p>
+        <p><span>Dirección:</span> Plaza de Armas S/N - Capachica</p>
       </div>
       <div class="col-md-3">
-        <p><span>Tel:</span> <a href="tel://1234567920">+51950923204</a></p>
+        <p><span>Tel:</span> <a href="tel://950923204">+51 950 923 204</a></p>
       </div>
       <div class="col-md-3">
-        <p><span>Email:</span> <a href="mailto:info@yoursite.com">municapachica2023&#64;gmail.com</a></p>
+        <p><span>Email:</span> <a href="mailto:municapachica2023@gmail.com">municapachica2023&#64;gmail.com</a></p>
       </div>
     </div>
+
     <div class="row block-9">
       <div class="col-md-6 order-md-last pr-md-5">
         <form action="#">
@@ -34,25 +35,33 @@
             <input type="text" class="form-control" placeholder="Tu Nombre">
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Tu Email">
+            <input type="email" class="form-control" placeholder="Tu Email">
           </div>
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Asunto">
           </div>
           <div class="form-group">
-            <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Mensaje"></textarea>
+            <textarea cols="30" rows="7" class="form-control" placeholder="Mensaje"></textarea>
           </div>
           <div class="form-group">
-            <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
+            <input type="submit" value="Enviar Mensaje" class="btn btn-primary py-3 px-5">
           </div>
         </form>
       </div>
+
       <div class="col-md-6">
-        <div id="map"></div>
+        <google-map
+          height="400px"
+          width="100%"
+          [center]="center"
+          [zoom]="zoom"
+          [options]="options">
+        </google-map>
       </div>
     </div>
   </div>
 </section>
+
 
 <section class="review-section" id="section-counter" style="background-image: url(assets/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
   <div class="container">
