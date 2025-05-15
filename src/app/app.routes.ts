@@ -13,28 +13,12 @@ import {SialeParamisComponent} from './comunidades/siale-paramis/siale-paramis.c
 import {EscallaniComponent} from './comunidades/escallani/escallani.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-
-  { path: 'home', component: HomeComponent },
-
+  { path: '', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'about/:id', component: AboutComponent },
-
   { path: 'places', component: PlacesComponent },
-  { path: 'places/:id', component: PlacesComponent },
-
   { path: 'hotel', component: HotelComponent },
-  { path: 'hotel/:id', component: HotelComponent },
-
   { path: 'blog', component: BlogComponent },
-  { path: 'blog/:id', component: BlogComponent },
-
   { path: 'contact', component: ContactComponent },
-  { path: 'contact/:id', component: ContactComponent },
-
-  { path: '**', redirectTo: 'home' }
-
-
   { path: 'llachon', component: LlachonComponent },
   { path: 'chifron', component: ChifronComponent },
   { path: 'ccotos', component: CcotosComponent },

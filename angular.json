@@ -58,7 +58,6 @@
               "node_modules/owl.carousel/dist/owl.carousel.min.js",
               "node_modules/magnific-popup/dist/jquery.magnific-popup.min.js",
               "node_modules/aos/dist/aos.js",
-              "src/assets/js/aos.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/bootstrap-datepicker.js",
               "src/assets/js/google-map.js",
@@ -80,17 +79,17 @@
           "configurations": {
             "production": {
               "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2MB",
-                  "maximumError": "5MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "6kB",
-                  "maximumError": "10kB"
-                }
-              ],
+              {
+                "type": "initial",
+                "maximumWarning": "2MB", 
+                "maximumError": "3MB"  
+              },
+              {
+                "type": "anyComponentStyle",
+                "maximumWarning": "6kB", 
+                "maximumError": "10kB"
+              }
+            ],
               "outputHashing": "all"
             },
             "development": {

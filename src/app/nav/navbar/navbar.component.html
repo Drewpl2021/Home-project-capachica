@@ -1,20 +1,3 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="index.html">{{ distrito }} Tours</a>
-    <div class="collapse navbar-collapse" id="ftco-nav">
-      <ul class="navbar-nav ml-auto">
-        <!-- Utilizamos ngFor para recorrer los enlaces y mostrar el nombre dinámicamente -->
-        <li class="nav-item" *ngFor="let link of navbarLinks">
-          <a href="javascript:void(0)"
-             [id]="link.id"
-             (click)="navigateTo(link.route, link.id)">
-            {{ link.name }}
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar" [class.scrolled]="isScrolled">
   <div class="container">
     <a class="navbar-brand" href="index.html">Capachica Tours</a>
@@ -26,8 +9,11 @@
         <li class="nav-item" *ngFor="let item of navItems" [ngClass]="{ 'active': isActive(item.path) }">
           <a href="javascript:void(0)" (click)="navigateTo(item.path)" class="nav-link">{{ item.label }}</a>
         </li>
+        <button class="carrito-btn" (click)="toggleSidebar()">
+          🛒({{ carritoService.items().length }})
+        </button>
+        <app-carrito-sidebar></app-carrito-sidebar>
       </ul>
     </div>
   </div>
 </nav>
-
