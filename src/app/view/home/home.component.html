@@ -89,6 +89,9 @@
 </section>
 
 
+
+
+
 <section class="ftco-section">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
@@ -99,10 +102,20 @@
   </div>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm col-md-6 col-lg">
+      <div
+        *ngFor="let item of asociaciones; let i = index"
+        class="col-sm col-md-6 col-lg"
+        [ngClass]="{'d-md-flex flex-column-reverse': i % 2 !== 0}"
+      >
         <div class="destination">
-          <a [routerLink]="['/llachon']"  fragment="section-counter" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/llanchon.png);" data-aos="flip-left" data-aos-duration="1500">
+          <a
+            [routerLink]="[item.url]"
+            fragment="section-counter"
+            class="img img-2 d-flex justify-content-center align-items-center"
+            [style.background-image]="'url(' + (item.imagenes && item.imagenes.length > 0 ? item.imagenes[imageIndexes[i]].url_image : 'assets/images/default.png') + ')'"
+            data-aos="flip-left"
+            data-aos-duration="1500"
+          >
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -110,83 +123,16 @@
           <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
             <div class="d-flex">
               <div class="one">
-                <h3><a>Llachon</a></h3>
+                <h3><a>{{ item.nombre }}</a></h3>
               </div>
             </div>
-            <p>Conocido por su impresionante belleza natural y sus tradiciones culturales únicas</p>
+            <p>{{ item.descripcion }}</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica-Puno</span>
-              <span class="ml-auto"><a [routerLink]="['/llachon']" fragment="section-counter" >Descubre</a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm col-md-6 col-lg">
-        <div class="destination d-md-flex flex-column-reverse">
-          <a [routerLink]="['/chifron']" fragment="section-counter" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/Chifron.png);" data-aos="flip-left" data-aos-duration="1500">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <div class="d-flex">
-              <div class="one">
-                <h3><a>Chifrón </a></h3>
-              </div>
-            </div>
-            <p>Chifrón cuenta con una extensa playa de arena que permite disfrutar de las aguas cristalinas del lago Titicaca</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica-Puno</span>
-              <span class="ml-auto"><a [routerLink]="['/chifron']" fragment="section-counter" >Descubre</a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm col-md-6 col-lg">
-        <div class="destination">
-          <a [routerLink]="['/ccotos']" fragment="section-counter" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/ccotos.png);" data-aos="flip-left" data-aos-duration="1500">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <div class="d-flex">
-              <div class="one">
-                <h3><a>Ccotos</a></h3>
-              </div>
-            </div>
-            <p>Ofrece una experiencia auténtica y vivencial, permitiendo a los visitantes conocer la cultura y la vida cotidiana de la comunidad</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica-Puno</span>
-              <span class="ml-auto"><a [routerLink]="['/ccotos']" fragment="section-counter" >Descubre</a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm col-md-6 col-lg">
-        <div class="destination d-md-flex flex-column-reverse">
-          <a [routerLink]="['/isla-tikonata']" fragment="section-counter" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/isla.png);" data-aos="flip-left" data-aos-duration="1500">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <div class="d-flex">
-              <div class="one">
-                <h3><a>Isla Tikonata</a></h3>
-              </div>
-            </div>
-            <p>Se caracteriza por sus casas construidas en forma circular, similar a los Putucos preincas </p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica-Puno</span>
-              <span class="ml-auto"><a [routerLink]="['/isla-tikonata']" fragment="section-counter" >Descubre</a></span>
+              <span><i class="icon-map-o"></i> {{ item.lugar || 'Capachica-Puno' }}</span>
+              <span class="ml-auto">
+                <a [routerLink]="[item.url]" fragment="section-counter">Descubre</a>
+              </span>
             </p>
           </div>
         </div>
@@ -194,6 +140,10 @@
     </div>
   </div>
 </section>
+
+
+
+
 
 <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(assets/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
   <div class="container">
