@@ -1,19 +1,32 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar" [class.scrolled]="isScrolled">
+<nav class="navbar" [class.scrolled]="isScrolled">
   <div class="container">
-    <a class="navbar-brand" href="index.html">Capachica Tours</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="oi oi-menu"></span> Menu
+    <a class="navbar-brand" href="index.html">{{ distrito }} Tours</a>
+
+    <ul class="nav-list">
+      <li *ngFor="let item of navItems" class="nav-item" [ngClass]="{ 'active': isActive(item.path) }"
+          (mouseleave)="closeDropdown()" >
+
+        <a href="javascript:void(0)" (click)="
+          item.children ? toggleDropdown(navItems.indexOf(item)) : navigateTo(item.path)
+        " class="nav-link">
+          {{ item.label }}
+          <span *ngIf="item.children" class="arrow">&#9662;</span>
+        </a>
+
+        <!-- Submenu -->
+        <ul *ngIf="item.children && dropdownOpenIndex === navItems.indexOf(item)" class="dropdown">
+          <li *ngFor="let child of item.children" class="dropdown-item"
+              [ngClass]="{ 'active': isActive(child.path) }">
+            <a href="javascript:void(0)" (click)="navigateTo(child.path)">{{ child.label }}</a>
+          </li>
+        </ul>
+
+      </li>
+    </ul>
+
+    <button class="carrito-btn" (click)="toggleSidebar()">
+      🛒({{ carritoService.items().length }})
     </button>
-    <div class="collapse navbar-collapse" id="ftco-nav">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item" *ngFor="let item of navItems" [ngClass]="{ 'active': isActive(item.path) }">
-          <a href="javascript:void(0)" (click)="navigateTo(item.path)" class="nav-link">{{ item.label }}</a>
-        </li>
-        <button class="carrito-btn" (click)="toggleSidebar()">
-          🛒({{ carritoService.items().length }})
-        </button>
-        <app-carrito-sidebar></app-carrito-sidebar>
-      </ul>
-    </div>
+    <app-carrito-sidebar></app-carrito-sidebar>
   </div>
 </nav>
