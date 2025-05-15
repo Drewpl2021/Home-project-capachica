@@ -1,207 +1,43 @@
-<div class="hero-wrap js-fullheight" style="background-image: url('assets/images/image04.jpg'); width: 100%; height: 700px;">
+<div
+  class="hero-wrap js-fullheight"
+  [ngStyle]="{ 'background-image': 'url(' + currentImage + ')' }"
+  style="width: 100%; height: 760px;"
+>
   <div class="overlay"></div>
   <div class="container" data-aos="fade-down" data-aos-duration="1000">
     <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start">
-      <div class="col-md-9  text-center text-sm-left">
-        <h1 class="mb-4">Discover <br>A new Place</h1>
-        <p>Find great places to stay, eat, shop, or visit from local experts</p>
+      <div class="col-md-9 text-center text-sm-left">
+        <h1 class="mb-4">Descubre la Península de Capachica</h1>
+        <p>Sumérgete en la cultura y belleza natural de este rincón de Puno</p>
       </div>
     </div>
   </div>
 </div>
 
-<section class="ftco-section justify-content-end ftco-search">
-  <div class="container-wrap ml-auto" data-aos="fade-right" data-aos-duration="1000">
-    <div class="row no-gutters">
-      <div class="col-md-12 nav-link-wrap" >
-        <div class="nav nav-pills justify-content-center text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-          <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Transport</a>
-          <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Hotel</a>
-        </div>
-      </div>
-      <div class="col-md-12 tab-wrap">
-        <div class="tab-content p-4 px-5" id="v-pills-tabContent">
-          <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
-            <form action="#" class="search-destination">
-              <div class="row">
-                <div class="col-md align-items-end">
-                  <div class="form-group">
-                    <label for="#">From</label>
-                    <div class="form-field">
-                      <div class="icon" ><span class="icon-my_location"></span></div>
-                      <input type="text" class="form-control" placeholder="From">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md align-items-end">
-                  <div class="form-group">
-                    <label for="#">Where</label>
-                    <div class="form-field">
-                      <div class="icon"><span class="icon-map-marker"></span></div>
-                      <input type="text" class="form-control" placeholder="Where">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md align-items-end">
-                  <div class="form-group">
-                    <label for="#">Check In</label>
-                    <div class="form-field">
-                      <div class="icon"><span class="icon-map-marker"></span></div>
-                      <input type="text" class="form-control checkin_date" placeholder="Check In">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md align-items-end">
-                  <div class="form-group">
-                    <label for="#">Check Out</label>
-                    <div class="form-field">
-                      <div class="icon"><span class="icon-map-marker"></span></div>
-                      <input type="text" class="form-control checkout_date" placeholder="From">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md align-items-end">
-                  <div class="form-group">
-                    <label for="#">Travelers</label>
-                    <div class="form-field">
-                      <div class="select-wrap">
-                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <select name="" id="" class="form-control">
-                          <option value="">1</option>
-                          <option value="">2</option>
-                          <option value="">3</option>
-                          <option value="">4</option>
-                          <option value="">5</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md align-self-end">
-                  <div class="form-group">
-                    <div class="form-field">
-                      <input type="submit" value="Search" class="form-control btn btn-primary">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
 
-          <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
-            <form action="#" class="search-destination">
-              <div class="row">
-                <div class="col-md align-items-end">
-                  <div class="form-group">
-                    <label for="#">Check In</label>
-                    <div class="form-field">
-                      <div class="icon"><span class="icon-map-marker"></span></div>
-                      <input type="text" class="form-control checkin_date" placeholder="Check In">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md align-items-end">
-                  <div class="form-group">
-                    <label for="#">Check Out</label>
-                    <div class="form-field">
-                      <div class="icon"><span class="icon-map-marker"></span></div>
-                      <input type="text" class="form-control checkout_date" placeholder="From">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md align-items-end">
-                  <div class="form-group">
-                    <label for="#">Guest</label>
-                    <div class="form-field">
-                      <div class="select-wrap">
-                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                        <select name="" id="" class="form-control">
-                          <option value="">1</option>
-                          <option value="">2</option>
-                          <option value="">3</option>
-                          <option value="">4</option>
-                          <option value="">5</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md align-self-end">
-                  <div class="form-group">
-                    <div class="form-field">
-                      <input type="submit" value="Search" class="form-control btn btn-primary">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-
-          <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-effect-tab">
-            <form action="#" class="search-destination">
-              <div class="row">
-                <div class="col-md align-items-end">
-                  <div class="form-group">
-                    <label for="#">Where</label>
-                    <div class="form-field">
-                      <div class="icon"><span class="icon-map-marker"></span></div>
-                      <input type="text" class="form-control" placeholder="Where">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md align-items-end">
-                  <div class="form-group">
-                    <label for="#">Check In</label>
-                    <div class="form-field">
-                      <div class="icon"><span class="icon-map-marker"></span></div>
-                      <input type="text" class="form-control checkin_date" placeholder="Check In">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md align-items-end">
-                  <div class="form-group">
-                    <label for="#">Check Out</label>
-                    <div class="form-field">
-                      <div class="icon"><span class="icon-map-marker"></span></div>
-                      <input type="text" class="form-control checkout_date" placeholder="From">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md align-self-end">
-                  <div class="form-group">
-                    <div class="form-field">
-                      <input type="submit" value="Search" class="form-control btn btn-primary">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="ftco-section bg-light">
   <div class="container">
     <div class="row">
+      <div class="section-title-wrapper text-center mb-5" data-aos="zoom-in">
+        <span class="section-decorated-title">Descubre <span class="divider">-</span> Vive <span class="divider">-</span> Conecta</span>
+      </div>
       <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1000">
         <div class="intro">
-          <h3><span>01</span> Discover Capachica</h3>
-          <p>A unique corner on the shores of the majestic Lake Titicaca, where nature and ancient culture intertwine. Let yourself be captivated by its breathtaking landscapes and welcoming people.</p>
+          <h3><span>01</span> Descubre en Capachica</h3>
+          <p>Un rincón único a orillas del majestuoso Lago Titicaca, donde la naturaleza y la cultura ancestral se entrelazan. Déjate cautivar por sus impresionantes paisajes y su gente acogedora. </p>
         </div>
       </div>
       <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1000">
         <div class="intro">
-          <h3><span>02</span> Live the Experience</h3>
-          <p>Immerse yourself in the authenticity of its Quechua communities, enjoy the local cuisine, and explore its floating and natural islands. A destination full of history and tradition.</p>
+          <h3><span>02</span> Vive la Experiencia</h3>
+          <p>Sumérgete en la autenticidad de sus comunidades quechuas, disfruta de la gastronomía local y explora sus islas flotantes y naturales. Un destino lleno de historia y tradición. </p>
         </div>
       </div>
       <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1000">
         <div class="intro">
-          <h3><span>03</span> Relax and Connect</h3>
-          <p>In Capachica, the tranquility of the lake and the pure Andean air invite you to disconnect from daily stress. An ideal place to recharge and create unforgettable moments.</p>
+          <h3><span>03</span> Conecta con la Naturaleza </h3>
+          <p>En Capachica, la tranquilidad del lago y el aire puro andino te invitan a desconectarte del estrés diario. Un lugar ideal para recargar energías y crear momentos inolvidables.</p>
         </div>
       </div>
     </div>
@@ -212,28 +48,28 @@
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3" data-aos="flip-left" data-aos-duration="1000">
       <div class="col-md-7 heading-section text-center">
-        <h2 class="mb-4">See our latest vacation ideas</h2>
+        <h2 class="mb-4">Vea nuestras últimas ideas de vacaciones</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-md-4" data-aos="flip-left" data-aos-duration="1500">
         <a href="#" class="destination-entry img" style="background-image: url(assets/images/image05.jpg);">
           <div class="text text-center">
-            <h3>Beachfront Scape</h3>
-          </div>
-        </a>
-      </div>
-      <div class="col-md-4" data-aos="flip-left" data-aos-duration="1500">
-        <a href="#" class="destination-entry img" style="background-image: url(assets/images/image06.jpg);">
-          <div class="text text-center">
-            <h3>Group Holidays</h3>
+            <h3>Paisaje frente a la playa</h3>
           </div>
         </a>
       </div>
       <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1500">
+        <a href="#" class="destination-entry img" style="background-image: url(assets/images/image06.jpg);">
+          <div class="text text-center">
+            <h3>Vacaciones en grupo</h3>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4" data-aos="flip-right" data-aos-duration="1500">
         <a href="#" class="destination-entry img" style="background-image: url(assets/images/image07.jpeg);">
           <div class="text text-center">
-            <h3>City Breaks</h3>
+            <h3>Artesania</h3>
           </div>
         </a>
       </div>
@@ -245,62 +81,20 @@
   <div class="one-half img" style="background-image: url(assets/images/image08.jpg);"></div>
   <div class="one-half">
     <div class="heading-section" data-aos="fade-right" data-aos-duration="1000">
-      <h2 class="mb-4">The Best Travel Agency</h2>
+      <h2 class="mb-4">Ofrecemos:</h2>
     </div>
     <div data-aos="fade-left" data-aos-duration="1000">
-      <p>The Municipal District of Capachica offers the best travel agency to discover the magic of Lake Titicaca with unique and authentic experiences. Through exclusive tours, you can explore the floating and natural islands, such as Amantaní and Tikonata, with local guides who will immerse you in the region’s culture and ancestral traditions. Enjoy experiential tourism, sharing the hospitality of Quechua communities, their gastronomy, and way of life. Our routes will take you to breathtaking landscapes, scenic hikes, and boat rides at sunrise, allowing you to connect with nature at its finest. Experience an unforgettable adventure with the best travel agency in Capachica and let the charm of Titicaca turn your journey into a once-in-a-lifetime experience.</p>
+      <p>El Distrito Municipal de Capachica ofrece la mejor agencia de viajes para descubrir la magia del Lago Titicaca con experiencias únicas y auténticas. A través de tours exclusivos, podrá explorar las islas flotantes y naturales, como Amantaní y Tikonata, con guías locales que lo sumergirán en la cultura y las tradiciones ancestrales de la región. Disfrute del turismo vivencial, compartiendo la hospitalidad de las comunidades quechuas, su gastronomía y su estilo de vida. Nuestras rutas lo llevarán a paisajes impresionantes, caminatas escénicas y paseos en bote al amanecer, permitiéndole conectar con la naturaleza en su máxima expresión. Viva una aventura inolvidable con la mejor agencia de viajes de Capachica y deje que el encanto del Titicaca convierta su viaje en una experiencia única.</p>
     </div>
   </div>
 </section>
 
-<section class="ftco-section services-section bg-light">
-  <div class="container">
-    <div class="row d-flex">
-      <div class="col-md-3 d-flex align-self-stretch">
-        <div class="media block-6 services d-block">
-          <div class="icon" data-aos="zoom-in" data-aos-duration="1500"><span class="flaticon-yatch"></span></div>
-          <div class="media-body">
-            <h3 class="heading mb-3" data-aos="fade-right" data-aos-duration="1000">Special Activities</h3>
-            <p data-aos="fade-left" data-aos-duration="1000">A small river named Duden flows by their place and supplies.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 d-flex align-self-stretch">
-        <div class="media block-6 services d-block">
-          <div class="icon" data-aos="zoom-in" data-aos-duration="1500"><span class="flaticon-around"></span></div>
-          <div class="media-body">
-            <h3 class="heading mb-3" data-aos="fade-right" data-aos-duration="1000">Travel Arrangements</h3>
-            <p data-aos="fade-left" data-aos-duration="1000">A small river named Duden flows by their place and supplies.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 d-flex align-self-stretch">
-        <div class="media block-6 services d-block">
-          <div class="icon" data-aos="zoom-in" data-aos-duration="1500"><span class="flaticon-compass"></span></div>
-          <div class="media-body">
-            <h3 class="heading mb-3" data-aos="fade-right" data-aos-duration="1000">Private Guide</h3>
-            <p data-aos="fade-left" data-aos-duration="1000">A small river named Duden flows by their place and supplies.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 d-flex align-self-stretch">
-        <div class="media block-6 services d-block">
-          <div class="icon" data-aos="zoom-in" data-aos-duration="1500"><span class="flaticon-map-of-roads"></span></div>
-          <div class="media-body">
-            <h3 class="heading mb-3" data-aos="fade-right" data-aos-duration="1000">Location Manager</h3>
-            <p data-aos="fade-left" data-aos-duration="1000">A small river named Duden flows by their place and supplies.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="ftco-section">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
       <div class="col-md-7 heading-section text-center" data-aos="fade-right" data-aos-duration="1000">
-        <h2 class="mb-4">Most Popular Destination</h2>
+        <h2 class="mb-4">Destinos más populares</h2>
       </div>
     </div>
   </div>
@@ -308,8 +102,8 @@
     <div class="row">
       <div class="col-sm col-md-6 col-lg">
         <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/destination-1.jpg);" data-aos="flip-left" data-aos-duration="1500">
+          <a [routerLink]="['/llachon']" class="img img-2 d-flex justify-content-center align-items-center"
+             style="background-image: url(assets/images/llanchon.png);" data-aos="flip-left" data-aos-duration="1500">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -317,34 +111,22 @@
           <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">Paris, Italy</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
-              </div>
-              <div class="two">
-                <span class="price">$200</span>
+                <h3><a>Llachon</a></h3>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
-            <p class="days"><span>2 days 3 nights</span></p>
+            <p>Conocido por su impresionante belleza natural y sus tradiciones culturales únicas</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Discover</a></span>
+              <span><i class="icon-map-o"></i> Capachica-Puno</span>
+              <span class="ml-auto"><a [routerLink]="['/llachon']">Descubre</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-sm col-md-6 col-lg">
         <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/destination-2.jpg);" data-aos="flip-left" data-aos-duration="1500">
+          <a [routerLink]="['/chifron']" class="img img-2 d-flex justify-content-center align-items-center"
+             style="background-image: url(assets/images/Chifron.png);" data-aos="flip-left" data-aos-duration="1500">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -352,34 +134,22 @@
           <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">Paris, Italy</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
-              </div>
-              <div class="two">
-                <span class="price">$200</span>
+                <h3><a>Chifrón </a></h3>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
-            <p class="days"><span>2 days 3 nights</span></p>
+            <p>Chifrón cuenta con una extensa playa de arena que permite disfrutar de las aguas cristalinas del lago Titicaca</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Discover</a></span>
+              <span><i class="icon-map-o"></i> Capachica-Puno</span>
+              <span class="ml-auto"><a [routerLink]="['/chifron']">Descubre</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-sm col-md-6 col-lg">
         <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/destination-3.jpg);" data-aos="flip-left" data-aos-duration="1500">
+          <a [routerLink]="['/ccotos']" class="img img-2 d-flex justify-content-center align-items-center"
+             style="background-image: url(assets/images/ccotos.png);" data-aos="flip-left" data-aos-duration="1500">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -387,34 +157,22 @@
           <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">Paris, Italy</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
-              </div>
-              <div class="two">
-                <span class="price">$200</span>
+                <h3><a>Ccotos</a></h3>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
-            <p class="days"><span>2 days 3 nights</span></p>
+            <p>Ofrece una experiencia auténtica y vivencial, permitiendo a los visitantes conocer la cultura y la vida cotidiana de la comunidad</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Discover</a></span>
+              <span><i class="icon-map-o"></i> Capachica-Puno</span>
+              <span class="ml-auto"><a [routerLink]="['/ccotos']">Descubre</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-sm col-md-6 col-lg">
         <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/destination-4.jpg);" data-aos="flip-left" data-aos-duration="1500">
+          <a [routerLink]="['/isla-tikonata']" class="img img-2 d-flex justify-content-center align-items-center"
+             style="background-image: url(assets/images/isla.png);" data-aos="flip-left" data-aos-duration="1500">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -422,26 +180,14 @@
           <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">Paris, Italy</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
-              </div>
-              <div class="two">
-                <span class="price">$200</span>
+                <h3><a>Isla Tikonata</a></h3>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
-            <p class="days"><span>2 days 3 nights</span></p>
+            <p>Se caracteriza por sus casas construidas en forma circular, similar a los Putucos preincas </p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Discover</a></span>
+              <span><i class="icon-map-o"></i> Capachica-Puno</span>
+              <span class="ml-auto"><a [routerLink]="['/isla-tikonata']">Descubre</a></span>
             </p>
           </div>
         </div>
@@ -452,44 +198,6 @@
 
 <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(assets/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-10">
-        <div class="row">
-          <div class="col-md-3 d-flex justify-content-center counter-wrap">
-            <div class="block-18 text-center">
-              <div class="text">
-                <strong class="number" data-number="100000">0</strong>
-                <span>Happy Customers</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 d-flex justify-content-center counter-wrap">
-            <div class="block-18 text-center">
-              <div class="text">
-                <strong class="number" data-number="40000">0</strong>
-                <span>Destination Places</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 d-flex justify-content-center counter-wrap">
-            <div class="block-18 text-center">
-              <div class="text">
-                <strong class="number" data-number="87000">0</strong>
-                <span>Hotels</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 d-flex justify-content-center counter-wrap">
-            <div class="block-18 text-center">
-              <div class="text">
-                <strong class="number" data-number="56400">0</strong>
-                <span>Restaurant</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -497,7 +205,7 @@
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
       <div class="col-md-7 heading-section text-center" data-aos="fade-right" data-aos-duration="1000">
-        <h2 class="mb-4"><strong>Popular</strong> Hotels</h2>
+        <h2 class="mb-4">Hospedajes Populares</h2>
       </div>
     </div>
   </div>
@@ -505,8 +213,8 @@
     <div class="row">
       <div class="col-sm col-md-6 col-lg" >
         <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/hotel-1.jpg);" data-aos="flip-left" data-aos-duration="1500">
+          <a [routerLink]="['/llachon']" class="img img-2 d-flex justify-content-center align-items-center"
+             style="background-image: url(assets/images/hotel-7.png);" data-aos="flip-left" data-aos-duration="1500">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -514,33 +222,25 @@
           <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">New Orleans, Hotel</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
+                <h3><a>Llachon</a></h3>
               </div>
               <div class="two">
-                <span class="price per-price">$40<br><small>/night</small></span>
+                <span class="price per-price">S/.20<br><small>/noche</small></span>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <p>Los visitantes se hospedarán en habitaciones tradicionales de adobe, decoradas de manera autentica. </p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Miami, Fl</span>
-              <span class="ml-auto"><a href="#">Book Now</a></span>
+              <span><i class="icon-map-o"></i> Capachica-Puno</span>
+              <span class="ml-auto"><a [routerLink]="['/llachon']">Descubre</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-sm col-md-6 col-lg">
         <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/hotel-2.jpg);" data-aos="flip-left" data-aos-duration="1500">
+          <a [routerLink]="['/ccotos']" class="img img-2 d-flex justify-content-center align-items-center"
+             style="background-image: url(assets/images/hotel-9.png);" data-aos="flip-left" data-aos-duration="1500">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -548,33 +248,25 @@
           <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">New Orleans, Hotel</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
+                <h3><a>Ccotos</a></h3>
               </div>
               <div class="two">
-                <span class="price per-price">$40<br><small>/night</small></span>
+                <span class="price per-price">S/.15<br><small>/noche</small></span>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <p>Las cabañas se encuentran ubicadas al lado de las de las familias, a poca distancia del lago Titicaca.</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Miami, Fl</span>
-              <span class="ml-auto"><a href="#">Book Now</a></span>
+              <span><i class="icon-map-o"></i> Capachica-Puno</span>
+              <span class="ml-auto"><a [routerLink]="['/ccotos']">Descubre</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-sm col-md-6 col-lg">
         <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/hotel-3.jpg);" data-aos="flip-left" data-aos-duration="1500">
+          <a [routerLink]="['/isla-tikonata']" class="img img-2 d-flex justify-content-center align-items-center"
+             style="background-image: url(assets/images/hotel-10.png);" data-aos="flip-left" data-aos-duration="1500">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -582,33 +274,25 @@
           <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">New Orleans, Hotel</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
+                <h3><a >Isla Tikonata</a></h3>
               </div>
               <div class="two">
-                <span class="price per-price">$40<br><small>/night</small></span>
+                <span class="price per-price">S/.18<br><small>/noche</small></span>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <p>Los visitantes se hospedarán en hermosas habitaciones tradicionales circulares, de adobe y decoradas de manera autentica.</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Miami, Fl</span>
-              <span class="ml-auto"><a href="#">Book Now</a></span>
+              <span><i class="icon-map-o"></i> Capachica-Puno</span>
+              <span class="ml-auto"><a [routerLink]="['/isla-tikonata']">Descubre</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-sm col-md-6 col-lg">
         <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/hotel-4.jpg);" data-aos="flip-left" data-aos-duration="1500">
+          <a [routerLink]="['/siale-paramis']" class="img img-2 d-flex justify-content-center align-items-center"
+             style="background-image: url(assets/images/hotel-11.png);" data-aos="flip-left" data-aos-duration="1500">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -616,33 +300,25 @@
           <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">New Orleans, Hotel</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
+                <h3><a >Siale – Paramis</a></h3>
               </div>
               <div class="two">
-                <span class="price per-price">$40<br><small>/night</small></span>
+                <span class="price per-price">S/.15<br><small>/noche</small></span>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <p>Los visitantes se hospedarán en habitaciones tradicionales de adobe, decoradas de manera autentica.</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Miami, Fl</span>
-              <span class="ml-auto"><a href="#">Book Now</a></span>
+              <span><i class="icon-map-o"></i> Capachica-Puno</span>
+              <span class="ml-auto"><a [routerLink]="['/siale-paramis']">Descubre</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-sm col-md-6 col-lg">
         <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/hotel-5.jpg);" data-aos="flip-left" data-aos-duration="1500">
+          <a [routerLink]="['/escallani']" class="img img-2 d-flex justify-content-center align-items-center"
+             style="background-image: url(assets/images/hotel-12.png);" data-aos="flip-left" data-aos-duration="1500">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
@@ -650,25 +326,17 @@
           <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">New Orleans, Hotel</a></h3>
-                <p class="rate">
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star"></i>
-                  <i class="icon-star-o"></i>
-                  <span>8 Rating</span>
-                </p>
+                <h3><a >Escallani</a></h3>
               </div>
               <div class="two">
-                <span class="price per-price">$40<br><small>/night</small></span>
+                <span class="price per-price">S/.20<br><small>/noche</small></span>
               </div>
             </div>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <p>Los visitantes se hospedarán en hermosas habitaciones tradicionales de adobe, decoradas de manera autentica.</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Miami, Fl</span>
-              <span class="ml-auto"><a href="#">Book Now</a></span>
+              <span><i class="icon-map-o"></i> Capachica-Puno</span>
+              <span class="ml-auto"><a [routerLink]="['/escallani']">Descubre</a></span>
             </p>
           </div>
         </div>
@@ -677,61 +345,94 @@
   </div>
 </section>
 
-<section class="ftco-section testimony-section">
-  <div class="container">
-    <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 text-center heading-section heading-section-white">
-        <h2 class="mb-4">Our satisfied customer says</h2>
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="carousel-testimony owl-carousel">
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div class="user-img mb-5" style="background-image: url(assets/images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-              </div>
-              <div class="text">
-                <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <p class="name">Mark Web</p>
-                <span class="position">Marketing Manager</span>
-              </div>
-            </div>
+<section class="testimonials-section">
+  <div class="container text-center">
+    <p class="sub-title">Testimonial</p>
+    <h2 class="title">Comentarios de los turistas</h2>
+    <div class="testimonials-carousel-wrapper">
+      <button class="carousel-btn left" (click)="scrollLeft()">&lt;</button>
+      <div class="testimonials-carousel" id="carousel">
+        <div class="testimonial-card" data-aos="flip-left" data-aos-duration="1500">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
           </div>
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div class="user-img mb-5" style="background-image: url(assets/images/person_2.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-              </div>
-              <div class="text">
-                <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <p class="name">Mark Web</p>
-                <span class="position">Interface Designer</span>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div class="user-img mb-5" style="background-image: url(assets/images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-              </div>
-              <div class="text">
-                <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <p class="name">Mark Web</p>
-                <span class="position">UI Designer</span>
-              </div>
+          <p class="message">Desde el primer contacto, la agencia nos ayudó a planificar una visita perfecta a Capachica. ¡Un servicio excepcional!</p>
+          <div class="user-info">
+            <img src="assets/images/person_1.jpg" alt="Sapito" />
+            <div>
+              <p class="name">Sapito</p>
+              <p class="role">Visitante</p>
             </div>
           </div>
         </div>
+
+        <div class="testimonial-card" data-aos="flip-left" data-aos-duration="1500">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">Llachón fue simplemente mágico. La vista del lago al amanecer y la amabilidad de los lugareños lo hicieron...</p>
+          <div class="user-info">
+            <img src="assets/images/person_2.jpg" alt="Alessandro Pastor" />
+            <div>
+              <p class="name">Alessandro Pastor</p>
+              <p class="role">Viajero de Estados Unidos</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-aos="flip-left" data-aos-duration="1500">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">La playa de Chifrón es una joya escondida. Aguas cristalinas y un ambiente tranquilo; no podría pedir más.</p>
+          <div class="user-info">
+            <img src="assets/images/person_3.jpg" alt="Andrés Lino" />
+            <div>
+              <p class="name">Andrés Lino</p>
+              <p class="role">Fotógrafo de Argentina</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-aos="flip-left" data-aos-duration="1500">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">La playa de Chifrón es una joya escondida. Aguas cristalinas y un ambiente tranquilo; no podría pedir más.</p>
+          <div class="user-info">
+            <img src="assets/images/person_3.jpg" alt="Andrés Lino" />
+            <div>
+              <p class="name">Andrés Lino</p>
+              <p class="role">Fotógrafo de Argentina</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-aos="flip-left" data-aos-duration="1500">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">La playa de Chifrón es una joya escondida. Aguas cristalinas y un ambiente tranquilo; no podría pedir más.</p>
+          <div class="user-info">
+            <img src="assets/images/person_3.jpg" alt="Andrés Lino" />
+            <div>
+              <p class="name">Andrés Lino</p>
+              <p class="role">Fotógrafo de Argentina</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-aos="flip-left" data-aos-duration="1500">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">La playa de Chifrón es una joya escondida. Aguas cristalinas y un ambiente tranquilo; no podría pedir más.</p>
+          <div class="user-info">
+            <img src="assets/images/person_3.jpg" alt="Andrés Lino" />
+            <div>
+              <p class="name">Andrés Lino</p>
+              <p class="role">Fotógrafo de Argentina</p>
+            </div>
+          </div>
+        </div>
+        <!-- Puedes añadir más tarjetas aquí -->
       </div>
+
+      <button class="carousel-btn right" (click)="scrollRight()">&gt;</button>
     </div>
   </div>
 </section>
@@ -740,114 +441,82 @@
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
       <div class="col-md-7 heading-section text-center">
-        <h2 class="mb-4">Recommended Restaurants</h2>
+        <h2 class="mb-4">Mejores Lugares para Comer</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-md-6 col-lg-3">
         <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/restaurant-1.jpg);" data-aos="flip-left" data-aos-duration="1500">
+          <a [routerLink]="['/siale-paramis']" class="img img-2 d-flex justify-content-center align-items-center"
+             style="background-image: url(assets/images/restaurant1.png);" data-aos="flip-left" data-aos-duration="1500">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
           </a>
           <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <h3><a href="#">Luxury Restaurant</a></h3>
-            <p class="rate">
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star-o"></i>
-              <span>8 Rating</span>
-            </p>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <h3><a>Siale - Paramis</a></h3>
+            <p>La alimentación se basa en productos locales y ofrece la oportunidad de probar la "comida Novoandina"</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Discover</a></span>
+              <span><i class="icon-map-o"></i> Capachica-Puno</span>
+              <span class="ml-auto"><a [routerLink]="['/siale-paramis']">Reservar</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/restaurant-2.jpg);" data-aos="flip-left" data-aos-duration="1500">
+          <a [routerLink]="['/escallani']" class="img img-2 d-flex justify-content-center align-items-center"
+             style="background-image: url(assets/images/restaurant2.png);" data-aos="flip-left" data-aos-duration="1500">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
           </a>
           <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <h3><a href="#">Luxury Restaurant</a></h3>
-            <p class="rate">
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star-o"></i>
-              <span>8 Rating</span>
-            </p>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <h3><a >Escallani</a></h3>
+            <p>Los restaurantes rurales ofrecen platos típicos, como carachis, pejerrey y mauris</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Book Now</a></span>
+              <span><i class="icon-map-o"></i> Capachica-Puno</span>
+              <span class="ml-auto"><a [routerLink]="['/escallani']">Reservar</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/restaurant-3.jpg);" data-aos="flip-left" data-aos-duration="1500">
+          <a [routerLink]="['/isla-tikonata']" class="img img-2 d-flex justify-content-center align-items-center"
+             style="background-image: url(assets/images/restaurant3.png);" data-aos="flip-left" data-aos-duration="1500">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
           </a>
           <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <h3><a href="#">Luxury Restaurant</a></h3>
-            <p class="rate">
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star-o"></i>
-              <span>8 Rating</span>
-            </p>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <h3><a >Isla Tikonata</a></h3>
+            <p>Platos típicos de la zona en restaurantes rurales, con productos locales de las parcelas y pescados del lago Titicaca. </p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Discover</a></span>
+              <span><i class="icon-map-o"></i> Capachica-Puno</span>
+              <span class="ml-auto"><a [routerLink]="['/isla-tikonata']">Reservar</a></span>
             </p>
           </div>
         </div>
       </div>
       <div class="col-md-6 col-lg-3">
         <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/restaurant-4.jpg);" data-aos="flip-left" data-aos-duration="1500">
+          <a [routerLink]="['/chifron']" class="img img-2 d-flex justify-content-center align-items-center"
+             style="background-image: url(assets/images/restaurant4.png);" data-aos="flip-left" data-aos-duration="1500">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
           </a>
           <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <h3><a href="#">Luxury Restaurant</a></h3>
-            <p class="rate">
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star"></i>
-              <i class="icon-star-o"></i>
-              <span>8 Rating</span>
-            </p>
-            <p>Far far away, behind the word mountains, far from the countries</p>
+            <h3><a >Chifrón</a></h3>
+            <p>Platos típicos de la región, con énfasis en pescados del lago Titicaca, especialmente truchas</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> San Franciso, CA</span>
-              <span class="ml-auto"><a href="#">Book Now</a></span>
+              <span><i class="icon-map-o"></i> Capachica-Puno</span>
+              <span class="ml-auto"><a [routerLink]="['/chifron']">Reservar</a></span>
             </p>
           </div>
         </div>
@@ -857,84 +526,65 @@
 </section>
 
 
-<section class="ftco-section bg-light">
-  <div class="container">
-    <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 heading-section text-center">
-        <h2><strong>Tips</strong> &amp; Articles</h2>
-      </div>
+<section class="section-featured">
+  <!-- Fondo superior tipo cabecera -->
+  <div class="featured-background" >
+    <img src="assets/images/fondo.png" alt="Fondo turístico">
+  </div>
+
+  <!-- Contenido superpuesto -->
+  <div class="featured-content">
+    <!-- Imagen superpuesta con sombra -->
+    <div class="featured-image-card" data-aos="flip-left" data-aos-duration="1500">
+      <img src="assets/images/fondo1.png" alt="Vista Capachica">
     </div>
-    <div class="row d-flex">
-      <div class="col-md-4 d-flex">
-        <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20"
-             style="background-image: url('assets/images/image_1.jpg');" data-aos="flip-left" data-aos-duration="1500">
-          </a>
-          <div class="text" data-aos="zoom-in" data-aos-duration="1000">
-            <span class="tag">Tips, Travel</span>
-            <h3 class="heading mt-3"><a href="#">8 Best homestay in Philippines that you don't miss out</a></h3>
-            <div class="meta mb-3">
-              <div><a href="#">October 3, 2018</a></div>
-              <div><a href="#">Admin</a></div>
-              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 d-flex">
-        <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20"
-             style="background-image: url('assets/images/image_2.jpg');" data-aos="flip-left" data-aos-duration="1500">
-          </a>
-          <div class="text" data-aos="zoom-in" data-aos-duration="1000">
-            <span class="tag">Culture</span>
-            <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-            <div class="meta mb-3">
-              <div><a href="#">October 3, 2018</a></div>
-              <div><a href="#">Admin</a></div>
-              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 d-flex">
-        <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20"
-             style="background-image: url('assets/images/image_3.jpg');" data-aos="flip-left" data-aos-duration="1500">
-          </a>
-          <div class="text" data-aos="zoom-in" data-aos-duration="1000">
-            <span class="tag">Tips, Travel</span>
-            <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-            <div class="meta mb-3">
-              <div><a href="#">October 3, 2018</a></div>
-              <div><a href="#">Admin</a></div>
-              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+    <!-- Texto -->
+    <div class="featured-text" data-aos="zoom-in" data-aos-duration="1000">
+      <h2>Haga que su recorrido <br>sea memorable y <br>seguro con nosotros</h2>
+      <p>
+        Somos una agencia de viajes local con sede en Capachica, Puno, un lugar mágico a orillas del lago Titicaca.
+        Nuestra misión es conectar a los viajeros con la rica cultura andina, la paz de sus paisajes y la calidez de nuestras comunidades.
+      </p>
+      <p>
+        Ya sea que esté buscando aventuras de senderismo, auténticas casas de familia o relajación junto al lago,
+        nuestro equipo garantiza una experiencia segura e inolvidable en cada paso del camino.
+      </p>
+      <a href="/" class="cta-button">Reserva tu destino</a>
     </div>
   </div>
 </section>
 
-<section class="ftco-section-parallax">
-  <div class="parallax-img d-flex align-items-center">
-    <div class="container">
-      <div class="row d-flex justify-content-center">
-        <div class="col-md-7 text-center heading-section heading-section-white">
-          <h2 data-aos="fade-right">Subcribe to our Newsletter</h2>
-          <p data-aos="fade-left">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-          <div class="row d-flex justify-content-center mt-5" data-aos="zoom-in">
-            <div class="col-md-8">
-              <form action="#" class="subscribe-form">
-                <div class="form-group d-flex">
-                  <input type="text" class="form-control" placeholder="Enter email address">
-                  <input type="submit" value="Subscribe" class="submit px-3">
-                </div>
-              </form>
-            </div>
-          </div>
+
+
+<section class="review-section" id="section-counter" style="background-image: url(assets/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+  <div class="container">
+    <div class="row">
+      <!-- Texto a la izquierda -->
+      <div class="col-md-6" data-aos="fade-right" data-aos-duration="1000">
+        <div class="section-title">
+          <h2>Deja una Reseña de tu visita</h2>
+          <p>Queremos saber todo sobre tu visita a Capachica. Deja tu reseña y comparte con nosotros tus momentos favoritos. ¡Tu opinión ayuda a mejorar y a que otros viajeros descubran lo mejor de este hermoso lugar!</p>
         </div>
+      </div>
+
+      <!-- Formulario a la derecha -->
+      <div class="col-md-6" data-aos="fade-left" data-aos-duration="1000">
+        <form class="review-form">
+          <div class="form-group">
+            <input type="text" class="form-control" id="place" placeholder="Lugar de visita">
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" id="rating" placeholder="Calificación" max="5" min="1">
+          </div>
+          <div class="form-group">
+            <input type="date" class="form-control" id="date">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" id="message" rows="4" placeholder="Mensaje"></textarea>
+          </div>
+          <button type="submit" class="btn btn-submit">Enviar Reseña</button>
+        </form>
       </div>
     </div>
   </div>
@@ -945,8 +595,8 @@
     <div class="row mb-5">
       <div class="col-md">
         <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Adventure</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          <h2 class="ftco-heading-2">Nuestras Redes Sociales</h2>
+          <p>Puedes seguirnos en nuestras redes sociales para estar al tanto de nuevos eventos y actividades que tenemos preparados para ti.</p>
           <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
             <li><a href="#"><span class="icon-twitter"></span></a></li>
             <li><a href="#"><span class="icon-facebook"></span></a></li>
@@ -956,48 +606,33 @@
       </div>
       <div class="col-md">
         <div class="ftco-footer-widget mb-4 ml-md-4">
-          <h2 class="ftco-heading-2">Information</h2>
+          <h2 class="ftco-heading-2">Informacion</h2>
           <ul class="list-unstyled">
-            <li><a href="#" class="py-2 d-block">About Us</a></li>
-            <li><a href="#" class="py-2 d-block">Online enquiry</a></li>
-            <li><a href="#" class="py-2 d-block">Call Us</a></li>
-            <li><a href="#" class="py-2 d-block">General enquiries</a></li>
-            <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-            <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-            <li><a href="#" class="py-2 d-block">Refund policy</a></li>
+            <li><a href="#" class="py-2 d-block">Acerca de Nosotros</a></li>
+            <li><a href="#" class="py-2 d-block">Contactanos</a></li>
+            <li><a href="#" class="py-2 d-block">Preguntas Generales</a></li>
+            <li><a href="#" class="py-2 d-block">Ternimos y Condiciones</a></li>
+            <li><a href="#" class="py-2 d-block">Politicas de Privacidad</a></li>
           </ul>
         </div>
       </div>
       <div class="col-md">
         <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Experience</h2>
-          <ul class="list-unstyled">
-            <li><a href="#" class="py-2 d-block">Beach</a></li>
-            <li><a href="#" class="py-2 d-block">Adventure</a></li>
-            <li><a href="#" class="py-2 d-block">Wildlife</a></li>
-            <li><a href="#" class="py-2 d-block">Honeymoon</a></li>
-            <li><a href="#" class="py-2 d-block">Nature</a></li>
-            <li><a href="#" class="py-2 d-block">Party</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Have a Questions?</h2>
+          <h2 class="ftco-heading-2">¿Tienes alguna Pregunta?</h2>
           <div class="block-23 mb-3">
             <ul>
-              <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-              <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-              <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info&#64;yourdomain.com</span></a></li>
+              <li><span class="icon icon-map-marker"></span><span class="text">Plaza de Armas S/N - Capachica - Puno - Perú</span></li>
+              <li><a href="#"><span class="icon icon-phone"></span><span class="text">+51 950 923 204</span></a></li>
+              <li><a href="#"><span class="icon icon-envelope"></span><span class="text">municapachica2023&#64;gmail.com</span></a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
+    <!--<div class="row">
       <div class="col-md-12 text-center">
         <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
       </div>
-    </div>
+    </div>-->
   </div>
 </footer>

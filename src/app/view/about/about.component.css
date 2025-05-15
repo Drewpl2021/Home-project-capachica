@@ -1,0 +1,47 @@
+.section-historia {
+  background-color: #fff;
+  padding: 60px 20px;
+}
+
+.container-historia {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.historia-texto {
+  flex: 1 1 55%;
+  padding-right: 30px;
+}
+
+.historia-texto h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: #000;
+}
+
+.historia-texto p {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.historia-imagen {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.historia-imagen img {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}

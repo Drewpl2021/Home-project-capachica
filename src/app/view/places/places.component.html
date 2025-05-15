@@ -1,10 +1,10 @@
 <div class="hero-wrap" style="background-image: url('assets/images/image01.jpg'); width: 100%; height: 760px;">
   <div class="overlay"></div>
-  <div class="container">
+  <div class="container" data-aos="fade-down" data-aos-duration="1000">
     <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
       <div class="col-md-9 text-center">
-        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Places</span></p>
-        <h1 class="mb-3 bread">Destinations</h1>
+        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>>Destinos</span></p>
+        <h1 class="mb-3 bread">Destinos</h1>
       </div>
     </div>
   </div>
@@ -15,29 +15,17 @@
     <div class="row">
       <div class="col-lg-3 sidebar order-md-last">
         <div class="sidebar-wrap">
-          <h3 class="heading mb-4">Find City</h3>
+          <h3 class="heading mb-4">ENCUENTRA TU LUGAR</h3>
           <form action="#">
             <div class="fields">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Destination, City">
+                <input type="text" class="form-control" placeholder="Lugar de Visita">
               </div>
               <div class="form-group">
-                <div class="select-wrap one-third">
-                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                  <select name="" id="" class="form-control" placeholder="Keyword search">
-                    <option value="">Select Location</option>
-                    <option value="">San Francisco USA</option>
-                    <option value="">Berlin Germany</option>
-                    <option value="">Lodon United Kingdom</option>
-                    <option value="">Paris Italy</option>
-                  </select>
-                </div>
+                <input type="text" id="checkin_date" class="form-control checkin_date" placeholder="Dia de Llegada">
               </div>
               <div class="form-group">
-                <input type="text" id="checkin_date" class="form-control checkin_date" placeholder="Date from">
-              </div>
-              <div class="form-group">
-                <input type="text" id="checkout_date" class="form-control checkout_date" placeholder="Date to">
+                <input type="text" id="checkout_date" class="form-control checkout_date" placeholder="Dia de Salida">
               </div>
               <div class="form-group">
                 <div class="range-slider">
@@ -50,13 +38,13 @@
                 </div>
               </div>
               <div class="form-group">
-                <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
+                <input type="submit" value="Buscar" class="btn btn-primary py-3 px-5">
               </div>
             </div>
           </form>
         </div>
         <div class="sidebar-wrap">
-          <h3 class="heading mb-4">Star Rating</h3>
+          <h3 class="heading mb-4">Segun Calificacion</h3>
           <form method="post" class="star-rating">
             <div class="form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -95,102 +83,138 @@
         <div class="row">
           <div class="col-sm col-md-6 col-lg-4">
             <div class="destination">
-              <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/destination-3.jpg);">
+              <a [routerLink]="['/llachon']" class="img img-2 d-flex justify-content-center align-items-center"
+                 style="background-image: url(assets/images/destination-7.png);" data-aos="flip-left" data-aos-duration="1000">
                 <div class="icon d-flex justify-content-center align-items-center">
                   <span class="icon-link"></span>
                 </div>
               </a>
-              <div class="text p-3">
+              <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
                 <div class="d-flex">
                   <div class="one">
-                    <h3><a href="#">Paris, Italy</a></h3>
-                    <p class="rate">
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star-o"></i>
-                      <span>8 Rating</span>
-                    </p>
-                  </div>
-                  <div class="two">
-                    <span class="price">$200</span>
+                    <h3><a>Llachon</a></h3>
                   </div>
                 </div>
-                <p>Far far away, behind the word mountains, far from the countries</p>
-                <p class="days"><span>2 days 3 nights</span></p>
+                <p>Llachón es conocida por su turismo comunitario y vivencial, donde los visitantes pueden interactuar con las familias locales y participar en actividades</p>
                 <hr>
                 <p class="bottom-area d-flex">
-                  <span><i class="icon-map-o"></i> San Franciso, CA</span>
-                  <span class="ml-auto"><a href="#">Discover</a></span>
+                  <span><i class="icon-map-o"><span> </span></i>Capachica-Puno</span>
+                  <span class="ml-auto"><a [routerLink]="['/llachon']">Visitar</a></span>
                 </p>
               </div>
             </div>
           </div>
           <div class="col-sm col-md-6 col-lg-4">
             <div class="destination">
-              <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/destination-4.jpg);">
+              <a [routerLink]="['/ccotos']" class="img img-2 d-flex justify-content-center align-items-center"
+                 style="background-image: url(assets/images/destination-8.png);" data-aos="flip-up" data-aos-duration="1000">
                 <div class="icon d-flex justify-content-center align-items-center">
                   <span class="icon-link"></span>
                 </div>
               </a>
-              <div class="text p-3">
+              <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
                 <div class="d-flex">
                   <div class="one">
-                    <h3><a href="#">Paris, Italy</a></h3>
-                    <p class="rate">
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star-o"></i>
-                      <span>8 Rating</span>
-                    </p>
-                  </div>
-                  <div class="two">
-                    <span class="price">$200</span>
+                    <h3><a >Ccotos</a></h3>
                   </div>
                 </div>
-                <p>Far far away, behind the word mountains, far from the countries</p>
-                <p class="days"><span>2 days 3 nights</span></p>
+                <p>Ccotos se distingue por su agricultura, especialmente la papa, oca, quinua y otros cultivos, así como por sus tradiciones y costumbres autóctonas</p>
                 <hr>
                 <p class="bottom-area d-flex">
-                  <span><i class="icon-map-o"></i> San Franciso, CA</span>
-                  <span class="ml-auto"><a href="#">Discover</a></span>
+                  <span><i class="icon-map-o"><span> </span></i>Capachica-Puno</span>
+                  <span class="ml-auto"><a [routerLink]="['/ccotos']">Visitar</a></span>
                 </p>
               </div>
             </div>
           </div>
           <div class="col-sm col-md-6 col-lg-4">
             <div class="destination">
-              <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/images/destination-1.jpg);">
+              <a [routerLink]="['/siale-paramis']" class="img img-2 d-flex justify-content-center align-items-center"
+                 style="background-image: url(assets/images/destination-9.png);" data-aos="flip-right" data-aos-duration="1000">
                 <div class="icon d-flex justify-content-center align-items-center">
                   <span class="icon-link"></span>
                 </div>
               </a>
-              <div class="text p-3">
+              <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
                 <div class="d-flex">
                   <div class="one">
-                    <h3><a href="#">Paris, Italy</a></h3>
-                    <p class="rate">
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star-o"></i>
-                      <span>8 Rating</span>
-                    </p>
-                  </div>
-                  <div class="two">
-                    <span class="price">$200</span>
+                    <h3><a >Siale-Paramis</a></h3>
                   </div>
                 </div>
-                <p>Far far away, behind the word mountains, far from the countries</p>
-                <p class="days"><span>2 days 3 nights</span></p>
+                <p>Las familias pueden ofrecer experiencias como hospedaje, visitas a la aldea y demostraciones de trabajo tradicional. </p>
                 <hr>
                 <p class="bottom-area d-flex">
-                  <span><i class="icon-map-o"></i> San Franciso, CA</span>
-                  <span class="ml-auto"><a href="#">Discover</a></span>
+                  <span><i class="icon-map-o"><span> </span></i>Capachica-Puno</span>
+                  <span class="ml-auto"><a [routerLink]="['/siale-paramis']">Visitar</a></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm col-md-6 col-lg-4">
+            <div class="destination">
+              <a [routerLink]="['/isla-tikonata']" class="img img-2 d-flex justify-content-center align-items-center"
+                 style="background-image: url(assets/images/destination-10.png);" data-aos="flip-right" data-aos-duration="1000">
+                <div class="icon d-flex justify-content-center align-items-center">
+                  <span class="icon-link"></span>
+                </div>
+              </a>
+              <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="d-flex">
+                  <div class="one">
+                    <h3><a >Isla Tikonata</a></h3>
+                  </div>
+                </div>
+                <p>Cuenta con miradores que ofrecen vistas panorámicas del lago, senderos para caminar, y la posibilidad de hospedarse en casas rurales</p>
+                <hr>
+                <p class="bottom-area d-flex">
+                  <span><i class="icon-map-o"><span> </span></i>Capachica-Puno</span>
+                  <span class="ml-auto"><a [routerLink]="['/isla-tikonata']">Visitar</a></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm col-md-6 col-lg-4">
+            <div class="destination">
+              <a [routerLink]="['/escallani']" class="img img-2 d-flex justify-content-center align-items-center"
+                 style="background-image: url(assets/images/destination-11.png);" data-aos="flip-right" data-aos-duration="1000">
+                <div class="icon d-flex justify-content-center align-items-center">
+                  <span class="icon-link"></span>
+                </div>
+              </a>
+              <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="d-flex">
+                  <div class="one">
+                    <h3><a >Escallani</a></h3>
+                  </div>
+                </div>
+                <p>Escallani tiene paisajes naturales y paisajistas con el lago Titicaca, el Qhapac Ñan y los apus como protagonistas. </p>
+                <hr>
+                <p class="bottom-area d-flex">
+                  <span><i class="icon-map-o"><span> </span></i>Capachica-Puno</span>
+                  <span class="ml-auto"><a [routerLink]="['/escallani']">Visitar</a></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm col-md-6 col-lg-4">
+            <div class="destination">
+              <a [routerLink]="['/chifron']" class="img img-2 d-flex justify-content-center align-items-center"
+                 style="background-image: url(assets/images/destination-12.png);" data-aos="flip-right" data-aos-duration="1000">
+                <div class="icon d-flex justify-content-center align-items-center">
+                  <span class="icon-link"></span>
+                </div>
+              </a>
+              <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="d-flex">
+                  <div class="one">
+                    <h3><a >Chifron</a></h3>
+                  </div>
+                </div>
+                <p>Conocida por sus aguas cristalinas y por ser un lugar ideal para relajarse y disfrutar de la naturaleza.</p>
+                <hr>
+                <p class="bottom-area d-flex">
+                  <span><i class="icon-map-o"><span> </span></i>Capachica-Puno</span>
+                  <span class="ml-auto"><a [routerLink]="['/chifron']">Visitar</a></span>
                 </p>
               </div>
             </div>
@@ -216,24 +240,34 @@
   </div>
 </section>
 
-<section class="ftco-section-parallax">
-  <div class="parallax-img d-flex align-items-center">
-    <div class="container">
-      <div class="row d-flex justify-content-center">
-        <div class="col-md-7 text-center heading-section heading-section-white">
-          <h2>Subcribe to our Newsletter</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-          <div class="row d-flex justify-content-center mt-5">
-            <div class="col-md-8">
-              <form action="#" class="subscribe-form">
-                <div class="form-group d-flex">
-                  <input type="text" class="form-control" placeholder="Enter email address">
-                  <input type="submit" value="Subscribe" class="submit px-3">
-                </div>
-              </form>
-            </div>
-          </div>
+<section class="review-section" id="section-counter" style="background-image: url(assets/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+  <div class="container">
+    <div class="row">
+      <!-- Texto a la izquierda -->
+      <div class="col-md-6" data-aos="fade-right" data-aos-duration="1000">
+        <div class="section-title">
+          <h2>Deja una Reseña de tu visita</h2>
+          <p>Queremos saber todo sobre tu visita a Capachica. Deja tu reseña y comparte con nosotros tus momentos favoritos. ¡Tu opinión ayuda a mejorar y a que otros viajeros descubran lo mejor de este hermoso lugar!</p>
         </div>
+      </div>
+
+      <!-- Formulario a la derecha -->
+      <div class="col-md-6" data-aos="fade-left" data-aos-duration="1000">
+        <form class="review-form">
+          <div class="form-group">
+            <input type="text" class="form-control" id="place" placeholder="Lugar de visita">
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" id="rating" placeholder="Calificación" max="5" min="1">
+          </div>
+          <div class="form-group">
+            <input type="date" class="form-control" id="date">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" id="message" rows="4" placeholder="Mensaje"></textarea>
+          </div>
+          <button type="submit" class="btn btn-submit">Enviar Reseña</button>
+        </form>
       </div>
     </div>
   </div>
@@ -244,8 +278,8 @@
     <div class="row mb-5">
       <div class="col-md">
         <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Adventure</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          <h2 class="ftco-heading-2">Nuestras Redes Sociales</h2>
+          <p>Puedes seguirnos en nuestras redes sociales para estar al tanto de nuevos eventos y actividades que tenemos preparados para ti.</p>
           <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
             <li><a href="#"><span class="icon-twitter"></span></a></li>
             <li><a href="#"><span class="icon-facebook"></span></a></li>
@@ -255,48 +289,34 @@
       </div>
       <div class="col-md">
         <div class="ftco-footer-widget mb-4 ml-md-4">
-          <h2 class="ftco-heading-2">Information</h2>
+          <h2 class="ftco-heading-2">Informacion</h2>
           <ul class="list-unstyled">
-            <li><a href="#" class="py-2 d-block">About Us</a></li>
-            <li><a href="#" class="py-2 d-block">Online enquiry</a></li>
-            <li><a href="#" class="py-2 d-block">Call Us</a></li>
-            <li><a href="#" class="py-2 d-block">General enquiries</a></li>
-            <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-            <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-            <li><a href="#" class="py-2 d-block">Refund policy</a></li>
+            <li><a href="#" class="py-2 d-block">Acerca de Nosotros</a></li>
+            <li><a href="#" class="py-2 d-block">Contactanos</a></li>
+            <li><a href="#" class="py-2 d-block">Preguntas Generales</a></li>
+            <li><a href="#" class="py-2 d-block">Ternimos y Condiciones</a></li>
+            <li><a href="#" class="py-2 d-block">Politicas de Privacidad</a></li>
           </ul>
         </div>
       </div>
       <div class="col-md">
         <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Experience</h2>
-          <ul class="list-unstyled">
-            <li><a href="#" class="py-2 d-block">Beach</a></li>
-            <li><a href="#" class="py-2 d-block">Adventure</a></li>
-            <li><a href="#" class="py-2 d-block">Wildlife</a></li>
-            <li><a href="#" class="py-2 d-block">Honeymoon</a></li>
-            <li><a href="#" class="py-2 d-block">Nature</a></li>
-            <li><a href="#" class="py-2 d-block">Party</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Have a Questions?</h2>
+          <h2 class="ftco-heading-2">¿Tienes alguna Pregunta?</h2>
           <div class="block-23 mb-3">
             <ul>
-              <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-              <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-              <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info&#64;yourdomain.com</span></a></li>
+              <li><span class="icon icon-map-marker"></span><span class="text">Plaza de Armas S/N - Capachica - Puno - Perú</span></li>
+              <li><a href="#"><span class="icon icon-phone"></span><span class="text">+51 950 923 204</span></a></li>
+              <li><a href="#"><span class="icon icon-envelope"></span><span class="text">municapachica2023&#64;gmail.com</span></a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
+    <!--<div class="row">
       <div class="col-md-12 text-center">
         <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
       </div>
-    </div>
+    </div>-->
   </div>
 </footer>
+

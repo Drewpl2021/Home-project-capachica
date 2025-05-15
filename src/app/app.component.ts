@@ -1,20 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, AfterViewInit, OnInit} from '@angular/core';
 import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
-import { NavbarComponent } from './nav/navbar/navbar.component';
-import { routes } from './app.routes';
+import {NavbarComponent} from './nav/navbar/navbar.component';
+import {routes} from './app.routes';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import AOS from 'aos';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']  // corregido
+  styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements AfterViewInit, OnInit {
   title = 'HomeTurismoWeb';
-  token: string | null = null;
-  isLoading = true;
-
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -22,6 +20,8 @@ export class AppComponent implements OnInit {
   ) {
     this.router.config = routes;  // Configura rutas
   }
+  token: string | null = null;
+  isLoading = true;
 
   ngOnInit() {
     this.activatedRoute.queryParamMap.subscribe(params => {
@@ -55,11 +55,26 @@ export class AppComponent implements OnInit {
 
     setTimeout(() => {
       this.isLoading = false;
-    }, 2000);
+    }, 200);
+    AOS.init({
+      duration: 1000,
+      once: false
+    });// Cambia el tiempo según sea necesario
+  }
+
+  ngAfterViewInit(): void {
+    // Espera a que se haya completado la carga de la vista
+    setTimeout(() => {
+      const loader = document.getElementById('ftco-loader');
+      if (loader) {
+        loader.classList.remove('show');
+      }
+    }, 500);
   }
 
 
-  getCurrentUser(token: string) {
+
+    getCurrentUser(token: string) {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`
     });

@@ -1,17 +1,19 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import { Router } from '@angular/router';
 import {MunicipalidadService} from '../../services/municipalidad.service';
 import {SectionsService} from '../../services/sections.service';
-import {CommonModule} from '@angular/common';
+import {CommonModule, NgClass} from '@angular/common'; // Importa el operador filter
+import {Router, NavigationEnd, RouterModule} from '@angular/router'; // Importa NavigationEnd
 
 @Component({
   selector: 'app-navbar',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, RouterModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
+  styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
   isScrolled = false;
+  navItems: { label: string; path: string }[] = [];
   municipalidades: any[] = [];
   distrito: string = ''; // Valor inicial vacío
   sections: any[] = [];
@@ -26,12 +28,15 @@ export class NavbarComponent implements OnInit {
     //{ id: '07', route: 'https://home-project-capachica-eihz.vercel.app/sign-in', name: 'Iniciar Sesion' },
     { id: '07', route: 'http://localhost:4200/sign-in', name: ' Iniciar Sesion'}
   ];
-
-
-
   constructor(private router: Router,
               private municipalidadService: MunicipalidadService,
-              private sectionsService: SectionsService) {}
+              private sectionsService: SectionsService) {
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      window.scrollTo(0, 0); // Establece la posición del scroll a la parte superior
+    });
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -40,11 +45,48 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.loadMunicipalidades();
     this.loadSections();
+    this.setupScrollListener();
+    this.setupNavItems();
 
     this.distrito = "Capachica";
     this.municipalidadService.getMunicipalidades().subscribe((data: any) => {
       if (data && data.content && data.content[0]) {
         this.distrito = data.content[0].distrito; // Aquí asignas el valor del distrito
+      }
+    });
+  }
+
+  setupNavItems(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const url = event.urlAfterRedirects;
+        if (url.includes('/llachon') ||
+          url.includes('/chifron') ||
+          url.includes('/ccotos') ||
+          url.includes('/isla-tikonata') ||
+          url.includes('/siale-paramis') ||
+          url.includes('/escallani')) {
+          this.navItems = [
+            { label: 'Inicio', path: '/' },
+            { label: 'Llachon', path: '/llachon' },
+            { label: 'Chifron', path: '/chifron' },
+            { label: 'Ccotos', path: '/ccotos' },
+            { label: 'Isla-Tikonata', path: '/isla-tikonata' },
+            { label: 'Siale-Paramis', path: '/siale-paramis' },
+            { label: 'Escallani', path: '/escallani' },
+            { label: 'Iniciar Sesión', path: '/sign-in' }
+          ];
+        } else {
+          this.navItems = [
+            { label: 'Inicio', path: '/' },
+            { label: 'Acerca de', path: '/about' },
+            { label: 'Lugares', path: '/places' },
+            { label: 'Hoteles', path: '/hotel' },
+            { label: 'Blog', path: '/blog' },
+            { label: 'Contacto', path: '/contact' },
+            { label: 'Iniciar Sesión', path: '/sign-in' }
+          ];
+        }
       }
     });
   }
@@ -77,7 +119,10 @@ export class NavbarComponent implements OnInit {
       }
     });
   }
-  navigateTo(route: string, sectionId: string): void {
+  navigateTo(route: string, sectionId: string, path: string): void {
+    this.router.navigate([path]);
+
+
     const section = this.sections.find((s) => s.code === sectionId);
 
 
@@ -90,5 +135,13 @@ export class NavbarComponent implements OnInit {
       }
     }
   }
+  isActive(path: string): boolean {
+    return this.router.url === path;
+  }
 
+  setupScrollListener(): void {
+    window.addEventListener('scroll', () => {
+      this.isScrolled = window.scrollY > 50;
+    });
+  }
 }

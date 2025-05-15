@@ -1,1 +1,268 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --cod-gray: rgba(26, 26, 26, 1);
+  --semantic-heading-1-font-family: "Poppins", Helvetica;
+  --semantic-heading-1-font-weight: 700;
+  --semantic-heading-1-font-size: 55px;
+  --semantic-heading-1-letter-spacing: 0px;
+  --semantic-heading-1-line-height: 66px;
+  --semantic-heading-1-font-style: normal;
+  --semantic-heading-2-font-family: "Abril Fatface", Helvetica;
+  --semantic-heading-2-font-weight: 400;
+  --semantic-heading-2-font-size: 32px;
+  --semantic-heading-2-letter-spacing: 0px;
+  --semantic-heading-2-line-height: 60px;
+  --semantic-heading-2-font-style: normal;
+  --semantic-heading-2-upper-font-family: "Poppins", Helvetica;
+  --semantic-heading-2-upper-font-weight: 700;
+  --semantic-heading-2-upper-font-size: 24px;
+  --semantic-heading-2-upper-letter-spacing: 0px;
+  --semantic-heading-2-upper-line-height: 36px;
+  --semantic-heading-2-upper-font-style: normal;
+  --semantic-heading-3-font-family: "Poppins", Helvetica;
+  --semantic-heading-3-font-weight: 600;
+  --semantic-heading-3-font-size: 22px;
+  --semantic-heading-3-letter-spacing: 0px;
+  --semantic-heading-3-line-height: 33px;
+  --semantic-heading-3-font-style: normal;
+  --semantic-heading-3-upper-font-family: "Poppins", Helvetica;
+  --semantic-heading-3-upper-font-weight: 400;
+  --semantic-heading-3-upper-font-size: 18px;
+  --semantic-heading-3-upper-letter-spacing: 0px;
+  --semantic-heading-3-upper-line-height: 27px;
+  --semantic-heading-3-upper-font-style: normal;
+  --semantic-input-font-family: "Poppins", Helvetica;
+  --semantic-input-font-weight: 400;
+  --semantic-input-font-size: 15px;
+  --semantic-input-letter-spacing: 0px;
+  --semantic-input-line-height: normal;
+  --semantic-input-font-style: normal;
+  --semantic-input-upper-font-family: "Poppins", Helvetica;
+  --semantic-input-upper-font-weight: 700;
+  --semantic-input-upper-font-size: 16px;
+  --semantic-input-upper-letter-spacing: 0px;
+  --semantic-input-upper-line-height: 24px;
+  --semantic-input-upper-font-style: normal;
+  --semantic-item-font-family: "Poppins", Helvetica;
+  --semantic-item-font-weight: 300;
+  --semantic-item-font-size: 16px;
+  --semantic-item-letter-spacing: 0px;
+  --semantic-item-line-height: 24px;
+  --semantic-item-font-style: normal;
+  --semantic-label-upper-font-family: "Poppins", Helvetica;
+  --semantic-label-upper-font-weight: 700;
+  --semantic-label-upper-font-size: 14px;
+  --semantic-label-upper-letter-spacing: 0px;
+  --semantic-label-upper-line-height: 25.200000762939453px;
+  --semantic-label-upper-font-style: normal;
+  --semantic-link-font-family: "Poppins", Helvetica;
+  --semantic-link-font-weight: 400;
+  --semantic-link-font-size: 16px;
+  --semantic-link-letter-spacing: 0px;
+  --semantic-link-line-height: 24px;
+  --semantic-link-font-style: normal;
+  --semantic-link-upper-font-family: "Poppins", Helvetica;
+  --semantic-link-upper-font-weight: 300;
+  --semantic-link-upper-font-size: 13px;
+  --semantic-link-upper-letter-spacing: 1px;
+  --semantic-link-upper-line-height: 19.5px;
+  --semantic-link-upper-font-style: normal;
+  --semantic-options-font-family: "Poppins", Helvetica;
+  --semantic-options-font-weight: 400;
+  --semantic-options-font-size: 14px;
+  --semantic-options-letter-spacing: 0px;
+  --semantic-options-line-height: 21px;
+  --semantic-options-font-style: normal;
+  --semantic-small-font-family: "Poppins", Helvetica;
+  --semantic-small-font-weight: 400;
+  --semantic-small-font-size: 12px;
+  --semantic-small-letter-spacing: 0px;
+  --semantic-small-line-height: 16.799999237060547px;
+  --semantic-small-font-style: normal;
+  --semantic-strong-font-family: "Abril Fatface", Helvetica;
+  --semantic-strong-font-weight: 400;
+  --semantic-strong-font-size: 40px;
+  --semantic-strong-letter-spacing: 0px;
+  --semantic-strong-line-height: 72px;
+  --semantic-strong-font-style: normal;
+  --semantic-textarea-font-family: "Poppins", Helvetica;
+  --semantic-textarea-font-weight: 400;
+  --semantic-textarea-font-size: 15px;
+  --semantic-textarea-letter-spacing: 0px;
+  --semantic-textarea-line-height: 22.5px;
+  --semantic-textarea-font-style: normal;
+  --arizonia-regular-font-family: "Arizonia", Helvetica;
+  --arizonia-regular-font-weight: 400;
+  --arizonia-regular-font-size: 30px;
+  --arizonia-regular-letter-spacing: 0px;
+  --arizonia-regular-line-height: 54px;
+  --arizonia-regular-font-style: normal;
+  --inter-regular-font-family: "Inter", Helvetica;
+  --inter-regular-font-weight: 400;
+  --inter-regular-font-size: 14px;
+  --inter-regular-letter-spacing: 0px;
+  --inter-regular-line-height: 14px;
+  --inter-regular-font-style: normal;
+  --poppins-regular-font-family: "Poppins", Helvetica;
+  --poppins-regular-font-weight: 400;
+  --poppins-regular-font-size: 13px;
+  --poppins-regular-letter-spacing: 0px;
+  --poppins-regular-line-height: 18.200000762939453px;
+  --poppins-regular-font-style: normal;
+  --poppins-medium-font-family: "Poppins", Helvetica;
+  --poppins-medium-font-weight: 500;
+  --poppins-medium-font-size: 18px;
+  --poppins-medium-letter-spacing: 0px;
+  --poppins-medium-line-height: 32.400001525878906px;
+  --poppins-medium-font-style: normal;
+  --poppins-bold-upper-font-family: "Poppins", Helvetica;
+  --poppins-bold-upper-font-weight: 700;
+  --poppins-bold-upper-font-size: 12px;
+  --poppins-bold-upper-letter-spacing: 0px;
+  --poppins-bold-upper-line-height: 21.600000381469727px;
+  --poppins-bold-upper-font-style: normal;
+  --poppins-light-font-family: "Poppins", Helvetica;
+  --poppins-light-font-weight: 300;
+  --poppins-light-font-size: 16px;
+  --poppins-light-letter-spacing: 0px;
+  --poppins-light-line-height: 28.799999237060547px;
+  --poppins-light-font-style: normal;
+  --roboto-regular-font-family: "Roboto", Helvetica;
+  --roboto-regular-font-weight: 400;
+  --roboto-regular-font-size: 12px;
+  --roboto-regular-letter-spacing: 0px;
+  --roboto-regular-line-height: 21.600000381469727px;
+  --roboto-regular-font-style: normal;
+}
+
+/* Estilos para la sección principal */
+.section {
+  display: flex;
+  width: 100%;
+  height: 578px;
+  align-items: center;
+  justify-content: center;
+  padding: 6em 0;
+  position: relative;
+}
+
+/* Contenedor de la sección */
+.section .container {
+  position: relative;
+  width: 80%;
+  height: 460px;
+  margin-top: -37px;
+  margin-bottom: -37px;
+}
+
+/* Estilos del título */
+.section .text-wrapper {
+  position: absolute;
+  width: 635px;
+  top: 74px;
+  left: -22px;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: var(--semantic-heading-2-letter-spacing);
+  line-height: var(--semantic-heading-2-line-height);
+  font-style: var(--semantic-heading-2-font-style);
+  font-size: 35px;
+  font-weight: normal;
+  font-family: "Abril Fatface", cursive; /* Aumento de tamaño */
+}
+
+/* Estilos del párrafo */
+.section .div {
+  position: absolute;
+  width: 328px;
+  top: 172px;
+  left: 116px;
+  font-family: var(--poppins-light-font-family);
+  font-weight: var(--poppins-light-font-weight);
+  color: #ffffffe6;
+  font-size: 20px; /* Aumento de tamaño */
+  text-align: justify;
+  letter-spacing: var(--poppins-light-letter-spacing);
+  line-height: var(--poppins-light-line-height);
+  font-style: var(--poppins-light-font-style);
+  line-height: 1.6;
+}
+
+/* Estilos del formulario */
+.section .form {
+  display: flex;
+  flex-direction: column;
+  width: 507px;
+  height: 382px;
+  align-items: flex-start;
+  gap: 16px;
+  position: absolute;
+  top: 11px;
+  left: 716px;
+}
+
+/* Estilo de los inputs y textarea */
+.section .input,
+.section .textarea {
+  font-size: 18px; /* Aumenta el tamaño del texto en inputs y textarea */
+}
+
+/* Estilos de los botones */
+.section .btn {
+  font-size: 18px; /* Aumenta el tamaño del texto del botón */
+  padding: 17px 49px;
+  background-color: #f9be37;
+  border-radius: 30px;
+  overflow: hidden;
+  align-items: flex-start;
+  position: relative;
+  border: 1px solid;
+  color: white;
+  text-align: center;
+}
+
+/* Estilo de los inputs */
+.section .form-control {
+  font-size: 18px; /* Aumentar tamaño de los inputs */
+  padding: 14.5px 13px;
+  background-color: #ffffff;
+  border-color: #ced4da;
+}
+
+/* Aumentar tamaño de los textos de etiquetas */
+.section .text-wrapper-2,
+.section .text-wrapper-3 {
+  font-size: 18px; /* Cambiar el tamaño de las etiquetas */
+}
+
+/* Estilos de los enlaces */
+.section .input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  margin-bottom: -67px;
+}
+
+.section .text-wrapper-4 {
+  font-size: 16px; /* Aumentar el tamaño de los enlaces */
+  color: #ffffff;
+}
+
+/* Ajustes de la fuente para los enlaces */
+.section .input-2 {
+  display: inline-flex;
+  justify-content: center;
+  padding: 17px 49px;
+  background-color: #f9be37;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 18px; /* Aumentar el tamaño del texto del botón */
+}
+
+/* Estilo del formulario cuando la entrada tiene un valor */
+.section .input-2 input:focus {
+  font-size: 18px; /* Aumentar el tamaño del texto */
+}
