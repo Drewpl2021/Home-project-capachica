@@ -53,9 +53,11 @@ export class HomeComponent implements OnInit {
     // Cada 4 segundos cambia la imagen activa de cada asociación
     setInterval(() => {
       this.imageIndexes = this.imageIndexes.map((currentIndex, i) => {
+        // @ts-ignore
         if (!this.asociaciones[i]?.imagenes || this.asociaciones[i].imagenes.length === 0) {
           return 0;
         }
+        // @ts-ignore
         return (currentIndex + 1) % this.asociaciones[i].imagenes.length;
       });
     }, 4000);

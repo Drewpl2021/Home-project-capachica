@@ -39,7 +39,7 @@ export class NavbarComponent implements OnInit {
               public carritoService: CarritoService,
               private municipalidadService: MunicipalidadService,
               private sectionsService: SectionsService
-            ) {
+  ) {
     // Escucha los eventos de NavigationEnd para resetear el scroll
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)

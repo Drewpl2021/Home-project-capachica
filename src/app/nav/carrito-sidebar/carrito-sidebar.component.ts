@@ -1,6 +1,8 @@
 import { Component, computed, inject } from '@angular/core';
-import {CarritoService, ItemCarrito } from './carrito.service';
-import {NgForOf, NgIf} from '@angular/common';
+import { CarritoService, ItemCarrito } from './carrito.service';
+import { NgForOf, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
+import { AuthService } from '../../view/sign-in/auth.service';
 
 @Component({
   selector: 'app-carrito-sidebar',
@@ -10,10 +12,16 @@ import {NgForOf, NgIf} from '@angular/common';
     NgForOf,
     NgIf
   ],
-  styleUrl: './carrito-sidebar.component.css',
+  styleUrls: ['./carrito-sidebar.component.css'],  // corregido
 })
 export class CarritoSidebarComponent {
-  private carritoService = inject(CarritoService);
+
+  constructor(
+    private carritoService: CarritoService,
+    private authService: AuthService,
+    private router: Router,
+  ) { }
+
   items = computed(() => this.carritoService.items());
 
   visible = false;
@@ -39,7 +47,17 @@ export class CarritoSidebarComponent {
   }
 
   pagar() {
-    // Aquí puedes poner la lógica para generar reserva o redirigir
-    alert('Funcionalidad de generar reserva aún no implementada.');
+    if (this.items().length === 0) {
+      // Opcional: alerta o nada
+      alert('El carrito está vacío. Agrega productos antes de generar reserva.');
+      return;
+    }
+
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate(['/sign-in']);
+    } else {
+      this.router.navigate(['/reserva']);
+      this.cerrar();
+    }
   }
 }

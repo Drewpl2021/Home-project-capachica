@@ -12,6 +12,8 @@ import {IslaTikonataComponent} from './comunidades/isla-tikonata/isla-tikonata.c
 import {SialeParamisComponent} from './comunidades/siale-paramis/siale-paramis.component';
 import {EscallaniComponent} from './comunidades/escallani/escallani.component';
 import {MarketComponent} from './view/market/market.component';
+import {SignInComponent} from './view/sign-in/sign-in.component';
+import {ReservaComponent} from './reserva/reserva.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,6 +29,8 @@ export const routes: Routes = [
   { path: 'siale-paramis', component: SialeParamisComponent },
   { path: 'escallani', component: EscallaniComponent },
   { path: 'market', component: MarketComponent },
+  { path: 'sign-in', component: SignInComponent },
+  { path: 'reserva', component: ReservaComponent },
 
 
 
