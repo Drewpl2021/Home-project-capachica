@@ -4,6 +4,7 @@ export interface ItemCarrito {
   titulo: string;
   descripcion: string;
   imagen: string;
+  cantidad: number;
 }
 
 @Injectable({
@@ -13,9 +14,42 @@ export class CarritoService {
   private _items = signal<ItemCarrito[]>([]);
   items = this._items.asReadonly();
 
-  agregarItem(item: ItemCarrito) {
-    this._items.update(items => [...items, item]);
+  agregarItem(item: Omit<ItemCarrito, 'cantidad'>) {
+    this._items.update(items => {
+      const index = items.findIndex(i => i.titulo === item.titulo);
+      if (index !== -1) {
+        // Ya existe, aumentar cantidad
+        const updatedItems = [...items];
+        updatedItems[index] = {
+          ...updatedItems[index],
+          cantidad: updatedItems[index].cantidad + 1
+        };
+        return updatedItems;
+      } else {
+        // Nuevo item con cantidad 1
+        return [...items, {...item, cantidad: 1}];
+      }
+    });
   }
+
+  aumentarCantidad(titulo: string) {
+    this._items.update(items => {
+      return items.map(item =>
+        item.titulo === titulo ? {...item, cantidad: item.cantidad + 1} : item
+      );
+    });
+  }
+
+  disminuirCantidad(titulo: string) {
+    this._items.update(items => {
+      return items
+        .map(item =>
+          item.titulo === titulo ? {...item, cantidad: Math.max(1, item.cantidad - 1)} : item
+        )
+        .filter(item => item.cantidad > 0);
+    });
+  }
+
 
   vaciarCarrito() {
     this._items.set([]);

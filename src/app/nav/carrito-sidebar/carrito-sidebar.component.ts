@@ -1,5 +1,5 @@
 import { Component, computed, inject } from '@angular/core';
-import {CarritoService} from './carrito.service';
+import {CarritoService, ItemCarrito } from './carrito.service';
 import {NgForOf, NgIf} from '@angular/common';
 
 @Component({
@@ -28,5 +28,18 @@ export class CarritoSidebarComponent {
 
   vaciar() {
     this.carritoService.vaciarCarrito();
+  }
+
+  aumentar(titulo: string) {
+    this.carritoService.aumentarCantidad(titulo);
+  }
+
+  disminuir(titulo: string) {
+    this.carritoService.disminuirCantidad(titulo);
+  }
+
+  pagar() {
+    // Aquí puedes poner la lógica para generar reserva o redirigir
+    alert('Funcionalidad de generar reserva aún no implementada.');
   }
 }
