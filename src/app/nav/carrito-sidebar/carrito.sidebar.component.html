@@ -2,6 +2,7 @@
 <aside class="carrito-sidebar" [class.open]="visible">
   <header>
     <h3>Carrito de Compras</h3>
+    <button class="close-btn" (click)="cerrar()">×</button>
   </header>
   <ul>
     <li *ngFor="let item of items()">
@@ -9,8 +10,16 @@
       <div>
         <strong>{{ item.titulo }}</strong>
         <p>{{ item.descripcion }}</p>
+        <div class="contador">
+          <button (click)="disminuir(item.titulo)">−</button>
+          <span>{{ item.cantidad }}</span>
+          <button (click)="aumentar(item.titulo)">+</button>
+        </div>
       </div>
     </li>
   </ul>
-  <button class="vaciar-btn" (click)="vaciar()">Vaciar carrito</button>
+  <div class="acciones-carrito">
+    <button class="vaciar-btn" (click)="vaciar()">Vaciar carrito</button>
+    <button class="pagar-btn" (click)="pagar()">Generar reserva</button>
+  </div>
 </aside>
