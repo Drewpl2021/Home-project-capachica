@@ -23,7 +23,8 @@ export class NavbarComponent implements OnInit {
     { id: '04', route: '/hotel', name: 'Hoteles' },
     { id: '05', route: '/blog', name: 'Blog' },
     { id: '06', route: '/contact', name: 'Contacto' },
-    { id: '07', route: 'https://home-project-capachica-eihz.vercel.app/sign-in', name: 'Iniciar Sesion' },
+    //{ id: '07', route: 'https://home-project-capachica-eihz.vercel.app/sign-in', name: 'Iniciar Sesion' },
+    { id: '07', route: 'http://localhost:4200/sign-in', name: ' Iniciar Sesion'}
   ];
 
 
