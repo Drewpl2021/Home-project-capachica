@@ -2,10 +2,10 @@ import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Router, NavigationEnd, RouterModule, ActivatedRoute} from '@angular/router'; // Importa NavigationEnd
 import { filter } from 'rxjs/operators';
 import {CommonModule, NgClass} from '@angular/common';
-import {CarritoService} from '../carrito-popup/carrito.service';
-import {CarritoSidebarComponent} from '../carrito-popup/carrito-sidebar.component';
 import {MunicipalidadService} from '../../services/municipalidad.service';
 import {SectionsService} from '../../services/sections.service'; // Importa el operador filter
+import {CarritoService} from '../carrito-sidebar/carrito.service';
+import {CarritoSidebarComponent} from '../carrito-sidebar/carrito-sidebar.component';
 interface NavItem {
   label: string;
   path: string;
