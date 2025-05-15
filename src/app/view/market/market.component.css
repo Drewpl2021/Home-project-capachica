@@ -1,0 +1,327 @@
+.market-new-layout {
+  padding: 20px 10px;
+  background: #f9f9f9;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Contenedor principal dividido */
+.main-display {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 40px;
+  justify-content: center;
+}
+
+/* Izquierda: imagen grande y miniaturas */
+.left-images {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+}
+
+.main-image {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 0.15);
+  margin-bottom: 15px;
+  object-fit: cover;
+  aspect-ratio: 4/3;
+}
+
+.thumbnail-images {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.thumbnail-images img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  border: 2px solid transparent;
+}
+
+.thumbnail-images img.selected,
+.thumbnail-images img:hover {
+  transform: scale(1.1);
+  border-color: #1abc9c;
+}
+
+/* Derecha: info del lugar */
+.right-info {
+  flex: 1;
+  background: white;
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgb(0 0 0 / 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 450px;
+  box-sizing: border-box;
+}
+
+.right-info h2 {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #1abc9c;
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+.right-info .price {
+  font-weight: 700;
+  color: #2980b9;
+  margin-bottom: 15px;
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.right-info .price .per-night {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #3498db;
+}
+
+.right-info .description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.right-info .location {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 35px;
+}
+
+/* Controles cantidad y botones */
+.actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.actions button {
+  background-color: #1abc9c;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.actions button:hover {
+  background-color: #16a085;
+}
+
+.actions button:active {
+  background-color: #149174;
+}
+
+.actions input[type='number'] {
+  width: 60px;
+  height: 40px;
+  font-size: 1.3rem;
+  border-radius: 8px;
+  border: 1.5px solid #ddd;
+  text-align: center;
+  pointer-events: none; /* para solo mostrar valor sin que usuario escriba */
+  background-color: #fff;
+}
+
+
+.actions input[type='number'] {
+  width: 60px;
+  padding: 8px;
+  font-size: 1.3rem; /* un poco más grande */
+  border-radius: 8px;
+  border: 1.5px solid #ddd;
+  text-align: center;
+  -moz-appearance: textfield;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.actions input[type='number']::-webkit-inner-spin-button,
+.actions input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Botón añadir al carrito */
+.btn-add-cart {
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  min-width: 140px;
+  background-color: #1abc9c;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 191, 165, 0.5);
+  border: none;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-add-cart:hover {
+  background-color: #16a085;
+  box-shadow: 0 5px 15px rgba(22, 160, 133, 0.7);
+}
+
+/* Fila horizontal de miniaturas abajo */
+.bottom-thumbnails {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  scroll-behavior: smooth;
+  padding-left: 5px;
+}
+
+.thumbnail-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.12);
+  padding: 15px;
+  min-width: 170px;
+  text-align: center;
+  flex-shrink: 0;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.thumbnail-card:hover,
+.thumbnail-card.active {
+  border: 2px solid #1abc9c;
+  box-shadow: 0 0 20px #1abc9c;
+}
+
+.thumbnail-card img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.thumbnail-card h4 {
+  margin: 5px 0 6px;
+  color: #16a085;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.thumbnail-card .price {
+  font-size: 1rem;
+  color: #2980b9;
+  margin-bottom: 6px;
+}
+
+.thumbnail-card .location {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 12px;
+}
+
+.btn-view {
+  background-color: #1abc9c;
+  border: none;
+  color: white;
+  padding: 8px 14px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  user-select: none;
+}
+
+.btn-view:hover {
+  background-color: #16a085;
+}
+
+/* Scroll horizontal limpio */
+.bottom-thumbnails::-webkit-scrollbar {
+  height: 7px;
+}
+
+.bottom-thumbnails::-webkit-scrollbar-thumb {
+  background: #1abc9c;
+  border-radius: 4px;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+  .main-display {
+    display: flex;
+    gap: 40px;
+    margin-bottom: 40px;
+    justify-content: center;
+    align-items: center; /* Centrar verticalmente */
+  }
+
+  .left-images,
+  .right-info {
+    max-width: 100%;
+    width: 100%;
+  }
+  .right-info {
+    padding: 20px 15px;
+  }
+  .actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .thumbnail-images img {
+    width: 60px;
+    height: 45px;
+  }
+  .thumbnail-card {
+    min-width: 140px;
+    padding: 10px;
+  }
+  .thumbnail-card img {
+    height: 80px;
+  }
+  .right-info h2 {
+    font-size: 1.6rem;
+  }
+  .right-info .price {
+    font-size: 1.1rem;
+  }
+  .actions button,
+  .actions input[type='number'] {
+    width: 40px;
+    height: 40px;
+    font-size: 1.3rem;
+  }
+  .btn-add-cart {
+    min-width: 110px;
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+

@@ -13,345 +13,68 @@
 <section class="ftco-section">
   <div class="container">
     <div class="row">
-      <div class="col-lg-3 sidebar order-md-last">
-        <div class="sidebar-wrap">
-          <h3 class="heading mb-4">ENCUENTRA TU LUGAR</h3>
-          <form action="#">
-            <div class="fields">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Lugar de Visita">
-              </div>
-              <div class="form-group">
-                <div class="select-wrap one-third">
-                  <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                  <select name="" id="" class="form-control" placeholder="Keyword search">
-                    <option value="">Seleccione su Hotel</option>
-                    <option value="">Llanchon</option>
-                    <option value="">Chifron</option>
-                    <option value="">Ccotos</option>
-                    <option value="">Isla Tikonata</option>
-                    <option value="">Siale-Paramis</option>
-                    <option value="">Escallani</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="text" id="checkin_date" class="form-control checkin_date" placeholder="Dia de Llegada">
-              </div>
-              <div class="form-group">
-                <input type="text" id="checkout_date" class="form-control checkout_date" placeholder="Dia de Salida">
-              </div>
-              <div class="form-group">
-                <div class="range-slider">
-                  <span>
-                    <input type="number" value="25000" min="0" max="120000"/> -
-                    <input type="number" value="50000" min="0" max="120000"/>
-                  </span>
-                  <input value="1000" min="0" max="120000" step="500" type="range"/>
-                  <input value="50000" min="0" max="120000" step="500" type="range"/>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Buscar" class="btn btn-primary py-3 px-5">
-              </div>
-            </div>
-          </form>
-        </div>
-        <div class="sidebar-wrap">
-          <h3 class="heading mb-4">Segun Calificacion</h3>
-          <form method="post" class="star-rating">
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">
-                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
-              </label>
-            </div>
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">
-                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i></span></p>
-              </label>
-            </div>
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">
-                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
-              </label>
-            </div>
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">
-                <p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
-              </label>
-            </div>
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1">
-                <p class="rate"><span><i class="icon-star"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i><i class="icon-star-o"></i></span></p>
-              </label>
-            </div>
-          </form>
-        </div>
-      </div><!-- END-->
-      <div class="col-lg-9">
-        <div class="row">
-          <div class="col-sm col-md-6 col-lg-4">
-            <div class="destination">
-              <a [routerLink]="['/llachon']" class="img img-2 d-flex justify-content-center align-items-center"
-                 style="background-image: url(assets/images/hotel-7.png);" data-aos="flip-left" data-aos-duration="1000">
-                <div class="icon d-flex justify-content-center align-items-center">
-                  <span class="icon-link"></span>
-                </div>
-              </a>
-              <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="d-flex">
-                  <div class="one">
-                    <h3><a >Llachon</a></h3>
-                    <p class="rate">
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star-o"></i>
-                      <span>8 Rating</span>
-                    </p>
-                  </div>
-                  <div class="two">
-                    <span class="price per-price">S/.15<br><small>/noche</small></span>
-                  </div>
-                </div>
-                <p>Los visitantes se hospedarán en habitaciones tradicionales de adobe, decoradas de manera autentica.</p>
-                <hr>
-                <p class="bottom-area d-flex">
-                  <span><i class="icon-map-o"><span> </span></i>Capachica-Puno</span>
-                  <span class="ml-auto"><a [routerLink]="['/llachon']">Reservar</a></span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm col-md-6 col-lg-4">
-            <div class="destination">
-              <a [routerLink]="['/chifron']" class="img img-2 d-flex justify-content-center align-items-center"
-                 style="background-image: url(assets/images/hotel-8.png);" data-aos="flip-up" data-aos-duration="1000">
-                <div class="icon d-flex justify-content-center align-items-center">
-                  <span class="icon-link"></span>
-                </div>
-              </a>
-              <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="d-flex">
-                  <div class="one">
-                    <h3><a >Chifron</a></h3>
-                    <p class="rate">
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star-o"></i>
-                      <span>8 Rating</span>
-                    </p>
-                  </div>
-                  <div class="two">
-                    <span class="price per-price">S/.20<br><small>/noche</small></span>
-                  </div>
-                </div>
-                <p>Un alojamiento con habitaciones agradables, buena comida.</p>
-                <hr>
-                <p class="bottom-area d-flex">
-                  <span><i class="icon-map-o"><span> </span></i>Capachica-Puno</span>
-                  <span class="ml-auto"><a [routerLink]="['/chifron']">Reservar</a></span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm col-md-6 col-lg-4">
-            <div class="destination">
-              <a [routerLink]="['/ccotos']" class="img img-2 d-flex justify-content-center align-items-center"
-                 style="background-image: url(assets/images/hotel-9.png);" data-aos="flip-right" data-aos-duration="1000">
-                <div class="icon d-flex justify-content-center align-items-center">
-                  <span class="icon-link"></span>
-                </div>
-              </a>
-              <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="d-flex">
-                  <div class="one">
-                    <h3><a >Ccotos</a></h3>
-                    <p class="rate">
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star-o"></i>
-                      <span>8 Rating</span>
-                    </p>
-                  </div>
-                  <div class="two">
-                    <span class="price per-price">S/.15<br><small>/noche</small></span>
-                  </div>
-                </div>
-                <p>Las cabañas se encuentran ubicadas al lado de las de las familias, a poca distancia del lago Titicaca</p>
-                <hr>
-                <p class="bottom-area d-flex">
-                  <span><i class="icon-map-o"><span> </span></i>Capachica-Puno</span>
-                  <span class="ml-auto"><a [routerLink]="['/ccotos']">Reservar</a></span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm col-md-6 col-lg-4">
-            <div class="destination">
-              <a [routerLink]="['/isla-tikonata']" class="img img-2 d-flex justify-content-center align-items-center"
-                 style="background-image: url(assets/images/hotel-10.png);" data-aos="flip-right" data-aos-duration="1000">
-                <div class="icon d-flex justify-content-center align-items-center">
-                  <span class="icon-link"></span>
-                </div>
-              </a>
-              <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="d-flex">
-                  <div class="one">
-                    <h3><a>Isla Tikonata</a></h3>
-                    <p class="rate">
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star-o"></i>
-                      <span>8 Rating</span>
-                    </p>
-                  </div>
-                  <div class="two">
-                    <span class="price per-price">S/.25<br><small>/noche</small></span>
-                  </div>
-                </div>
-                <p>Los visitantes se hospedarán en hermosas habitaciones tradicionales circulares, de adobe y decoradas de manera autentica.</p>
-                <hr>
-                <p class="bottom-area d-flex">
-                  <span><i class="icon-map-o"><span> </span></i>Capachica-Puno</span>
-                  <span class="ml-auto"><a [routerLink]="['/isla-tikonata']">Reservar</a></span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm col-md-6 col-lg-4">
-            <div class="destination">
-              <a [routerLink]="['/siale-paramis']" class="img img-2 d-flex justify-content-center align-items-center"
-                 style="background-image: url(assets/images/hotel-11.png);" data-aos="flip-right" data-aos-duration="1000">
-                <div class="icon d-flex justify-content-center align-items-center">
-                  <span class="icon-link"></span>
-                </div>
-              </a>
-              <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="d-flex">
-                  <div class="one">
-                    <h3><a >Siale-Paramis</a></h3>
-                    <p class="rate">
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star-o"></i>
-                      <span>8 Rating</span>
-                    </p>
-                  </div>
-                  <div class="two">
-                    <span class="price per-price">S/.18<br><small>/noche</small></span>
-                  </div>
-                </div>
-                <p>Los visitantes se hospedarán en habitaciones tradicionales de adobe, decoradas de manera autentica.</p>
-                <hr>
-                <p class="bottom-area d-flex">
-                  <span><i class="icon-map-o"><span> </span></i>Capachica-Puno</span>
-                  <span class="ml-auto"><a [routerLink]="['/siale-paramis']">Reservar</a></span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm col-md-6 col-lg-4">
-            <div class="destination">
-              <a [routerLink]="['/escallani']" class="img img-2 d-flex justify-content-center align-items-center"
-                 style="background-image: url(assets/images/hotel-12.png);" data-aos="flip-right" data-aos-duration="1000">
-                <div class="icon d-flex justify-content-center align-items-center">
-                  <span class="icon-link"></span>
-                </div>
-              </a>
-              <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-                <div class="d-flex">
-                  <div class="one">
-                    <h3><a>Escallani</a></h3>
-                    <p class="rate">
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star"></i>
-                      <i class="icon-star-o"></i>
-                      <span>8 Rating</span>
-                    </p>
-                  </div>
-                  <div class="two">
-                    <span class="price per-price">S/.20<br><small>/noche</small></span>
-                  </div>
-                </div>
-                <p>Los visitantes se hospedarán en hermosas habitaciones tradicionales de adobe, decoradas de manera autentica.</p>
-                <hr>
-                <p class="bottom-area d-flex">
-                  <span><i class="icon-map-o"><span> </span></i>Capachica-Puno</span>
-                  <span class="ml-auto"><a [routerLink]="['/escallani']">Reservar</a></span>
-                </p>
-              </div>
-            </div>
+
+
+      <div class="main-display">
+        <div class="left-images">
+          <img [src]="imagenPrincipal" alt="Imagen principal" class="main-image" />
+          <div class="thumbnail-images">
+            <img
+              *ngFor="let img of lugarSeleccionado.imagenes"
+              [src]="img"
+              alt="Miniatura"
+              (click)="cambiarImagenPrincipal(img)"
+              [class.selected]="img === imagenPrincipal"
+            />
           </div>
         </div>
-        <div class="row mt-5">
-          <div class="col text-center">
-            <div class="block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
+
+        <div class="right-info">
+          <h2>{{ lugarSeleccionado.nombre }}</h2>
+          <p class="price">S/.{{ lugarSeleccionado.precio }} <span class="per-night">la noche</span></p>
+          <p class="description">{{ lugarSeleccionado.descripcion }}</p>
+          <p class="location">{{ lugarSeleccionado.ubicacion }}</p>
+          <div class="actions">
+            <button (click)="disminuirCantidad()" aria-label="Disminuir cantidad">-</button>
+            <input
+              type="number"
+              min="1"
+              max="20"
+              [value]="cantidad"
+              readonly
+              aria-live="polite"
+              aria-atomic="true"
+            />
+            <button (click)="aumentarCantidad()" aria-label="Aumentar cantidad">+</button>
+            <a (click)="agregarAlCarrito('Ccotos',
+                'S/.15 la noche',
+                'assets/images/hotel-8.png')"
+               class="btn btn-primary">Añadir al Carrito</a>
           </div>
         </div>
-      </div> <!-- .col-md-8 -->
+      </div>
+
+      <!-- Fila horizontal tarjetas pequeñas -->
+      <div class="bottom-thumbnails">
+        <div
+          class="thumbnail-card"
+          *ngFor="let lugar of lugares"
+          (click)="cambiarLugar(lugar.id)"
+          [class.active]="lugar.id === lugarSeleccionado.id"
+        >
+          <img [src]="lugar.imagenes[0]" [alt]="lugar.nombre" />
+          <h4>{{ lugar.nombre }}</h4>
+          <p class="price">S/.{{ lugar.precio }} la noche</p>
+          <p class="location">{{ lugar.ubicacion }}</p>
+          <button class="btn-view">Ir a {{ lugar.nombre }}</button>
+        </div>
+      </div>
+
+
     </div>
   </div>
 </section>
 
-<section class="review-section" id="section-counter" style="background-image: url(assets/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
-  <div class="container">
-    <div class="row">
-      <!-- Texto a la izquierda -->
-      <div class="col-md-6" data-aos="fade-right" data-aos-duration="1000">
-        <div class="section-title">
-          <h2>Deja una Reseña de tu visita</h2>
-          <p>Queremos saber todo sobre tu visita a Capachica. Deja tu reseña y comparte con nosotros tus momentos favoritos. ¡Tu opinión ayuda a mejorar y a que otros viajeros descubran lo mejor de este hermoso lugar!</p>
-        </div>
-      </div>
-
-      <!-- Formulario a la derecha -->
-      <div class="col-md-6" data-aos="fade-left" data-aos-duration="1000">
-        <form class="review-form">
-          <div class="form-group">
-            <input type="text" class="form-control" id="place" placeholder="Lugar de visita">
-          </div>
-          <div class="form-group">
-            <input type="number" class="form-control" id="rating" placeholder="Calificación" max="5" min="1">
-          </div>
-          <div class="form-group">
-            <input type="date" class="form-control" id="date">
-          </div>
-          <div class="form-group">
-            <textarea class="form-control" id="message" rows="4" placeholder="Mensaje"></textarea>
-          </div>
-          <button type="submit" class="btn btn-submit">Enviar Reseña</button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
 
 <footer class="ftco-footer ftco-bg-dark ftco-section">
   <div class="container">
