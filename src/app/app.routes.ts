@@ -11,6 +11,7 @@ import {CcotosComponent} from './comunidades/ccotos/ccotos.component';
 import {IslaTikonataComponent} from './comunidades/isla-tikonata/isla-tikonata.component';
 import {SialeParamisComponent} from './comunidades/siale-paramis/siale-paramis.component';
 import {EscallaniComponent} from './comunidades/escallani/escallani.component';
+import {MarketComponent} from './view/market/market.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -25,6 +26,7 @@ export const routes: Routes = [
   { path: 'isla-tikonata', component: IslaTikonataComponent },
   { path: 'siale-paramis', component: SialeParamisComponent },
   { path: 'escallani', component: EscallaniComponent },
+  { path: 'market', component: MarketComponent },
 
 
 

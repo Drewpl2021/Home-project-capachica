@@ -68,10 +68,14 @@
                 <img src="assets/images/llachon_hotel1.png" alt="La Florida Hospedaje Rural">
                 <h3>La Florida Hospedaje Rural</h3>
                 <p>Hospedaje Rural La Florida en Llachon, Titicaca se encuentra en Puno y ofrece alojamiento con parking privado gratis. También se ofrece nevera y hervidor. También hay un jardín ideal para relajarse.</p>
-                <a (click)="agregarAlCarrito('La Florida Hospedaje Rural',
-    'Hospedaje Rural La Florida en Llachon, Titicaca...',
-    'assets/images/llachon_hotel1.png')"
-                   class="btn btn-primary">Quedarme Aquí</a>
+                  <div style="display: flex">
+                    <a (click)="agregarAlCarrito('La Florida Hospedaje Rural',
+        'Hospedaje Rural La Florida en Llachon, Titicaca...',
+        'assets/images/llachon_hotel1.png')"
+                       class="btn btn-primary">Quedarme Aquí</a>
+                    <a class="btn btn-primary" routerLink="/market">Ver mas</a>
+                  </div>
+
               </div>
             </div>
             <!-- Slide 2 -->

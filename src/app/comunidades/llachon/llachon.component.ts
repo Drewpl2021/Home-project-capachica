@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
-import { CarritoService } from '../../nav/carrito-popup/carrito.service';  // ajusta según tu ruta
+import { CarritoService } from '../../nav/carrito-popup/carrito.service';
+import {RouterModule} from '@angular/router';  // ajusta según tu ruta
 
 @Component({
   selector: 'app-llachon',
   standalone: true,
   templateUrl: './llachon.component.html',
   styleUrl: './llachon.component.css',
-  imports: []
+  imports: [RouterModule]
 })
 export class LlachonComponent {
   constructor(private carritoService: CarritoService) {}
