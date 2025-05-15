@@ -4,6 +4,8 @@ import { filter } from 'rxjs/operators';
 import {CommonModule, NgClass} from '@angular/common';
 import {CarritoService} from '../carrito-sidebar/carrito.service';
 import {CarritoSidebarComponent} from '../carrito-sidebar/carrito-sidebar.component'; // Importa el operador filter
+import { computed, signal } from '@angular/core';
+import {AuthService} from '../../view/sign-in/auth.service';
 
 
 @Component({
@@ -16,23 +18,29 @@ import {CarritoSidebarComponent} from '../carrito-sidebar/carrito-sidebar.compon
 export class NavbarComponent implements OnInit {
   isScrolled = false;
   navItems: { label: string; path: string }[] = [];
-  mostrarPopup = false;
-
   currentUrl: string = '';
   currentFragment: string | null = null;
 
   @ViewChild(CarritoSidebarComponent) carritoSidebar!: CarritoSidebarComponent;
 
-  constructor(private router: Router, private route: ActivatedRoute, public carritoService: CarritoService) {
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              public carritoService: CarritoService,
+              public authService: AuthService,) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       window.scrollTo(0, 0); // Establece la posición del scroll a la parte superior
     });
   }
-  /*togglePopup() {
-    this.mostrarPopup = !this.mostrarPopup;
-  }*/
+
+  loggedIn = computed(() => this.authService.loggedIn());
+  email = computed(() => this.authService.email());
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/']); // redirige a inicio al cerrar sesión
+  }
 
   toggleSidebar() {
     if (this.carritoSidebar) {
@@ -76,7 +84,6 @@ export class NavbarComponent implements OnInit {
             { label: 'Isla-Tikonata', path: '/isla-tikonata' },
             { label: 'Siale-Paramis', path: '/siale-paramis' },
             { label: 'Escallani', path: '/escallani' },
-            { label: 'Iniciar Sesión', path: '/sign-in' }
           ];
         } else {
           this.navItems = [
@@ -86,7 +93,6 @@ export class NavbarComponent implements OnInit {
             { label: 'Hoteles', path: '/hotel' },
             { label: 'Blog', path: '/blog' },
             { label: 'Contacto', path: '/contact' },
-            { label: 'Iniciar Sesión', path: '/sign-in' }
           ];
         }
       }

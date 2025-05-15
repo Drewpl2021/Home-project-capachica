@@ -44,7 +44,7 @@
 .carrito-sidebar header h3 {
   margin: 0;
   font-weight: 700;
-  border-bottom: 2px solid #f9ca24; /* amarillo suave */
+  border-bottom: 2px solid #00c9a7; /* amarillo suave */
   padding-bottom: 0.4rem;
 }
 
@@ -178,4 +178,19 @@
 .vaciar-btn {
   flex: 1;
 }
+
+.pagar-btn:disabled {
+  background-color: #ccc !important;
+  color: #666 !important;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.vaciar-btn:disabled {
+  background-color: #ccc !important;
+  color: #666 !important;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
 

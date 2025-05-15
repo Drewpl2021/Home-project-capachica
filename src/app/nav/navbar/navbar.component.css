@@ -69,3 +69,49 @@ nav ul li a.active {
   background-color: #1abc9c;
   color: white;
 }
+
+/* Estilo del dropdown container */
+.navbar-nav .dropdown-menu {
+  background-color: #1abc9c;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(26, 188, 156, 0.4);
+  min-width: 80px;
+  padding: 0.5rem 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilo de cada item del dropdown */
+.navbar-nav .dropdown-item {
+  color: white;
+  padding: 0.5rem 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+  border-radius: 6px;
+  user-select: none;
+}
+
+/* Hover y foco en los items */
+.navbar-nav .dropdown-item:hover,
+.navbar-nav .dropdown-item:focus {
+  background-color: #1abc9c; /* amarillo suave */
+  color: #1abc9c; /* verde agua */
+  outline: none;
+}
+
+/* El enlace que abre el dropdown */
+.navbar-nav .nav-link.dropdown-toggle {
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link.dropdown-toggle:hover,
+.navbar-nav .nav-link.dropdown-toggle:focus {
+  color: #1abc9c; /* amarillo suave */
+  outline: none;
+}
+

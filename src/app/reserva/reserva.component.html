@@ -1,0 +1,26 @@
+<div class="reserva-container">
+  <h2>Confirmar Reserva</h2>
+
+  <div *ngIf="items().length === 0">
+    <p>No hay productos en la reserva.</p>
+  </div>
+
+  <ul *ngIf="items().length > 0">
+    <li *ngFor="let item of items()">
+      <img [src]="item.imagen" alt="{{ item.titulo }}" width="80" />
+      <div>
+        <h3>{{ item.titulo }}</h3>
+        <p>{{ item.descripcion }}</p>
+        <p>Cantidad: {{ item.cantidad }}</p>
+      </div>
+    </li>
+  </ul>
+
+  <button
+    [disabled]="items().length === 0"
+    (click)="confirmarReserva()"
+    class="confirm-btn"
+  >
+    Confirmar Reserva
+  </button>
+</div>
