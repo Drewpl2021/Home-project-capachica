@@ -1,10 +1,18 @@
 import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
+<<<<<<< HEAD
 import {Router, NavigationEnd, RouterModule} from '@angular/router'; // Importa NavigationEnd
 import { filter } from 'rxjs/operators';
 import {CommonModule, NgClass} from '@angular/common';
 //import {CarritoPopupComponent} from '../carrito-popup/carrito-popup.component';
 import {CarritoService} from '../carrito-popup/carrito.service';
 import {CarritoSidebarComponent} from '../carrito-popup/carrito-sidebar.component'; // Importa el operador filter
+=======
+import {Router, NavigationEnd, RouterModule, ActivatedRoute } from '@angular/router'; // Importa NavigationEnd
+import { filter } from 'rxjs/operators';
+import {CommonModule, NgClass} from '@angular/common';
+import {CarritoService} from '../carrito-sidebar/carrito.service';
+import {CarritoSidebarComponent} from '../carrito-sidebar/carrito-sidebar.component'; // Importa el operador filter
+>>>>>>> 425a5746f7ada7a36269474e1ff59d7d8b074380
 
 
 @Component({
@@ -18,11 +26,20 @@ export class NavbarComponent implements OnInit {
   isScrolled = false;
   navItems: { label: string; path: string }[] = [];
   mostrarPopup = false;
+<<<<<<< HEAD
+=======
+  currentUrl: string = '';
+  currentFragment: string | null = null;
+>>>>>>> 425a5746f7ada7a36269474e1ff59d7d8b074380
 
   @ViewChild(CarritoSidebarComponent) carritoSidebar!: CarritoSidebarComponent;
 
 
+<<<<<<< HEAD
   constructor(private router: Router, public carritoService: CarritoService) {
+=======
+  constructor(private router: Router, private route: ActivatedRoute, public carritoService: CarritoService) {
+>>>>>>> 425a5746f7ada7a36269474e1ff59d7d8b074380
     // Escucha los eventos de NavigationEnd para resetear el scroll
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
@@ -47,6 +64,15 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.setupScrollListener();
     this.setupNavItems();
+    // Escuchar cambios de ruta y fragmento para activar el nav
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.currentUrl = this.router.url.split('#')[0];
+      this.route.fragment.subscribe(fragment => {
+        this.currentFragment = fragment;
+      });
+    });
   }
 
   setupNavItems(): void {
@@ -94,8 +120,11 @@ export class NavbarComponent implements OnInit {
     this.router.navigate([path]);
   }
 
-  isActive(path: string): boolean {
-    return this.router.url === path;
+  isActive(path: string, fragment?: string): boolean {
+    if (fragment) {
+      return this.currentUrl === path && this.currentFragment === fragment;
+    }
+    return this.currentUrl === path;
   }
 
   setupScrollListener(): void {
