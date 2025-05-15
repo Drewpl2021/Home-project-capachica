@@ -1,27 +1,47 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit, ViewChild} from '@angular/core';
 import {Router, NavigationEnd, RouterModule} from '@angular/router'; // Importa NavigationEnd
 import { filter } from 'rxjs/operators';
-import {CommonModule, NgClass} from '@angular/common'; // Importa el operador filter
+import {CommonModule, NgClass} from '@angular/common';
+//import {CarritoPopupComponent} from '../carrito-popup/carrito-popup.component';
+import {CarritoService} from '../carrito-popup/carrito.service';
+import {CarritoSidebarComponent} from '../carrito-popup/carrito-sidebar.component'; // Importa el operador filter
 
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, CarritoSidebarComponent],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
   isScrolled = false;
   navItems: { label: string; path: string }[] = [];
+  mostrarPopup = false;
 
-  constructor(private router: Router) {
+  @ViewChild(CarritoSidebarComponent) carritoSidebar!: CarritoSidebarComponent;
+
+
+  constructor(private router: Router, public carritoService: CarritoService) {
     // Escucha los eventos de NavigationEnd para resetear el scroll
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       window.scrollTo(0, 0); // Establece la posición del scroll a la parte superior
     });
+  }
+  /*togglePopup() {
+    this.mostrarPopup = !this.mostrarPopup;
+  }*/
+
+  toggleSidebar() {
+    if (this.carritoSidebar) {
+      if (this.carritoSidebar.visible) {
+        this.carritoSidebar.cerrar();
+      } else {
+        this.carritoSidebar.abrir();
+      }
+    }
   }
 
   ngOnInit(): void {

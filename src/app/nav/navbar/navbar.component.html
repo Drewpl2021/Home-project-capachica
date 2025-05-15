@@ -9,6 +9,10 @@
         <li class="nav-item" *ngFor="let item of navItems" [ngClass]="{ 'active': isActive(item.path) }">
           <a href="javascript:void(0)" (click)="navigateTo(item.path)" class="nav-link">{{ item.label }}</a>
         </li>
+        <button class="carrito-btn" (click)="toggleSidebar()">
+          🛒({{ carritoService.items().length }})
+        </button>
+        <app-carrito-sidebar></app-carrito-sidebar>
       </ul>
     </div>
   </div>
