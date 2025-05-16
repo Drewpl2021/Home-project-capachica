@@ -86,17 +86,19 @@ export class NavbarComponent implements OnInit {
         this.distrito = data.content[0].distrito;
       }
     });
-  }
 
-  setupNavItems() {
-    // Busca la sección con code "04" que corresponde a "Hoteles"
+  }
+  setupNavItems(userData?: { name: string; last_name: string }) {
+    console.log('Datos de usuario recibidos en setupNavItems:', userData);
+
+    // Busca la sección con code "01" a "06"
     const seccionInicio = this.sections.find(sec => sec.code === '01');
     const seccionAcercade = this.sections.find(sec => sec.code === '02');
     const seccionLugares = this.sections.find(sec => sec.code === '03');
     const seccionHoteles = this.sections.find(sec => sec.code === '04');
     const seccionBlog = this.sections.find(sec => sec.code === '05');
     const seccionContacto = this.sections.find(sec => sec.code === '06');
-    // Si no se encuentra, fallback a 'Hoteles'
+
     const labelInicio = seccionInicio ? seccionInicio.name : 'Inicio';
     const labelAcercade = seccionAcercade ? seccionAcercade.name : 'Acerca de';
     const labelLugares = seccionLugares ? seccionLugares.name : 'Lugares';
@@ -120,9 +122,21 @@ export class NavbarComponent implements OnInit {
       { label: labelHoteles, path: '/hotel' },
       { label: labelBlog, path: '/blog' },
       { label: labelContacto, path: '/contact' },
-      { label: 'Iniciar Sesión', path: '/sign-in' }
     ];
+
+    if (userData && userData.name && userData.last_name) {
+      this.navItems.push({
+        label: `${userData.name} ${userData.last_name}`,
+        path: '/profile' // o a donde quieras que apunte
+      });
+    } else {
+      this.navItems.push({
+        label: 'Iniciar Sesión',
+        path: 'http://localhost:4200/sign-in'
+      });
+    }
   }
+
 
   toggleDropdown(index: number): void {
     if (this.dropdownOpenIndex === index) {
@@ -161,7 +175,14 @@ export class NavbarComponent implements OnInit {
 
 
   navigateTo(path: string): void {
-    this.router.navigate([path]);
+      if (path.startsWith('http://') || path.startsWith('https://')) {
+        // URL externa, redirigir con recarga completa
+        window.location.href = path;
+      } else {
+        // URL interna, navegar con Angular Router
+        this.router.navigate([path]);
+      }
+
   }
 
   isActive(path: string, fragment?: string): boolean {

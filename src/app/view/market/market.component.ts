@@ -63,8 +63,8 @@ export class MarketComponent implements OnInit {
       this.imagenPrincipal = this.emprendedorServicio.img_emprendedor_services[0].url_image;
     }
   }
-  agregarAlCarrito(titulo: string, descripcion: string, imagen: string, precio: number) {
-    this.carritoService.agregarItem({ titulo, descripcion, imagen, precio });
+  agregarAlCarrito(id: string,titulo: string, descripcion: string, imagen: string, precio: number) {
+    this.carritoService.agregarItem({ id,titulo, descripcion, imagen, precio });
   }
 
   private cargarDatosPorId(id: string) {

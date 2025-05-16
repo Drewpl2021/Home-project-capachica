@@ -1,6 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 
 export interface ItemCarrito {
+  id: string;
   titulo: string;
   descripcion: string;
   imagen: string;
@@ -36,25 +37,6 @@ export class CarritoService {
     this._items.update(items =>
       items.filter(item => item.titulo !== titulo)
     );
-  }
-
-
-  aumentarCantidad(titulo: string) {
-    this._items.update(items => {
-      return items.map(item =>
-        item.titulo === titulo ? {...item, cantidad: item.cantidad + 1} : item
-      );
-    });
-  }
-
-  disminuirCantidad(titulo: string) {
-    this._items.update(items => {
-      return items
-        .map(item =>
-          item.titulo === titulo ? {...item, cantidad: Math.max(1, item.cantidad - 1)} : item
-        )
-        .filter(item => item.cantidad > 0);
-    });
   }
 
 

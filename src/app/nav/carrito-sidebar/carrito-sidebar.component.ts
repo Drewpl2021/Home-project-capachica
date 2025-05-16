@@ -42,18 +42,22 @@ export class CarritoSidebarComponent {
 
   pagar() {
     if (this.items().length === 0) {
-      // Opcional: alerta o nada
       alert('El carrito está vacío. Agrega productos antes de generar reserva.');
       return;
     }
 
     if (!this.authService.isLoggedIn()) {
-      window.location.href = 'http://localhost:4200/sign-in';
+      // Serializar carrito, codificar para URL
+      const carritoStr = encodeURIComponent(JSON.stringify(this.items()));
+
+      // Redirigir a login en otro proyecto con carrito en query param
+      window.location.href = `http://localhost:4200/sign-in?carrito=${carritoStr}`;
     } else {
       this.router.navigate(['/reserva']);
       this.cerrar();
     }
   }
+
 
   total = computed(() => this.carritoService.items().reduce(
     (sum, item) => sum + item.precio * item.cantidad, 0
