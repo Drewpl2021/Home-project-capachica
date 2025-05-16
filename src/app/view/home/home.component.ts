@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {CommonModule, NgStyle} from '@angular/common';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import { AsociacionService} from '../../services/asociacion.service';
-import {ApiResponse, Asociacion} from './model/home';
+import {ApiResponse, Asociacion, EmprendedorServicio, Servicios} from './model/home';
 import {Observable} from 'rxjs';
+import {ServicioService} from '../../services/service.service';
+import {EmprendedorService} from '../../services/EmprendedorService.service';
 
 @Component({
   selector: 'app-home',
@@ -25,11 +27,18 @@ export class HomeComponent implements OnInit {
   ];
   currentImage = this.imageList[0];
   currentIndex = 0;
+  selectedCategory: any = null;
   asociaciones: Asociacion[] = []; // tipo any para evitar líos
+  servicios: Servicios[] = []; // tipo any para evitar líos
+  emprendedorServicios: EmprendedorServicio[] = []; // tipo any para evitar líos
   imageIndexes: number[] = []; // índice actual para la imagen de cada asociación
 
 
-  constructor(private asociacionService: AsociacionService) {}
+  constructor(private _asociacionService: AsociacionService,
+              private _servicioService: ServicioService,
+              private _emprendedorService: EmprendedorService,
+              private router: Router
+  ) {}
 
 
   ngOnInit(): void {
@@ -37,13 +46,41 @@ export class HomeComponent implements OnInit {
   }
 
   private cargarDatos() {
-    this.asociacionService.getAsociaciones().subscribe({
+    this._asociacionService.getAsociaciones().subscribe({
       next: (response: ApiResponse) => {
         this.asociaciones = response.content || [];
         this.iniciarCarruseles();
       },
-      error: (err) => console.error('Error al cargar asociaciones:', err)
     });
+
+    this._servicioService.getServicio().subscribe({
+      next: (response: ApiResponse) => {
+        this.servicios = response.content || [];
+        this.selectedCategory = this.servicios.find(item => item.code === "01") || null;
+
+        if (this.selectedCategory) {
+          this.uploadData(this.selectedCategory.id); // pasar categoría
+        } else {
+          this.uploadData(); // sin filtro si no hay categoría
+        }
+      }
+    });
+  }
+
+  private uploadData(id?: string) {
+    this._emprendedorService.getServicioFilter(id).subscribe({
+      next: (response: ApiResponse) => {
+        this.emprendedorServicios = response.content || [];
+        this.selectedCategory = this.emprendedorServicios.find(item => item.code === "01") || null;
+        this.iniciarCarruseles();
+
+      },
+    });
+  }
+
+  navigateTo(servicio: any) {
+    const serviceId = servicio.id;
+    this.router.navigate(['/market', serviceId]);
   }
 
   private iniciarCarruseles() {
@@ -60,15 +97,15 @@ export class HomeComponent implements OnInit {
         // @ts-ignore
         return (currentIndex + 1) % this.asociaciones[i].imagenes.length;
       });
-    }, 4000);
+    }, 5000);
   }
   scrollLeft(): void {
     const carousel = document.getElementById('carousel');
-    if (carousel) carousel.scrollLeft -= 300;
+    if (carousel) carousel.scrollLeft -= 3000;
   }
 
   scrollRight(): void {
     const carousel = document.getElementById('carousel');
-    if (carousel) carousel.scrollLeft += 300;
+    if (carousel) carousel.scrollLeft += 3000;
   }
 }

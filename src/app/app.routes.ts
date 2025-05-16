@@ -28,7 +28,7 @@ export const routes: Routes = [
   { path: 'isla-tikonata', component: IslaTikonataComponent },
   { path: 'siale-paramis', component: SialeParamisComponent },
   { path: 'escallani', component: EscallaniComponent },
-  { path: 'market', component: MarketComponent },
+  { path: 'market/:serviceId', component: MarketComponent},
   { path: 'sign-in', component: SignInComponent },
   { path: 'reserva', component: ReservaComponent },
 
