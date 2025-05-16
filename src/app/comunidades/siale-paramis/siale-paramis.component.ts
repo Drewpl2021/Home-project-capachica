@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-siale-paramis',
   imports: [],
+  standalone:true,
   templateUrl: './siale-paramis.component.html',
   styleUrl: './siale-paramis.component.css'
 })
@@ -12,8 +13,8 @@ import { ActivatedRoute } from '@angular/router';
 export class SialeParamisComponent implements AfterViewInit {
   constructor(private readonly carritoService: CarritoService, private readonly route: ActivatedRoute) {}
   //carrito
-  agregarAlCarrito(titulo: string, descripcion: string, imagen: string, precio: number) {
-    this.carritoService.agregarItem({ titulo, descripcion, imagen, precio });
+  agregarAlCarrito(id: string, titulo: string, descripcion: string, imagen: string, precio: number) {
+    this.carritoService.agregarItem({ id,titulo, descripcion, imagen, precio });
   }
   //navegacion
   ngAfterViewInit() {

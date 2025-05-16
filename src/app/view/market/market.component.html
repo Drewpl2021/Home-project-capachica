@@ -73,7 +73,7 @@
           </div>
           <br>
           <a
-            (click)="agregarAlCarrito(
+            (click)="agregarAlCarrito(emprendedorServicio?.id ?? '',
     emprendedorServicio?.name ?? '','',
     emprendedorServicio?.img_emprendedor_services?.[0]?.url_image ?? 'assets/images/default.png',
     parseFloat(emprendedorServicio?.costo ?? '0')
