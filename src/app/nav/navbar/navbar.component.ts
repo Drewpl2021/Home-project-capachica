@@ -120,7 +120,7 @@ export class NavbarComponent implements OnInit {
       { label: labelHoteles, path: '/hotel' },
       { label: labelBlog, path: '/blog' },
       { label: labelContacto, path: '/contact' },
-      { label: 'Iniciar Sesión', path: '/sign-in' }
+      { label: 'Iniciar Sesión', path: 'http://localhost:4200/sign-in' }
     ];
   }
 
@@ -161,7 +161,14 @@ export class NavbarComponent implements OnInit {
 
 
   navigateTo(path: string): void {
-    this.router.navigate([path]);
+      if (path.startsWith('http://') || path.startsWith('https://')) {
+        // URL externa, redirigir con recarga completa
+        window.location.href = path;
+      } else {
+        // URL interna, navegar con Angular Router
+        this.router.navigate([path]);
+      }
+
   }
 
   isActive(path: string, fragment?: string): boolean {
