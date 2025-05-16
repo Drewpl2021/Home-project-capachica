@@ -14,8 +14,8 @@ export class LlachonComponent implements AfterViewInit {
 
   constructor(private readonly carritoService: CarritoService, private readonly route: ActivatedRoute) {}
   //carrito
-  agregarAlCarrito(titulo: string, descripcion: string, imagen: string) {
-    this.carritoService.agregarItem({ titulo, descripcion, imagen });
+  agregarAlCarrito(titulo: string, descripcion: string, imagen: string, precio: number) {
+    this.carritoService.agregarItem({ titulo, descripcion, imagen, precio });
   }
   //navegacion
   ngAfterViewInit() {

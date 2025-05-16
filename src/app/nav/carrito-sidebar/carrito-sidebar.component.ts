@@ -1,6 +1,6 @@
 import { Component, computed, inject } from '@angular/core';
 import { CarritoService, ItemCarrito } from './carrito.service';
-import { NgForOf, NgIf } from '@angular/common';
+import {DecimalPipe, NgForOf, NgIf} from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthService } from '../../view/sign-in/auth.service';
 
@@ -10,7 +10,8 @@ import { AuthService } from '../../view/sign-in/auth.service';
   templateUrl: './carrito.sidebar.component.html',
   imports: [
     NgForOf,
-    NgIf
+    NgIf,
+    DecimalPipe
   ],
   styleUrls: ['./carrito-sidebar.component.css'],  // corregido
 })
@@ -60,4 +61,9 @@ export class CarritoSidebarComponent {
       this.cerrar();
     }
   }
+
+  total = computed(() => this.carritoService.items().reduce(
+    (sum, item) => sum + item.precio * item.cantidad, 0
+  ));
+
 }

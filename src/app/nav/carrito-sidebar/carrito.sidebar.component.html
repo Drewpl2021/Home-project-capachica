@@ -9,14 +9,20 @@
       <div>
         <strong>{{ item.titulo }}</strong>
         <p>{{ item.descripcion }}</p>
+        <p>Precio unitario: S/ {{ item.precio | number:'1.2-2' }}</p>
         <div class="contador">
           <button (click)="disminuir(item.titulo)">−</button>
           <span>{{ item.cantidad }}</span>
           <button (click)="aumentar(item.titulo)">+</button>
         </div>
+        <p>Subtotal: S/ {{ (item.precio * item.cantidad) | number:'1.2-2' }}</p>
       </div>
     </li>
   </ul>
+  <div class="total-container">
+    <strong>Total: S/ {{ total() | number:'1.2-2' }}</strong>
+  </div>
+
   <div class="acciones-carrito">
     <button class="vaciar-btn" (click)="vaciar()" [disabled]="items().length === 0" title="Agrega productos al carrito para vaciar" >Vaciar carrito</button>
     <button class="pagar-btn" (click)="pagar()" [disabled]="items().length === 0" title="Agrega productos al carrito para generar reserva" >Generar reserva</button>

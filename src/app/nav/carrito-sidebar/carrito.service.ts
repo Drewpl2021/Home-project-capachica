@@ -5,6 +5,7 @@ export interface ItemCarrito {
   descripcion: string;
   imagen: string;
   cantidad: number;
+  precio: number;
 }
 
 @Injectable({

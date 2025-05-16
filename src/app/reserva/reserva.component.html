@@ -1,26 +1,101 @@
 <div class="reserva-container">
   <h2>Confirmar Reserva</h2>
 
-  <div *ngIf="items().length === 0">
-    <p>No hay productos en la reserva.</p>
-  </div>
+  <!-- Vista previa de la reserva y botón Confirmar -->
+  <ng-container *ngIf="!mostrarFormularioPago()">
+    <div *ngIf="items().length === 0">
+      <p>No hay productos en la reserva.</p>
+    </div>
 
-  <ul *ngIf="items().length > 0">
-    <li *ngFor="let item of items()">
-      <img [src]="item.imagen" alt="{{ item.titulo }}" width="80" />
-      <div>
-        <h3>{{ item.titulo }}</h3>
-        <p>{{ item.descripcion }}</p>
-        <p>Cantidad: {{ item.cantidad }}</p>
+    <div *ngIf="items().length > 0" class="reserva-grid">
+      <!-- Carrito a la izquierda -->
+      <div class="carrito-resumen">
+        <h3>Productos en tu reserva</h3>
+        <ul>
+          <li *ngFor="let item of items()">
+            <img [src]="item.imagen" alt="{{ item.titulo }}" width="80" />
+            <div>
+              <h4>{{ item.titulo }}</h4>
+              <p>{{ item.descripcion }}</p>
+              <p>Cantidad: {{ item.cantidad }}</p>
+              <p>Precio: S/ {{ item.precio | number:'1.2-2' }}</p>
+              <p>Subtotal: S/ {{ (item.precio * item.cantidad) | number:'1.2-2' }}</p>
+            </div>
+          </li>
+          <div class="total-reserva" *ngIf="items().length > 0">
+            <h3>Total a pagar: S/ {{ total() | number:'1.2-2' }}</h3>
+          </div>
+        </ul>
       </div>
-    </li>
-  </ul>
 
-  <button
-    [disabled]="items().length === 0"
-    (click)="confirmarReserva()"
-    class="confirm-btn"
-  >
-    Confirmar Reserva
-  </button>
+      <!-- Métodos de pago a la derecha -->
+      <div class="metodos-pago">
+        <h3>Opciones de pago</h3>
+        <ul>
+          <li>
+            <img src="assets/images/yape-logo.png" alt="Yape" class="metodo-icon" height="60" width="60"/>
+            <div>
+              <strong>Yape</strong>
+              <p>Envía el pago a nuestro número 999-999-999.</p>
+            </div>
+          </li>
+          <li>
+            <img src="assets/images/banco-logo.png" alt="Banco" class="metodo-icon" />
+            <div>
+              <strong>Transferencia bancaria</strong>
+              <p>Cuenta en el Banco XYZ: 1234567890.</p>
+            </div>
+          </li>
+          <li>
+            <img src="assets/images/visa-logo.png" alt="Tarjeta" class="metodo-icon" />
+            <div>
+              <strong>Tarjeta de crédito/débito</strong>
+              <p>Aceptamos Visa, Mastercard y American Express.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <button
+      [disabled]="items().length === 0"
+      (click)="confirmarReserva()"
+      class="confirm-btn"
+    >
+      Confirmar Reserva
+    </button>
+  </ng-container>
+
+  <!-- Formulario de datos cliente y tipo de pago -->
+  <ng-container *ngIf="mostrarFormularioPago()">
+    <h3>Complete sus datos para finalizar</h3>
+    <form (submit)="finalizarReserva($event)">
+      <label>
+        Nombre completo:
+        <input type="text" [(ngModel)]="nombreCliente" name="nombreCliente" required />
+      </label>
+      <label>
+        Email:
+        <input type="email" [(ngModel)]="emailCliente" name="emailCliente" required />
+      </label>
+      <label>
+        Teléfono:
+        <input type="tel" [(ngModel)]="telefonoCliente" name="telefonoCliente" />
+      </label>
+
+      <label>
+        Método de pago:
+        <select [(ngModel)]="tipoPago" name="tipoPago" required>
+          <option value="" disabled selected>Seleccione un método</option>
+          <option value="yape">Yape</option>
+          <option value="banco">Transferencia bancaria</option>
+          <option value="tarjeta">Tarjeta de crédito/débito</option>
+          <option value="tarjeta">Efectivo en Caja</option>
+        </select>
+      </label>
+      <button  type="submit" class="confirm-btn" >Finalizar Reserva Y Descargar Voucher</button>
+      <button type="button" class="cancel-btn" (click)="cancelar()">Cancelar</button>
+
+    </form>
+  </ng-container>
 </div>
