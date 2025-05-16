@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common'; // <-- Importa CommonModule aquí
 import {CarritoService} from '../../nav/carrito-sidebar/carrito.service';
 import {ActivatedRoute} from '@angular/router';
+import {AsociacionService} from '../../services/asociacion.service';
+import {EmprendedorService} from '../../services/EmprendedorService.service';
+import {ApiResponse, EmprendedorServicio} from './market/market';
 
 interface Lugar {
   id: string;
@@ -22,12 +25,45 @@ interface Lugar {
   ],
   styleUrls: ['./market.component.css']
 })
-export class MarketComponent {
-  constructor(private readonly carritoService: CarritoService, private readonly route: ActivatedRoute) {}
-  //carrito
+export class MarketComponent implements OnInit {
+  emprendedorServicio: EmprendedorServicio | null = null;
+  serviceId: string | null = null;
+  imagenPrincipal: string = '';
+  emprendedorServicios: EmprendedorServicio[] = []; // tipo any para evitar líos
+
+
+  constructor(private readonly carritoService: CarritoService,
+              private readonly route: ActivatedRoute,
+              private _emprendedorService: EmprendedorService,
+
+  ) {}
+
+  ngOnInit() {
+    this.serviceId = this.route.snapshot.paramMap.get('serviceId');
+    if (this.serviceId) {
+      this.cargarDatosPorId(this.serviceId);
+    }
+    if (this.emprendedorServicio?.img_emprendedor_services?.length) {
+      this.imagenPrincipal = this.emprendedorServicio.img_emprendedor_services[0].url_image;
+    }
+  }
   agregarAlCarrito(titulo: string, descripcion: string, imagen: string) {
     this.carritoService.agregarItem({ titulo, descripcion, imagen });
   }
+
+  private cargarDatosPorId(id: string) {
+    this._emprendedorService.getServicioById(id).subscribe({
+      next: (servicio) => {
+        this.emprendedorServicio = servicio;
+        if (servicio.img_emprendedor_services.length) {
+          this.imagenPrincipal = servicio.img_emprendedor_services[0].url_image;
+        }
+      },
+    });
+
+  }
+
+
   lugares: Lugar[] = [
     {
       id: 'llachon',
@@ -116,7 +152,6 @@ export class MarketComponent {
   ];
 
   lugarSeleccionado: Lugar = this.lugares[0];
-  imagenPrincipal: string = this.lugarSeleccionado.imagenes[0];
   cantidad = 1;
 
   cambiarLugar(lugarId: string) {
@@ -128,8 +163,8 @@ export class MarketComponent {
     }
   }
 
-  cambiarImagenPrincipal(img: string) {
-    this.imagenPrincipal = img;
+  cambiarImagenPrincipal(url: string) {
+    this.imagenPrincipal = url;
   }
   disminuirCantidad() {
     if (this.cantidad > 1) this.cantidad--;

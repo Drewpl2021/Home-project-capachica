@@ -17,23 +17,35 @@
 
       <div class="main-display">
         <div class="left-images">
-          <img [src]="imagenPrincipal" alt="Imagen principal" class="main-image" />
+          <img
+            [src]="imagenPrincipal"
+            alt="Imagen principal"
+            class="main-image"
+          />
+
           <div class="thumbnail-images">
             <img
-              *ngFor="let img of lugarSeleccionado.imagenes"
-              [src]="img"
+              *ngFor="let img of emprendedorServicio?.img_emprendedor_services"
+              [src]="img.url_image"
               alt="Miniatura"
-              (click)="cambiarImagenPrincipal(img)"
-              [class.selected]="img === imagenPrincipal"
+              (click)="cambiarImagenPrincipal(img.url_image)"
+              [class.selected]="img.url_image === imagenPrincipal"
             />
           </div>
         </div>
 
+
         <div class="right-info">
-          <h2>{{ lugarSeleccionado.nombre }}</h2>
-          <p class="price">S/.{{ lugarSeleccionado.precio }} <span class="per-night">la noche</span></p>
-          <p class="description">{{ lugarSeleccionado.descripcion }}</p>
-          <p class="location">{{ lugarSeleccionado.ubicacion }}</p>
+          <h2>{{ emprendedorServicio?.name }}</h2>
+
+          <p class="price">
+            S/.{{ emprendedorServicio?.costo }} <span class="per-night">la noche</span>
+          </p>
+
+          <p class="description">{{ emprendedorServicio?.description }}</p>
+
+          <p class="location">{{ emprendedorServicio?.emprendedor?.lugar }}</p>
+
           <div class="actions">
             <button (click)="disminuirCantidad()" aria-label="Disminuir cantidad">-</button>
             <input
@@ -46,13 +58,14 @@
               aria-atomic="true"
             />
             <button (click)="aumentarCantidad()" aria-label="Aumentar cantidad">+</button>
+          </div>
+          <br>
             <a (click)="agregarAlCarrito('Ccotos',
                 'S/.15 la noche',
                 'assets/images/hotel-8.png')"
                class="btn btn-primary">Añadir al Carrito</a>
           </div>
         </div>
-      </div>
 
       <!-- Fila horizontal tarjetas pequeñas -->
       <div class="bottom-thumbnails">

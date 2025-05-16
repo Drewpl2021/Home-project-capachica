@@ -134,7 +134,6 @@ export class NavbarComponent implements OnInit {
     this.sectionsService.getSections().subscribe(
       (data) => {
         this.sections = data.content && Array.isArray(data.content) ? data.content : [];
-        console.log("secciones encontradas", this.sections)
       },
       (error) => {
         console.error('Error fetching sections:', error);
