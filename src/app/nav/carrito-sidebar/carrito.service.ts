@@ -32,6 +32,12 @@ export class CarritoService {
       }
     });
   }
+  eliminarItem(titulo: string) {
+    this._items.update(items =>
+      items.filter(item => item.titulo !== titulo)
+    );
+  }
+
 
   aumentarCantidad(titulo: string) {
     this._items.update(items => {

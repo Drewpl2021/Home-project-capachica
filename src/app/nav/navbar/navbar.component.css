@@ -139,3 +139,15 @@ nav ul li a.active {
   background-color: #f39c12;
   color: black;
 }
+.btn-delete {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.btn-delete:hover {
+  background-color: #c82333;
+}

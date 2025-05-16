@@ -39,13 +39,6 @@ export class CarritoSidebarComponent {
     this.carritoService.vaciarCarrito();
   }
 
-  aumentar(titulo: string) {
-    this.carritoService.aumentarCantidad(titulo);
-  }
-
-  disminuir(titulo: string) {
-    this.carritoService.disminuirCantidad(titulo);
-  }
 
   pagar() {
     if (this.items().length === 0) {
@@ -55,7 +48,7 @@ export class CarritoSidebarComponent {
     }
 
     if (!this.authService.isLoggedIn()) {
-      this.router.navigate(['/sign-in']);
+      window.location.href = 'http://localhost:4200/sign-in';
     } else {
       this.router.navigate(['/reserva']);
       this.cerrar();
@@ -65,5 +58,10 @@ export class CarritoSidebarComponent {
   total = computed(() => this.carritoService.items().reduce(
     (sum, item) => sum + item.precio * item.cantidad, 0
   ));
+  eliminar(titulo: string) {
+    this.carritoService.eliminarItem(titulo);
+  }
+
+
 
 }

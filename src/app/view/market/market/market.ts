@@ -25,6 +25,7 @@ export interface EmprendedorServicio {
   service: {
     id: string;
     name: string;
+    code: string;
     category: string;
     // ... otros campos
   };

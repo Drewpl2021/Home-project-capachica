@@ -1,23 +1,38 @@
 <div class="sidebar-overlay" (click)="cerrar()" *ngIf="visible"></div>
 <aside class="carrito-sidebar" [class.open]="visible">
   <header>
-    <h3>Carrito de Compras</h3>
+    <h3>Mi Carrito</h3>
   </header>
   <ul>
-    <li *ngFor="let item of items()">
-      <img [src]="item.imagen" alt="{{ item.titulo }}">
-      <div>
-        <strong>{{ item.titulo }}</strong>
-        <p>{{ item.descripcion }}</p>
-        <p>Precio unitario: S/ {{ item.precio | number:'1.2-2' }}</p>
-        <div class="contador">
-          <button (click)="disminuir(item.titulo)">−</button>
-          <span>{{ item.cantidad }}</span>
-          <button (click)="aumentar(item.titulo)">+</button>
-        </div>
-        <p>Subtotal: S/ {{ (item.precio * item.cantidad) | number:'1.2-2' }}</p>
+
+    <li *ngFor="let item of items()"
+        style="display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid #e0e0e0; position: relative; font-size: 13px;">
+
+      <!-- Imagen a la izquierda -->
+      <img [src]="item.imagen"
+           alt="{{ item.titulo }}"
+           style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; flex-shrink: 0; margin-left: 10px"/>
+
+      <!-- Contenido a la derecha -->
+      <div style="flex: 1; display: flex; flex-direction: column; gap: 4px;">
+        <p style="font-weight: 600; font-size: 13px; margin: 0; color: #333;">{{ item.titulo }}</p>
+        <p style="margin: 0; color: #666; font-size: 12px;">{{ item.descripcion }}</p>
+        <p style="margin: 0; font-size: 13px; font-weight: 600;">
+          {{ item.cantidad }} × S/ {{ item.precio | number:'1.2-2' }}
+        </p>
       </div>
+
+      <!-- Botón eliminar a la derecha -->
+      <button (click)="eliminar(item.titulo)"
+              style="background: transparent; border: none; cursor: pointer; padding: 2px;">
+        <span class="material-icons" style="color: red; font-size: 18px; margin-right: 5px; margin-top: 12px">delete</span>
+      </button>
     </li>
+
+
+
+
+
   </ul>
   <div class="total-container">
     <strong>Total: S/ {{ total() | number:'1.2-2' }}</strong>
@@ -25,6 +40,6 @@
 
   <div class="acciones-carrito">
     <button class="vaciar-btn" (click)="vaciar()" [disabled]="items().length === 0" title="Agrega productos al carrito para vaciar" >Vaciar carrito</button>
-    <button class="pagar-btn" (click)="pagar()" [disabled]="items().length === 0" title="Agrega productos al carrito para generar reserva" >Generar reserva</button>
+    <button class="pagar-btn" (click)="pagar()" [disabled]="items().length === 0" title="Agrega productos al carrito para generar reserva" >Finalizar Compra</button>
   </div>
 </aside>

@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
   asociaciones: Asociacion[] = []; // tipo any para evitar líos
   servicios: Servicios[] = []; // tipo any para evitar líos
   emprendedorServicios: EmprendedorServicio[] = []; // tipo any para evitar líos
+  comida: EmprendedorServicio[] = []; // tipo any para evitar líos
   imageIndexes: number[] = []; // índice actual para la imagen de cada asociación
 
 
@@ -60,8 +61,16 @@ export class HomeComponent implements OnInit {
 
         if (this.selectedCategory) {
           this.uploadData(this.selectedCategory.id); // pasar categoría
-        } else {
-          this.uploadData(); // sin filtro si no hay categoría
+        }
+      }
+    });
+    this._servicioService.getServicio().subscribe({
+      next: (response: ApiResponse) => {
+        this.servicios = response.content || [];
+        this.selectedCategory = this.servicios.find(item => item.code === "03") || null;
+
+        if (this.selectedCategory) {
+          this.uploadComida(this.selectedCategory.id); // pasar categoría
         }
       }
     });
@@ -76,8 +85,19 @@ export class HomeComponent implements OnInit {
 
       },
     });
-  }
 
+  }
+  private uploadComida(id?: string) {
+    this._emprendedorService.getServicioFilter(id).subscribe({
+      next: (response: ApiResponse) => {
+        this.comida = response.content || [];
+        this.selectedCategory = this.comida.find(item => item.code === "03") || null;
+        this.iniciarCarruseles();
+
+      },
+    });
+
+  }
   navigateTo(servicio: any) {
     const serviceId = servicio.id;
     this.router.navigate(['/market', serviceId]);

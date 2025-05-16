@@ -90,12 +90,12 @@ export class MarketComponent implements OnInit {
         this.selectedarte = this.servicios.find(item => item.code === "04") || null;
         this.selectedcard = this.servicios.find(item => item.code === "05") || null;
 
-        if (this.selectedCategory, this.selectedgastro, this.selectedarte,  this.selectedcard, this.selectedhotel, this.servicios) {
+        if (this.selectedhotel, this.selectedCategory, this.selectedgastro, this.selectedarte,  this.selectedcard) {
+          this.uploadhotel(this.selectedhotel.id);
           this.uploadtours(this.selectedCategory.id);
           this.uploadgastronomia(this.selectedgastro.id);
           this.uploadartesanias(this.selectedarte.id);
           this.uploadtransporte(this.selectedcard.id);
-          this.uploadhotel(this.selectedhotel.id);
 
         }
       }
@@ -188,4 +188,5 @@ export class MarketComponent implements OnInit {
     if (this.cantidad < 20) this.cantidad++;
   }
 
+  protected readonly parseFloat = parseFloat;
 }

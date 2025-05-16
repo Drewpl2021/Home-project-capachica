@@ -92,7 +92,7 @@
 .carrito-sidebar strong {
   flex-grow: 1;
   font-size: 1.1rem;
-  color: #f9ca24;
+  color: #000000;
 }
 
 .carrito-sidebar p {
@@ -104,7 +104,7 @@
 }
 
 .vaciar-btn {
-  background-color: #f1c40f;
+  background-color: #000000;
   color: white;
   font-weight: 700;
   border: none;
@@ -116,7 +116,7 @@
 }
 
 .vaciar-btn:hover {
-  background-color: #e0a800;
+  background-color: #000000;
 }
 
 .contador {

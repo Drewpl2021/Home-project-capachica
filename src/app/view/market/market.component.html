@@ -39,7 +39,19 @@
           <h2>{{ emprendedorServicio?.name }}</h2>
 
           <p class="price">
-            S/.{{ emprendedorServicio?.costo }} <span class="per-night">la noche</span>
+            S/.{{ emprendedorServicio?.costo }}
+            <span class="per-night">
+              {{
+                emprendedorServicio?.service?.code === '01' ? 'la noche' :
+                  emprendedorServicio?.service?.code === '02' ? 'el tour' :
+                    emprendedorServicio?.service?.code === '03' ? 'el plato' :
+                      emprendedorServicio?.service?.code === '04' ? 'la unidad' :
+                        emprendedorServicio?.service?.code === '05' ? 'el viaje' :
+                          ''
+                          }}
+            </span>
+
+
           </p>
 
           <p class="description">{{ emprendedorServicio?.description }}</p>
@@ -60,11 +72,19 @@
             <button (click)="aumentarCantidad()" aria-label="Aumentar cantidad">+</button>
           </div>
           <br>
-            <a (click)="agregarAlCarrito('Ccotos',
-                'S/.15 la noche',
-                'assets/images/hotel-8.png', 56.00)"
-               class="btn btn-primary">Añadir al Carrito</a>
-          </div>
+          <a
+            (click)="agregarAlCarrito(
+    emprendedorServicio?.name ?? '','',
+    emprendedorServicio?.img_emprendedor_services?.[0]?.url_image ?? 'assets/images/default.png',
+    parseFloat(emprendedorServicio?.costo ?? '0')
+  )"
+            class="btn btn-primary"
+          >
+            Añadir al Carrito
+          </a>
+
+
+        </div>
         </div>
       <h2>Hospedaje</h2>
       <div class="bottom-thumbnails" >

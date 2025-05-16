@@ -234,84 +234,43 @@
         <h2 class="mb-4">Mejores Lugares para Comer</h2>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-6 col-lg-3">
-        <div class="destination">
-          <a [routerLink]="['/siale-paramis']" fragment="section-counter" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/restaurant1.png);" data-aos="flip-left" data-aos-duration="1500">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
+    <div class="container-fluid">
+      <div class="row">
+        <div *ngFor="let servicio of comida, let i = index" class="col-sm col-md-6 col-lg mb-4">
+          <div class="destination" data-aos="flip-left" data-aos-duration="9000">
+            <a (click)="navigateTo(servicio)" style="cursor: pointer;"
+               class="img img-2 d-flex justify-content-center align-items-center"
+               [style.background-image]="'url(' + (servicio.imagenes && servicio.imagenes.length > 0 ? servicio.imagenes[imageIndexes[i]].url_image : 'assets/images/default.png') + ')'"
+               data-aos="flip-left" data-aos-duration="9000">
+              <div class="icon d-flex justify-content-center align-items-center">
+                <span class="icon-link"></span>
+              </div>
+            </a>
+            <div class="text p-3" data-aos="zoom-in" data-aos-duration="9000">
+              <div class="d-flex">
+                <div class="one">
+                  <h3><a>{{ servicio.name }}</a></h3>
+                </div>
+                <div class="two">
+                  <span class="price per-price">S/.{{ servicio.costo }}<br><small>/el plato</small></span>
+                </div>
+              </div>
+              <p>{{ servicio.description }}</p>
+              <hr />
+              <p class="bottom-area d-flex">
+                <!--<span><i class="icon-map-o"></i> {{ servicio.emprendedor_address }}</span>-->
+                <span class="ml-auto">
+              <a (click)="navigateTo(servicio)" style="cursor: pointer;" fragment="section-counter">Reservar</a>
+            </span>
+              </p>
             </div>
-          </a>
-          <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <h3><a>Siale - Paramis</a></h3>
-            <p>La alimentación se basa en productos locales y ofrece la oportunidad de probar la "comida Novoandina"</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica-Puno</span>
-              <span class="ml-auto"><a [routerLink]="['/siale-paramis']" fragment="section-counter" >Reservar</a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="destination d-md-flex flex-column-reverse">
-          <a [routerLink]="['/escallani']" fragment="section-counter" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/restaurant2.png);" data-aos="flip-left" data-aos-duration="1500">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <h3><a >Escallani</a></h3>
-            <p>Los restaurantes rurales ofrecen platos típicos, como carachis, pejerrey y mauris</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica-Puno</span>
-              <span class="ml-auto"><a [routerLink]="['/escallani']" fragment="section-counter" >Reservar</a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="destination">
-          <a [routerLink]="['/isla-tikonata']" fragment="section-counter" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/restaurant3.png);" data-aos="flip-left" data-aos-duration="1500">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <h3><a >Isla Tikonata</a></h3>
-            <p>Platos típicos de la zona en restaurantes rurales, con productos locales de las parcelas y pescados del lago Titicaca. </p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica-Puno</span>
-              <span class="ml-auto"><a [routerLink]="['/isla-tikonata']" fragment="section-counter" >Reservar</a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="destination d-md-flex flex-column-reverse">
-          <a [routerLink]="['/chifron']" fragment="section-counter" class="img img-2 d-flex justify-content-center align-items-center"
-             style="background-image: url(assets/images/restaurant4.png);" data-aos="flip-left" data-aos-duration="1500">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
-            <h3><a >Chifrón</a></h3>
-            <p>Platos típicos de la región, con énfasis en pescados del lago Titicaca, especialmente truchas</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica-Puno</span>
-              <span class="ml-auto"><a [routerLink]="['/chifron']" fragment="section-counter" >Reservar</a></span>
-            </p>
           </div>
         </div>
       </div>
     </div>
+
+
+
   </div>
 </section>
 <section class="testimonials-section">
