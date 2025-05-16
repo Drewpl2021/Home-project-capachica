@@ -37,11 +37,11 @@ export interface EmprendedorServicio {
 }
 
 
-
 export interface ApiResponse {
-  content: EmprendedorServicio;
+  content: EmprendedorServicio[];
   totalElements: number;
   currentPage: number;
   totalPages: number;
   perPage: number;
 }
+

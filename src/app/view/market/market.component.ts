@@ -30,6 +30,7 @@ export class MarketComponent implements OnInit {
   serviceId: string | null = null;
   imagenPrincipal: string = '';
   emprendedorServicios: EmprendedorServicio[] = []; // tipo any para evitar líos
+  selectedCategory: any = null;
 
 
   constructor(private readonly carritoService: CarritoService,
@@ -55,9 +56,26 @@ export class MarketComponent implements OnInit {
     this._emprendedorService.getServicioById(id).subscribe({
       next: (servicio) => {
         this.emprendedorServicio = servicio;
+
         if (servicio.img_emprendedor_services.length) {
           this.imagenPrincipal = servicio.img_emprendedor_services[0].url_image;
         }
+
+        // Obtener el ID del service y pasar a uploadData para filtrar
+        const serviceId = servicio.service.id;
+        this.uploadData(serviceId);
+      },
+      error: (err) => {
+        console.error('Error al cargar servicio por ID:', err);
+      }
+    });
+  }
+
+  private uploadData(serviceId?: string) {
+    this._emprendedorService.getServicioFilter(serviceId).subscribe({
+      next: (response: ApiResponse) => {
+        this.emprendedorServicios = response.content || [];
+          console.log("Hoteles AAA", this.emprendedorServicio)
       },
     });
 
