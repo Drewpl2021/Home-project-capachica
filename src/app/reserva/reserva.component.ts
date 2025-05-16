@@ -10,6 +10,7 @@ import autoTable from 'jspdf-autotable';
 @Component({
   selector: 'app-reserva',
   imports: [CommonModule, FormsModule],
+  standalone: true,
   templateUrl: './reserva.component.html',
   styleUrls: ['./reserva.component.css']
 })

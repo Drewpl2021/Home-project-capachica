@@ -66,23 +66,86 @@
                class="btn btn-primary">Añadir al Carrito</a>
           </div>
         </div>
-
-      <!-- Fila horizontal tarjetas pequeñas -->
-      <div class="bottom-thumbnails">
+      <h2>Hospedaje</h2>
+      <div class="bottom-thumbnails" >
         <div
-          class="thumbnail-card"
-          *ngFor="let lugar of lugares"
-          (click)="cambiarLugar(lugar.id)"
-          [class.active]="lugar.id === lugarSeleccionado.id"
+          class="thumbnail-card" style="width: 310px"
+          *ngFor="let servicio of hotel"
+          [class.active]="servicio.id "
         >
-          <img [src]="lugar.imagenes[0]" [alt]="lugar.nombre" />
-          <h4>{{ lugar.nombre }}</h4>
-          <p class="price">S/.{{ lugar.precio }} la noche</p>
-          <p class="location">{{ lugar.ubicacion }}</p>
-          <button class="btn-view">Ir a {{ lugar.nombre }}</button>
+          <img [src]="servicio.imagenes?.[0]?.url_image || 'assets/images/default.png'" [alt]="servicio.name" />
+          <h4>{{ servicio.name }}</h4>
+          <p class="price">S/.{{ servicio.costo }} la noche</p>
+          <p class="location">{{ servicio.emprendedor?.address || servicio.emprendedor?.lugar }}</p>
+          <button class="btn-view" (click)="seleccionarServicio(servicio.id)">
+            Detalles de {{ servicio.name }}
+          </button>
         </div>
       </div>
-
+      <h2 style="margin-top: 75px">Tours</h2>
+      <div class="bottom-thumbnails" >
+        <div
+          class="thumbnail-card" style="width: 310px"
+          *ngFor="let servicio of tours"
+          [class.active]="servicio.id "
+        >
+          <img [src]="servicio.imagenes?.[0]?.url_image || 'assets/images/default.png'" [alt]="servicio.name" />
+          <h4>{{ servicio.name }}</h4>
+          <p class="price">S/.{{ servicio.costo }} la noche</p>
+          <p class="location">{{ servicio.emprendedor?.address || servicio.emprendedor?.lugar }}</p>
+          <button class="btn-view" (click)="seleccionarServicio(servicio.id)">
+            Detalles de {{ servicio.name }}
+          </button>
+        </div>
+      </div>
+      <h2 style="margin-top: 75px">Gastronomía</h2>
+      <div class="bottom-thumbnails" >
+        <div
+          class="thumbnail-card" style="width: 310px"
+          *ngFor="let servicio of gastronomia"
+          [class.active]="servicio.id "
+        >
+          <img [src]="servicio.imagenes?.[0]?.url_image || 'assets/images/default.png'" [alt]="servicio.name" />
+          <h4>{{ servicio.name }}</h4>
+          <p class="price">S/.{{ servicio.costo }} la noche</p>
+          <p class="location">{{ servicio.emprendedor?.address || servicio.emprendedor?.lugar }}</p>
+          <button class="btn-view" (click)="seleccionarServicio(servicio.id)">
+            Detalles de {{ servicio.name }}
+          </button>
+        </div>
+      </div>
+      <h2 style="margin-top: 75px">Artesanías</h2>
+      <div class="bottom-thumbnails" >
+        <div
+          class="thumbnail-card" style="width: 310px"
+          *ngFor="let servicio of artesanias"
+          [class.active]="servicio.id "
+        >
+          <img [src]="servicio.imagenes?.[0]?.url_image || 'assets/images/default.png'" [alt]="servicio.name" />
+          <h4>{{ servicio.name }}</h4>
+          <p class="price">S/.{{ servicio.costo }} la noche</p>
+          <p class="location">{{ servicio.emprendedor?.address || servicio.emprendedor?.lugar }}</p>
+          <button class="btn-view" (click)="seleccionarServicio(servicio.id)">
+            Detalles de {{ servicio.name }}
+          </button>
+        </div>
+      </div>
+      <h2 style="margin-top: 75px">Transporte</h2>
+      <div class="bottom-thumbnails" >
+        <div
+          class="thumbnail-card" style="width: 310px"
+          *ngFor="let servicio of transporte"
+          [class.active]="servicio.id "
+        >
+          <img [src]="servicio.imagenes?.[0]?.url_image || 'assets/images/default.png'" [alt]="servicio.name" />
+          <h4>{{ servicio.name }}</h4>
+          <p class="price">S/.{{ servicio.costo }} la noche</p>
+          <p class="location">{{ servicio.emprendedor?.address || servicio.emprendedor?.lugar }}</p>
+          <button class="btn-view" (click)="seleccionarServicio(servicio.id)">
+            Detalles de {{ servicio.name }}
+          </button>
+        </div>
+      </div>
 
     </div>
   </div>

@@ -4,7 +4,9 @@ import {CarritoService} from '../../nav/carrito-sidebar/carrito.service';
 import {ActivatedRoute} from '@angular/router';
 import {AsociacionService} from '../../services/asociacion.service';
 import {EmprendedorService} from '../../services/EmprendedorService.service';
-import {ApiResponse, EmprendedorServicio} from './market/market';
+import {ApiResponsable, ApiResponse, ApiResponsedes, EmprendedorServicio} from './market/market';
+import {ServicioService} from '../../services/service.service';
+import {Servicios} from '../home/model/home';
 
 interface Lugar {
   id: string;
@@ -29,13 +31,26 @@ export class MarketComponent implements OnInit {
   emprendedorServicio: EmprendedorServicio | null = null;
   serviceId: string | null = null;
   imagenPrincipal: string = '';
-  emprendedorServicios: EmprendedorServicio[] = []; // tipo any para evitar líos
+  emprendedorServicios: EmprendedorServicio[] = [];
+  tours: EmprendedorServicio[] = [];
+  gastronomia: EmprendedorServicio[] = [];
+  artesanias: EmprendedorServicio[] = [];
+  transporte: EmprendedorServicio[] = [];
+  hotel: EmprendedorServicio[] = [];
+  selectedhotel: any = null;
   selectedCategory: any = null;
+  selectedgastro: any = null;
+  selectedarte: any = null;
+  selectedcard: any = null;
+
+  cantidad = 1;
+  servicios: Servicios[] = []; // tipo any para evitar líos
 
 
   constructor(private readonly carritoService: CarritoService,
               private readonly route: ActivatedRoute,
               private _emprendedorService: EmprendedorService,
+              private _servicioService: ServicioService,
 
   ) {}
 
@@ -65,121 +80,102 @@ export class MarketComponent implements OnInit {
         const serviceId = servicio.service.id;
         this.uploadData(serviceId);
       },
-      error: (err) => {
-        console.error('Error al cargar servicio por ID:', err);
+    });
+    this._servicioService.getServicio().subscribe({
+      next: (response: ApiResponsable) => {
+        this.servicios = response.content || [];
+        this.selectedhotel = this.servicios.find(item => item.code === "01") || null;
+        this.selectedCategory = this.servicios.find(item => item.code === "02") || null;
+        this.selectedgastro = this.servicios.find(item => item.code === "03") || null;
+        this.selectedarte = this.servicios.find(item => item.code === "04") || null;
+        this.selectedcard = this.servicios.find(item => item.code === "05") || null;
+
+        if (this.selectedCategory, this.selectedgastro, this.selectedarte,  this.selectedcard, this.selectedhotel, this.servicios) {
+          this.uploadtours(this.selectedCategory.id);
+          this.uploadgastronomia(this.selectedgastro.id);
+          this.uploadartesanias(this.selectedarte.id);
+          this.uploadtransporte(this.selectedcard.id);
+          this.uploadhotel(this.selectedhotel.id);
+
+        }
       }
     });
   }
-
   private uploadData(serviceId?: string) {
     this._emprendedorService.getServicioFilter(serviceId).subscribe({
-      next: (response: ApiResponse) => {
+      // @ts-ignore
+      next: (response: ApiResponsedes) => {
         this.emprendedorServicios = response.content || [];
-          console.log("Hoteles AAA", this.emprendedorServicio)
       },
     });
-
+  }
+  private uploadhotel(serviceId?: string) {
+    this._emprendedorService.getServicioFilter(serviceId).subscribe({
+      // @ts-ignore
+      next: (response: ApiResponsedes) => {
+        this.hotel = response.content || [];
+      },
+    });
+  }
+  private uploadtours(serviceId?: string) {
+    this._emprendedorService.getServicioFilter(serviceId).subscribe({
+      // @ts-ignore
+      next: (response: ApiResponsedes) => {
+        this.tours = response.content || [];
+      },
+    });
+  }
+  private uploadgastronomia(serviceId?: string) {
+    this._emprendedorService.getServicioFilter(serviceId).subscribe({
+      // @ts-ignore
+      next: (response: ApiResponsedes) => {
+        this.gastronomia = response.content || [];
+      },
+    });
+  }
+  private uploadartesanias(serviceId?: string) {
+    this._emprendedorService.getServicioFilter(serviceId).subscribe({
+      // @ts-ignore
+      next: (response: ApiResponsedes) => {
+        this.artesanias = response.content || [];
+      },
+    });
+  }
+  private uploadtransporte(serviceId?: string) {
+      this._emprendedorService.getServicioFilter(serviceId).subscribe({
+        // @ts-ignore
+        next: (response: ApiResponsedes) => {
+          this.transporte = response.content || [];
+        },
+      });
   }
 
 
-  lugares: Lugar[] = [
-    {
-      id: 'llachon',
-      nombre: 'Llachón',
-      precio: 15,
-      descripcion: 'Los visitantes se hospedarán en habitaciones tradicionales de adobe, decoradas de manera autentica.',
-      ubicacion: 'Capachica-Puno',
-      imagenes: [
-        'assets/images/hotel-11.png',
-        'assets/images/hotel-12.png',
-        'assets/images/hotel-9.png',
-        'assets/images/hotel-8.png',
-        'assets/images/hotel-10.png'
-      ]
-    },
-    {
-      id: 'ccotos',
-      nombre: 'Ccotos',
-      precio: 15,
-      descripcion: 'Las cabañas se encuentran ubicadas al lado de las de las familias, a poca distancia del lago Titicaca',
-      ubicacion: 'Ccotos - Capachica-Puno',
-      imagenes: [
-        'assets/images/hotel-8.png',
-        'assets/images/hotel-9.png',
-        'assets/images/hotel-10.png',
-        'assets/images/hotel-11.png',
-        'assets/images/hotel-12.png'
-      ]
-    },
-    {
-      id: 'chifron',
-      nombre: 'Chifron',
-      precio: 20,
-      descripcion: 'Un alojamiento con habitaciones agradables, buena comida.',
-      ubicacion: 'Chifron - Capachica-Puno',
-      imagenes: [
-        'assets/images/hotel-10.png',
-        'assets/images/hotel-11.png',
-        'assets/images/hotel-9.png',
-        'assets/images/hotel-8.png',
-        'assets/images/hotel-7.png'
-      ]
-    },
-    {
-      id: 'siale-paramis',
-      nombre: 'Siale-Paramis',
-      precio: 18,
-      descripcion: 'Los visitantes se hospedarán en habitaciones tradicionales de adobe, decoradas de manera autentica.',
-      ubicacion: 'Siale-P - Capachica-Puno',
-      imagenes: [
-        'assets/images/hotel-7.png',
-        'assets/images/hotel-9.png',
-        'assets/images/hotel-8.png',
-        'assets/images/hotel-11.png',
-        'assets/images/hotel-10.png'
-      ]
-    },
-    {
-      id: 'escallani',
-      nombre: 'Escallani',
-      precio: 20,
-      descripcion: 'Los visitantes se hospedarán en hermosas habitaciones tradicionales de adobe, decoradas de manera autentica.',
-      ubicacion: 'Escallani - Capachica-Puno',
-      imagenes: [
-        'assets/images/hotel-11.png',
-        'assets/images/hotel-7.png',
-        'assets/images/hotel-8.png',
-        'assets/images/hotel-9.png',
-        'assets/images/hotel-10.png'
-      ]
-    },
-    {
-      id: 'isla-tikonata',
-      nombre: 'Isla Tikonata',
-      precio: 25,
-      descripcion: 'Los visitantes se hospedarán en hermosas habitaciones tradicionales circulares, de adobe y decoradas de manera autentica.',
-      ubicacion: 'Isla Tikonata - Capachica-Puno',
-      imagenes: [
-        'assets/images/hotel-12.png',
-        'assets/images/hotel-7.png',
-        'assets/images/hotel-8.png',
-        'assets/images/hotel-9.png',
-        'assets/images/hotel-10.png'
-      ]
-    }
-  ];
 
-  lugarSeleccionado: Lugar = this.lugares[0];
-  cantidad = 1;
+  seleccionarServicio(id: string) {
+    this.serviceId = id;
+    this.cargarDatosPorId(id);
 
-  cambiarLugar(lugarId: string) {
-    const lugar = this.lugares.find(l => l.id === lugarId);
-    if (lugar) {
-      this.lugarSeleccionado = lugar;
-      this.imagenPrincipal = lugar.imagenes[0];
-      this.cantidad = 1; // reinicia la cantidad al cambiar de lugar
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // 🔼 scroll hacia arriba
+
+    const todasLasCategorias = [
+      ...this.hotel,
+      ...this.tours,
+      ...this.gastronomia,
+      ...this.artesanias,
+      ...this.transporte,
+    ];
+
+    const servicioSeleccionado = todasLasCategorias.find(serv => serv.id === id);
+
+    if (servicioSeleccionado) {
+      this.emprendedorServicio = servicioSeleccionado;
+      this.imagenPrincipal = servicioSeleccionado.imagenes?.length
+        ? servicioSeleccionado.imagenes[0].url_image
+        : 'assets/images/default.png';
     }
   }
+
 
   cambiarImagenPrincipal(url: string) {
     this.imagenPrincipal = url;
