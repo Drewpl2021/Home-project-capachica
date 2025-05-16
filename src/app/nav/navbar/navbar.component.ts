@@ -88,7 +88,22 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  setupNavItems(): void {
+  setupNavItems() {
+    // Busca la sección con code "04" que corresponde a "Hoteles"
+    const seccionInicio = this.sections.find(sec => sec.code === '01');
+    const seccionAcercade = this.sections.find(sec => sec.code === '02');
+    const seccionLugares = this.sections.find(sec => sec.code === '03');
+    const seccionHoteles = this.sections.find(sec => sec.code === '04');
+    const seccionBlog = this.sections.find(sec => sec.code === '05');
+    const seccionContacto = this.sections.find(sec => sec.code === '06');
+    // Si no se encuentra, fallback a 'Hoteles'
+    const labelInicio = seccionInicio ? seccionInicio.name : 'Inicio';
+    const labelAcercade = seccionAcercade ? seccionAcercade.name : 'Acerca de';
+    const labelLugares = seccionLugares ? seccionLugares.name : 'Lugares';
+    const labelHoteles = seccionHoteles ? seccionHoteles.name : 'Hoteles';
+    const labelBlog = seccionBlog ? seccionBlog.name : 'Blog';
+    const labelContacto = seccionContacto ? seccionContacto.name : 'Contacto';
+
     const lugares: NavItem[] = [
       { label: 'Llachon', path: '/llachon' },
       { label: 'Chifron', path: '/chifron' },
@@ -99,12 +114,12 @@ export class NavbarComponent implements OnInit {
     ];
 
     this.navItems = [
-      { label: 'Inicio', path: '/' },
-      { label: 'Acerca de', path: '/about' },
-      { label: 'Lugares', path: '/places', children: lugares },
-      { label: 'Hoteles', path: '/hotel' },
-      { label: 'Blog', path: '/blog' },
-      { label: 'Contacto', path: '/contact' },
+      { label: labelInicio, path: '/' },
+      { label: labelAcercade, path: '/about' },
+      { label: labelLugares, path: '/places', children: lugares },
+      { label: labelHoteles, path: '/hotel' },
+      { label: labelBlog, path: '/blog' },
+      { label: labelContacto, path: '/contact' },
       { label: 'Iniciar Sesión', path: '/sign-in' }
     ];
   }
@@ -134,10 +149,12 @@ export class NavbarComponent implements OnInit {
     this.sectionsService.getSections().subscribe(
       (data) => {
         this.sections = data.content && Array.isArray(data.content) ? data.content : [];
+        this.setupNavItems();
       },
       (error) => {
         console.error('Error fetching sections:', error);
         this.sections = [];
+        this.setupNavItems();
       }
     );
   }
