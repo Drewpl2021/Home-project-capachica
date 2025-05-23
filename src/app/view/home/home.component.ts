@@ -46,6 +46,8 @@ export class HomeComponent implements OnInit {
   titulovacaciones: string = 'Vea nuestras ultimas ideas de vacaciones';
   titulolomejor: string = 'Lo mejor de Capachica';
   descripcionlomejor: string = 'Descripcion de Capachica';
+  hagasurecorrido: string = 'Haga que su recorrido sea memorable seguro con nosotros';
+  descripcionrecorrido: string = 'Descripcion de Capachica';
 
   //Variables para opciones dentro de las secciones
   //Descubre - Vive - Conecta
@@ -117,6 +119,7 @@ export class HomeComponent implements OnInit {
         const destinos = data.find((item: any) => item.code === '05');
         const hospedajes = data.find((item: any) => item.code === '06');
         const comida = data.find((item: any) => item.code === '07');
+        const recorrido = data.find((item: any) => item.code === '08');
 
         this.tituloDescubrecapachica = descubrecapachica ? descubrecapachica.title : 'Descrubre la Península de Capachica';
         this.descripcionDescubrecapachica = descubrecapachica ? descubrecapachica.description : 'Sumérgete en la cultura y belleza natural de este rincón de Puno';
@@ -127,6 +130,8 @@ export class HomeComponent implements OnInit {
         this.tituloDestinos = destinos ? destinos.title : 'Destinos más populares';
         this.tituloHospedajes = hospedajes ? hospedajes.title : 'Hospedajes Populares';
         this.tituloComida = comida ? comida.title : 'Mejores Lugares para Comer';
+        this.hagasurecorrido = recorrido ? recorrido.title : 'Haga que su recorrido sea memorable seguro con nosotros';
+        this.descripcionrecorrido = recorrido ? recorrido.description : 'Haga que su recorrido';
       },
       error: (err: any) => {
         console.error('Error cargando títulos dinámicos', err);
@@ -138,6 +143,8 @@ export class HomeComponent implements OnInit {
         this.tituloDestinos = 'Destinos más populares';
         this.tituloHospedajes = 'Hospedajes Populares';
         this.tituloComida = 'Mejores Lugares para Comer';
+        this.hagasurecorrido = 'Haga que su recorrido sea memorable seguro con nosotros';
+        this.descripcionrecorrido = 'Descripcion de Capachica';
       }
     });
   }
