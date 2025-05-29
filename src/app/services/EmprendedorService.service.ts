@@ -12,7 +12,7 @@ export interface Asociacion {
 })
 export class EmprendedorService {
 
-  private apiUrl = 'http://localhost:8000/emprendedor-service';
+  private apiUrl = 'http://54.84.249.35/emprendedor-service';
 
   constructor(private http: HttpClient) {}
 
@@ -24,7 +24,7 @@ export class EmprendedorService {
     if (serviceId) {
       params = params.set('service_id', serviceId);
     }
-    const url = 'http://localhost:8000/emprendedor-service/by-service';
+    const url = 'http://54.84.249.35/emprendedor-service/by-service';
 
     return this.http.get<ApiResponse>(url, { params });
   }

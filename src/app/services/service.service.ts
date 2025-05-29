@@ -11,7 +11,7 @@ export interface Asociacion {
 })
 export class ServicioService {
 
-  private apiUrl = 'http://localhost:8000/service';
+  private apiUrl = 'http://54.84.249.35/service';
 
   constructor(private http: HttpClient) {}
 

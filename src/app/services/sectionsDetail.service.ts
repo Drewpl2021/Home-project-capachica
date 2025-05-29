@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class SectionsDetailService {
-  private apiUrl = 'http://localhost:8000/sectionDetails';
+  private apiUrl = 'http://54.84.249.35/sectionDetails';
 
   constructor(private http: HttpClient) {}
 
@@ -16,7 +16,7 @@ export class SectionsDetailService {
   }
 
   getsectionDetailsById(id: string): Observable<any> {
-    const url = `http://localhost:8000/sectionDetails/byId/${id}`; // Construir la URL con el id
+    const url = `http://54.84.249.35/sectionDetails/byId/${id}`; // Construir la URL con el id
     return this.http.get<any>(url);  // Realiza la solicitud GET a la URL dinámica
   }
   // Método para agregar una nueva municipalidad
