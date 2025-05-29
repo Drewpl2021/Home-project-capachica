@@ -24,7 +24,7 @@ export class EmprendedorService {
     if (serviceId) {
       params = params.set('service_id', serviceId);
     }
-    const url = 'http://54.84.249.35/emprendedor-service/by-service';
+    const url = 'http://54.84.249.35/emprendedors-services/by-service';
 
     return this.http.get<ApiResponse>(url, { params });
   }
