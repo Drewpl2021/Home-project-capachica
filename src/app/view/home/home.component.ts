@@ -47,7 +47,6 @@ export class HomeComponent implements OnInit {
   titulolomejor: string = 'Lo mejor de Capachica';
   descripcionlomejor: string = 'Descripcion de Capachica';
   hagasurecorrido: string = 'Haga que su recorrido sea memorable seguro con nosotros';
-  descripcionrecorrido: string = 'Descripcion de Capachica';
 
   //Variables para opciones dentro de las secciones
   //Descubre - Vive - Conecta
@@ -59,8 +58,14 @@ export class HomeComponent implements OnInit {
   subdescripcionConecta: string = 'En Capachica, la tranquilidad del lago y el aire puro andino te invitan a desconectarte del estrés diario. Un lugar ideal para recargar energías y crear momentos inolvidables.';
   //Vea nuestras ideas de vacaciones
   subtituloPaisaje: string = 'Paisaje frente a la playa';
+  imagenPaisage: string = '';
   subtituloVacaciones: string = 'Vacaciones en grupo';
+  imagenVacaciones: string = '';
   subtituloArtesania: string = 'Artesana';
+  imagenArtesania: string = '';
+  //Haga que su recorrido sea memorable
+  descripcionrecorrido: string = 'Descripcion de Capachica';
+  imagenrecorrido: string = '';
 
 
   constructor(private _asociacionService: AsociacionService,
@@ -131,7 +136,6 @@ export class HomeComponent implements OnInit {
         this.tituloHospedajes = hospedajes ? hospedajes.title : 'Hospedajes Populares';
         this.tituloComida = comida ? comida.title : 'Mejores Lugares para Comer';
         this.hagasurecorrido = recorrido ? recorrido.title : 'Haga que su recorrido sea memorable seguro con nosotros';
-        this.descripcionrecorrido = recorrido ? recorrido.description : 'Haga que su recorrido';
       },
       error: (err: any) => {
         console.error('Error cargando títulos dinámicos', err);
@@ -144,7 +148,6 @@ export class HomeComponent implements OnInit {
         this.tituloHospedajes = 'Hospedajes Populares';
         this.tituloComida = 'Mejores Lugares para Comer';
         this.hagasurecorrido = 'Haga que su recorrido sea memorable seguro con nosotros';
-        this.descripcionrecorrido = 'Descripcion de Capachica';
       }
     });
   }
@@ -161,6 +164,7 @@ export class HomeComponent implements OnInit {
         const paisaje = data.find((item: any) => item.code === '05');
         const artesania = data.find((item: any) => item.code === '06');
         const vacaciones = data.find((item: any) => item.code === '07');
+        const subrecorrido = data.find((item: any) => item.code === '22');
 
 
         //Descubre - Vive - Conecta
@@ -172,8 +176,14 @@ export class HomeComponent implements OnInit {
         this.subdescripcionConecta = conectacapachica ? conectacapachica.description: 'En Capachica, la tranquilidad del lago y el aire puro andino te invitan a desconectarte del estrés diario. Un lugar ideal para recargar energías y crear momentos inolvidables.';
         //Vea nuestras ideas de vacaciones
         this.subtituloPaisaje = paisaje ? paisaje.title : 'Paisaje frente a la playa';
+        this.imagenPaisage = paisaje ? paisaje.image: 'https://www.peru.travel/Contenido/General/Imagen/es/836/1.1/hoteles-puno-titilaka-peru.jpg';
         this.subtituloArtesania = artesania ? artesania.title : 'Artesana';
+        this.imagenArtesania = artesania ? artesania.image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-4eq5fVpvvOxe6weATgOFJhrS5if2-REaqQ&s';
         this.subtituloVacaciones = vacaciones ? vacaciones.title : 'Vacaciones en grupo';
+        this.imagenVacaciones = vacaciones ? vacaciones.image: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/09/18/e2/e5.jpg'
+        //Haga que su recorrido sea memorable
+        this.descripcionrecorrido = subrecorrido ? subrecorrido.description : 'Hola';
+        this.imagenrecorrido = subrecorrido ?subrecorrido.image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAp3kUc1KTu7f1VIikOAVF6-Tt9Mdw7rv8eA&s'
 
       },
       error: (err: any) => {
@@ -188,8 +198,14 @@ export class HomeComponent implements OnInit {
         this.subdescripcionConecta = 'En Capachica, la tranquilidad del lago y el aire puro andino te invitan a desconectarte del estrés diario. Un lugar ideal para recargar energías y crear momentos inolvidables.';
         //Vea nuestras ideas de vacaciones
         this.subtituloPaisaje = 'Paisaje frente a la playa';
+        this.imagenPaisage = 'https://www.peru.travel/Contenido/General/Imagen/es/836/1.1/hoteles-puno-titilaka-peru.jpg';
         this.subtituloArtesania = 'Artesania';
+        this.imagenArtesania = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-4eq5fVpvvOxe6weATgOFJhrS5if2-REaqQ&s';
         this.subtituloVacaciones = 'Vacaciones en grupo';
+        this.imagenVacaciones = 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/09/18/e2/e5.jpg'
+        //Haga que su recorrido sea memorable
+        this.descripcionrecorrido = 'Hola';
+        this.imagenrecorrido = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAp3kUc1KTu7f1VIikOAVF6-Tt9Mdw7rv8eA&s';
       }
     });
   }

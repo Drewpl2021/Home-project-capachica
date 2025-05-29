@@ -50,7 +50,7 @@
   <div class="featured-content">
     <!-- Imagen superpuesta con sombra -->
     <div class="featured-image-card" data-aos="flip-left" data-aos-duration="1500">
-      <img src="assets/images/fondo1.png" alt="Vista Capachica">
+      <img [src]="imagenrecorrido" alt="Imagen Recorrido">
     </div>
 
     <!-- Texto -->
@@ -76,21 +76,21 @@
     </div>
     <div class="row">
       <div class="col-md-4" data-aos="flip-left" data-aos-duration="1500">
-        <a href="#" class="destination-entry img" style="background-image: url(assets/images/image05.jpg);">
+        <a  class="destination-entry img" [style.background-image]="'url(' + imagenPaisage + ')'">
           <div class="text text-center">
             <h3>{{subtituloPaisaje}}</h3>
           </div>
         </a>
       </div>
       <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1500">
-        <a href="#" class="destination-entry img" style="background-image: url(assets/images/image06.jpg);">
+        <a  class="destination-entry img" [style.background-image]="'url(' + imagenArtesania + ')'">
           <div class="text text-center">
             <h3>{{subtituloArtesania}}</h3>
           </div>
         </a>
       </div>
       <div class="col-md-4" data-aos="flip-right" data-aos-duration="1500">
-        <a href="#" class="destination-entry img" style="background-image: url(assets/images/image07.jpeg);">
+        <a  class="destination-entry img" [style.background-image]="'url(' + imagenVacaciones + ')'">
           <div class="text text-center">
             <h3>{{subtituloVacaciones}}</h3>
           </div>
