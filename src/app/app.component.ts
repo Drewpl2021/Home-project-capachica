@@ -80,7 +80,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`
     });
-    this.http.get<any>('http://localhost:8000/current-user', { headers })
+    this.http.get<any>('http://18.204.208.147/current-user', { headers })
       .subscribe({
         next: (response) => {
           if (response.status && response.data && response.data.username) {

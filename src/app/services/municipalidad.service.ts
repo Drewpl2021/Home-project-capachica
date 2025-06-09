@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MunicipalidadService {
-  private apiUrl = 'http://localhost:8000/municipalidad';
+  private apiUrl = 'http://18.204.208.147/municipalidad';
 
   constructor(private http: HttpClient) {}
 
