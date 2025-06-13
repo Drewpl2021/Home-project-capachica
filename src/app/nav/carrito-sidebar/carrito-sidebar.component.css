@@ -16,8 +16,8 @@
   right: -400px; /* oculto por defecto */
   width: 400px;
   height: 100vh;
-  background-color: ivory; /* verde agua */
-  color: white;
+  background-color: white;
+  color: black;
   padding: 1rem;
   box-shadow: -3px 0 8px rgba(0,0,0,0.2);
   border-radius: 8px 0 0 8px;
@@ -25,9 +25,8 @@
   z-index: 9999;
   display: flex;
   flex-direction: column;
-  font-family: "Yu Gothic Medium" , "Helvetica Neue", Arial, sans-serif;
+  font-family: "Yu Gothic Medium", "Helvetica Neue", Arial, sans-serif;
   font-weight: bold;
-
 }
 
 .carrito-sidebar.open {
@@ -44,7 +43,7 @@
 .carrito-sidebar header h3 {
   margin: 0;
   font-weight: 700;
-  border-bottom: 2px solid #00c9a7; /* amarillo suave */
+  border-bottom: 2px solid black;
   padding-bottom: 0.4rem;
 }
 
@@ -52,7 +51,7 @@
   background: none;
   border: none;
   font-size: 1.6rem;
-  color: white;
+  color: black;
   cursor: pointer;
   font-weight: 700;
   line-height: 1;
@@ -72,14 +71,12 @@
   display: flex;
   gap: 0.75rem;
   margin-bottom: 1rem;
-  background: #1abc9c ;
+  background: #f0f0f0;
   border-radius: 6px;
   padding: 0.5rem;
   align-items: center;
   transition: background 0.3s ease;
 }
-
-
 
 .carrito-sidebar img {
   width: 60px;
@@ -92,19 +89,19 @@
 .carrito-sidebar strong {
   flex-grow: 1;
   font-size: 1.1rem;
-  color: #000000;
+  color: black;
 }
 
 .carrito-sidebar p {
   flex-basis: 100%;
   font-size: 0.85rem;
   line-height: 1.2;
-  color: #ecf0f1;
+  color: #666;
   margin-top: 0.25rem;
 }
 
 .vaciar-btn {
-  background-color: #000000;
+  background-color: black;
   color: white;
   font-weight: 700;
   border: none;
@@ -116,7 +113,7 @@
 }
 
 .vaciar-btn:hover {
-  background-color: #000000;
+  background-color: #333;
 }
 
 .contador {
@@ -127,7 +124,7 @@
 }
 
 .contador button {
-  background-color: #1abc9c;
+  background-color: black;
   border: none;
   color: white;
   font-weight: 700;
@@ -141,14 +138,14 @@
 }
 
 .contador button:hover {
-  background-color: #e0a800;
+  background-color: #333;
 }
 
 .contador span {
   font-weight: 700;
   min-width: 24px;
   text-align: center;
-  color: white;
+  color: black;
   font-size: 1.1rem;
 }
 
@@ -159,7 +156,7 @@
 }
 
 .pagar-btn {
-  background-color: #1abc9c;
+  background-color: black;
   color: white;
   font-weight: 700;
   border: none;
@@ -172,7 +169,7 @@
 }
 
 .pagar-btn:hover {
-  background-color: #28a745;
+  background-color: #333;
 }
 
 .vaciar-btn {
@@ -193,4 +190,44 @@
   box-shadow: none;
 }
 
+/* Estilos del botón carrito */
+.carrito-btn {
+  border: 2px solid black;
+  background: transparent;
+  color: black;
+  padding: 0.5rem 0.5rem; /* Ajusta el padding para hacerlo más pequeño y redondo */
+  border-radius: 50%; /* Hace el botón completamente redondo */
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Necesario para posicionar el contador sobre el ícono */
+  width: 50px; /* Tamaño del botón */
+  height: 50px; /* Tamaño del botón */
+}
 
+.carrito-btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.carrito-icon {
+  font-size: 24px;
+  z-index: 1; /* Asegura que el ícono quede encima del número */
+}
+
+.carrito-count {
+  position: absolute;
+  top: -8px; /* Ajusta la posición para que esté encima del icono */
+  right: -8px; /* Ajusta para que esté en la esquina superior derecha */
+  background-color: red; /* Color de fondo del contador */
+  color: white; /* Color del texto */
+  border-radius: 50%; /* Hace el contador redondo */
+  padding: 3px 6px; /* Tamaño del contador */
+  font-size: 12px; /* Tamaño del texto */
+  font-weight: bold;
+  z-index: 2; /* Asegura que el contador quede encima del ícono */
+}

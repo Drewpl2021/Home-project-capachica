@@ -1,22 +1,21 @@
 nav {
   background-color: transparent; /* Fondo inicial transparente */
   padding: 10px;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease; /* Añadimos transición para el color */
-  position: fixed; /* Para que se quede fijo en la parte superior */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  z-index: 1000;
 }
 
 nav.scrolled {
-  background-color: #555; /* Fondo gris al hacer scroll */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil al hacer scroll */
-  /* No necesitamos cambiar el color aquí a menos que sea un color base diferente al blanco */
+  background-color: #333; /* Fondo gris oscuro al hacer scroll */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 nav.scrolled ul li a {
-  color: white; /* Mantenemos el color blanco o el color que desees al hacer scroll */
+  color: white;
 }
 
 nav ul {
@@ -35,43 +34,46 @@ nav ul li:last-child {
 }
 
 nav ul li a {
-  color: white; /* Color inicial de las letras */
+  color: white;
   text-decoration: none;
   padding: 8px 12px;
   display: block;
-  transition: color 0.3s ease; /* Añadimos transición para el color al hacer hover */
+  transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-  background-color: rgba(255,250,151,0.17); /* Fondo amarillo al pasar el mouse */
-  color: #333; /* Cambia el color del texto para contraste al hacer hover */
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco semitransparente al hover */
+  color: black;
   text-decoration: none;
   border-width: 1px;
   border-radius: 10px;
 }
 
 nav ul li a.active {
-  color: yellow; /* Resalta el enlace activo */
+  color: white; /* Resalta el enlace activo en blanco */
 }
+
 .carrito-btn {
-  border: 2px solid #1abc9c;
+  border: 2px solid black;
   background: transparent;
-  color: #1abc9c;
-  padding: 0.35rem 0.7rem;
-  border-radius: 50px;
+  color: black;
+  padding: 0.5rem 0.5rem; /* Ajusta el padding para hacerlo más pequeño y redondo */
+  border-radius: 50%; /* Esto hará el botón completamente redondo */
   cursor: pointer;
   font-weight: 600;
   transition: background-color 0.3s ease, color 0.3s ease;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px; /* Ajusta el tamaño del botón */
+  height: 50px; /* Asegura que el botón tenga altura igual que el ancho */
 }
 
 .carrito-btn:hover {
-  background-color: #1abc9c;
+  background-color: black;
   color: white;
 }
-
-
-
 
 
 .navbar {
@@ -104,7 +106,7 @@ nav ul li a.active {
 }
 
 .nav-link:hover, .nav-item.active > .nav-link {
-  color: #f39c12;
+  color: #ccc; /* Gris claro para hover */
 }
 
 .arrow {
@@ -136,11 +138,12 @@ nav ul li a.active {
 }
 
 .dropdown-item a:hover, .dropdown-item.active > a {
-  background-color: #f39c12;
-  color: black;
+  background-color: #666; /* Gris medio para hover en dropdown */
+  color: white;
 }
+
 .btn-delete {
-  background-color: #dc3545;
+  background-color: black;
   color: white;
   border: none;
   padding: 4px 10px;
@@ -148,6 +151,7 @@ nav ul li a.active {
   cursor: pointer;
   margin-top: 5px;
 }
+
 .btn-delete:hover {
-  background-color: #c82333;
+  background-color: #333;
 }

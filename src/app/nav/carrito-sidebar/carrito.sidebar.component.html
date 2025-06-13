@@ -4,7 +4,6 @@
     <h3>Mi Carrito</h3>
   </header>
   <ul>
-
     <li *ngFor="let item of items()"
         style="display: flex; align-items: flex-start; gap: 10px; padding: 10px 0; border-bottom: 1px solid #e0e0e0; position: relative; font-size: 13px;">
 
@@ -28,11 +27,6 @@
         <span class="material-icons" style="color: red; font-size: 18px; margin-right: 5px; margin-top: 12px">delete</span>
       </button>
     </li>
-
-
-
-
-
   </ul>
   <div class="total-container">
     <strong>Total: S/ {{ total() | number:'1.2-2' }}</strong>
@@ -43,3 +37,8 @@
     <button class="pagar-btn" (click)="pagar()" [disabled]="items().length === 0" title="Agrega productos al carrito para generar reserva" >Finalizar Compra</button>
   </div>
 </aside>
+<button class="carrito-btn" (click)="abrir()">
+  <span class="carrito-icon material-icons">shopping_cart</span>
+  <!-- Mostrar el contador solo si hay productos en el carrito -->
+  <span class="carrito-count" *ngIf="items().length > 0">{{ items().length }}</span>
+</button>
