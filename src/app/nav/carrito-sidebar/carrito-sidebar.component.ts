@@ -47,11 +47,11 @@ export class CarritoSidebarComponent {
     }
 
     if (!this.authService.isLoggedIn()) {
-      // Serializar carrito, codificar para URL
-      const carritoStr = encodeURIComponent(JSON.stringify(this.items()));
+      // Guardar carrito actual en localStorage antes de redirigir
+      this.carritoService.saveCarritoToStorage(this.items());
 
-      // Redirigir a login en otro proyecto con carrito en query param
-      window.location.href = `http://localhost:4200/sign-in?carrito=${carritoStr}`;
+      // Redirigir a login
+      this.router.navigate(['/sign-in']);
     } else {
       this.router.navigate(['/reserva']);
       this.cerrar();

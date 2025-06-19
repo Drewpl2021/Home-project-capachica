@@ -4,7 +4,7 @@
 
     <ul class="nav-list">
       <li *ngFor="let item of navItems" class="nav-item" [ngClass]="{ 'active': isActive(item.path) }"
-          (mouseleave)="closeDropdown()" >
+          (mouseleave)="closeDropdown()">
 
         <a href="javascript:void(0)" (click)="
           item.children ? toggleDropdown(navItems.indexOf(item)) : navigateTo(item.path)
@@ -20,9 +20,37 @@
             <a href="javascript:void(0)" (click)="navigateTo(child.path)">{{ child.label }}</a>
           </li>
         </ul>
-
       </li>
+
+      <!-- Opción de perfil/cierre de sesión (ÚNICO lugar donde aparece el usuario) -->
+      <li class="nav-item"
+          *ngIf="authService.isLoggedIn()"
+          (mouseenter)="openUserMenu()"
+          (mouseleave)="closeUserMenu()">
+
+        <a href="javascript:void(0)" class="nav-link user-menu-trigger">
+          {{ authService.userData()?.name }} {{ authService.userData()?.last_name }}
+          <span class="arrow">&#9662;</span>
+        </a>
+
+        <ul class="dropdown-menu" [class.show]="isUserMenuOpen">
+          <li class="dropdown-item">
+            <a href="javascript:void(0)" (click)="router.navigate(['/profile'])">Perfil</a>
+          </li>
+          <li class="dropdown-item">
+            <a href="javascript:void(0)" (click)="logout()">Cerrar sesión</a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- Opción de inicio de sesión -->
+      <li class="nav-item" *ngIf="!authService.isLoggedIn()">
+        <a href="javascript:void(0)" (click)="navigateTo('/sign-in')" class="nav-link">
+          Iniciar Sesión
+        </a>
+      </li>
+
+      <app-carrito-sidebar></app-carrito-sidebar>
     </ul>
-    <app-carrito-sidebar></app-carrito-sidebar>
   </div>
 </nav>

@@ -155,3 +155,69 @@ nav ul li a.active {
 .btn-delete:hover {
   background-color: #333;
 }
+
+
+/*logout*/
+/* Estilos para el menú de usuario */
+.user-menu-trigger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #444;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1001;
+  border-radius: 4px;
+  padding: 0.5rem 0;
+  list-style: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1rem;
+}
+
+.dropdown-item a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.dropdown-item a:hover {
+  background-color: #666;
+  padding-left: 1.2rem;
+}
+
+/* Flecha indicadora */
+.arrow {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+.nav-item:hover .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  /* ... otros estilos ... */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.dropdown-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}

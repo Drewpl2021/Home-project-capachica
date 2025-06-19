@@ -6,6 +6,7 @@ import {MunicipalidadService} from '../../services/municipalidad.service';
 import {SectionsService} from '../../services/sections.service'; // Importa el operador filter
 import {CarritoService} from '../carrito-sidebar/carrito.service';
 import {CarritoSidebarComponent} from '../carrito-sidebar/carrito-sidebar.component';
+import {AuthService} from '../../view/sign-in/auth.service';
 interface NavItem {
   label: string;
   path: string;
@@ -29,16 +30,19 @@ export class NavbarComponent implements OnInit {
   currentUrl: string = '';
   currentFragment: string | null = null;
   dropdownOpenIndex: number | null = null;
+  userData: {name: string, last_name: string} | null = null;
+  isUserMenuOpen = false;
 
   @ViewChild(CarritoSidebarComponent) carritoSidebar!: CarritoSidebarComponent;
 
 
 
-  constructor(private router: Router,
+  constructor(protected router: Router,
               private route: ActivatedRoute,
               public carritoService: CarritoService,
               private municipalidadService: MunicipalidadService,
-              private sectionsService: SectionsService
+              private sectionsService: SectionsService,
+              protected authService: AuthService
   ) {
     // Escucha los eventos de NavigationEnd para resetear el scroll
     this.router.events.pipe(
@@ -87,9 +91,19 @@ export class NavbarComponent implements OnInit {
       }
     });
 
+    // Suscribirse a cambios de autenticación
+    this.authService.authState$.subscribe(isLoggedIn => {
+      if (isLoggedIn) {
+        this.setupNavItems(this.authService.userData());
+      } else {
+        this.setupNavItems();
+      }
+    });
+
   }
-  setupNavItems(userData?: { name: string; last_name: string }) {
-    console.log('Datos de usuario recibidos en setupNavItems:', userData);
+
+  setupNavItems(userData?: { name: string; last_name: string } | null) {
+    console.log('Datos de usuario:', userData);
 
     // Busca la sección con code "01" a "06"
     const seccionInicio = this.sections.find(sec => sec.code === '01');
@@ -124,17 +138,6 @@ export class NavbarComponent implements OnInit {
       { label: labelContacto, path: '/contact' },
     ];
 
-    if (userData && userData.name && userData.last_name) {
-      this.navItems.push({
-        label: `${userData.name} ${userData.last_name}`,
-        path: '/profile' // o a donde quieras que apunte
-      });
-    } else {
-      this.navItems.push({
-        label: 'Iniciar Sesión',
-        path: 'http://localhost:4200/sign-in'
-      });
-    }
   }
 
 
@@ -196,5 +199,24 @@ export class NavbarComponent implements OnInit {
     window.addEventListener('scroll', () => {
       this.isScrolled = window.scrollY > 50;
     });
+  }
+  // Agrega este método a tu clase NavbarComponent
+  logout(): void {
+    this.authService.logout().subscribe({
+      next: () => {
+        this.router.navigate(['/']);
+      },
+      error: () => {
+        this.router.navigate(['/']);
+      }
+    });
+  }
+
+  openUserMenu(): void {
+    this.isUserMenuOpen = true;
+  }
+
+  closeUserMenu(): void {
+    this.isUserMenuOpen = false;
   }
 }
