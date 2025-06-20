@@ -29,9 +29,10 @@
           (mouseleave)="closeUserMenu()">
 
         <a href="javascript:void(0)" class="nav-link user-menu-trigger">
-          {{ authService.userData()?.name }} {{ authService.userData()?.last_name }}
+          Marleny Torres
           <span class="arrow">&#9662;</span>
         </a>
+
 
         <ul class="dropdown-menu" [class.show]="isUserMenuOpen">
           <li class="dropdown-item">

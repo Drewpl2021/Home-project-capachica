@@ -14,15 +14,33 @@
   <div class="container">
     <div class="row">
 
+    <h1>{{ emprendedorServicio?.emprendedor?.lugar }}</h1>
 
       <div class="main-display">
-        <div class="left-images">
+        <div class="left-images" style="position: relative;">
+          <!-- Contenedor para el logo y el nombre -->
+          <div class="family-info" style="display: flex; align-items: center; position: absolute; top: 10px; left: 23%; transform: translateX(-50%); z-index: 1;">
+            <!-- Logo en forma de círculo -->
+            <img
+              [src]="emprendedorServicio?.emprendedor?.img_logo"
+              alt="Logo de la familia"
+              class="family-logo"
+              style="width: 50px; height: 45px; border-radius: 50%; margin-right: 10px;">
+
+            <!-- Nombre de la familia -->
+            <p style="background-color: rgba(0, 0, 0, 0.5); color: white; font-size: 20px; padding: 5px 10px; border-radius: 8px; font-weight: bold;">
+              {{ emprendedorServicio?.emprendedor?.name_family }}
+            </p>
+          </div>
+
+          <!-- Imagen principal -->
           <img
             [src]="imagenPrincipal"
             alt="Imagen principal"
             class="main-image"
           />
 
+          <!-- Miniaturas de imagen -->
           <div class="thumbnail-images">
             <img
               *ngFor="let img of emprendedorServicio?.img_emprendedor_services"
@@ -35,7 +53,9 @@
         </div>
 
 
-        <div class="right-info">
+
+
+      <div class="right-info">
           <h2>{{ emprendedorServicio?.name }}</h2>
 
           <p class="price">

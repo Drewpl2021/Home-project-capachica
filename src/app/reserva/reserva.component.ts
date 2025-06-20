@@ -5,6 +5,7 @@ import { CarritoService } from '../nav/carrito-sidebar/carrito.service';
 import {FormsModule} from '@angular/forms';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import {ReservaService} from '../services/reserva.service';
 
 
 @Component({
@@ -30,8 +31,8 @@ export class ReservaComponent {
   ));
 
   // Datos del cliente para el formulario
-  nombreCliente = signal('');
-  emailCliente = signal('');
+  nombreCliente = signal('Marleny Torres');
+  emailCliente = signal('marleny.torres@gmail.com');
   telefonoCliente = signal('');
   tipoPago = signal<string | null>(null);
 
@@ -41,10 +42,32 @@ export class ReservaComponent {
   confirmarReserva() {
     this.mostrarFormularioPago.set(true); // muestra el formulario en vez de alerta
   }
+  constructor(private reservaService: ReservaService) {}
 
   // Genera el PDF programáticamente
 
+  // Generación del PDF con los datos del cliente y productos
   generarPDF() {
+    // Imprimir los datos en consola antes de generar el PDF
+    console.log("Datos del cliente:");
+    console.log(`Nombre: ${this.nombreCliente()}`);
+    console.log(`Email: ${this.emailCliente()}`);
+    console.log(`Teléfono: ${this.telefonoCliente()}`);
+    console.log(`Método de pago: ${this.tipoPago() ?? 'No seleccionado'}`);
+
+    // Imprimir los productos en la reserva
+    console.log("Productos en la reserva:");
+    this.items().forEach(item => {
+      console.log(`Producto: ${item.titulo}`);
+      console.log(`Cantidad: ${item.cantidad}`);
+      console.log(`Precio: S/ ${item.precio}`);
+      console.log(`Subtotal: S/ ${(item.precio * item.cantidad).toFixed(2)}`);
+    });
+
+    // Imprimir el total
+    console.log(`Total a pagar: S/ ${this.total().toFixed(2)}`);
+
+    // Generación del PDF (sin cambios en la lógica posterior)
     const doc = new jsPDF();
 
     // Agregar logo en encabezado a la izquierda
@@ -57,17 +80,13 @@ export class ReservaComponent {
     doc.setTextColor('#1abc9c');
     doc.text('Voucher de Reserva', 100, 25, { align: 'center' });
 
-
-
-    // Datos cliente (debajo)
+    // Datos del cliente (debajo)
     doc.setFontSize(12);
     doc.setTextColor('#000');
-    doc.text(`Nombre: ${this.nombreCliente()}`, 14, 40);
-    doc.text(`Email: ${this.emailCliente()}`, 14, 50);
+    doc.text(`Nombre: Marleny Torres`, 14, 40);
+    doc.text(`Email: marleny.torres@gmail.com`, 14, 50);
     doc.text(`Teléfono: ${this.telefonoCliente()}`, 14, 60);
     doc.text(`Método de pago: ${this.tipoPago() ?? 'No seleccionado'}`, 14, 70);
-
-
 
     // Aquí agregas las imágenes de pago, todas cuadradas igual tamaño:
     const logoX = 160;
@@ -85,6 +104,7 @@ export class ReservaComponent {
         doc.addImage(this.tarjetaBase64, 'PNG', logoX, logoY, logoSize, logoSize);
         break;
     }
+
     // Fecha creación
     const fecha = new Date();
     const fechaStr = fecha.toLocaleDateString() + ' ' + fecha.toLocaleTimeString();
@@ -120,17 +140,46 @@ export class ReservaComponent {
     doc.save('voucher-reserva.pdf');
   }
 
-  // Método para finalizar la reserva
+
   finalizarReserva(event: Event) {
     event.preventDefault();
+
     if (!this.nombreCliente() || !this.emailCliente() || !this.tipoPago()) {
       alert('Por favor complete todos los campos requeridos');
       return;
     }
-    alert('Reserva finalizada. Generando voucher PDF...');
-    this.generarPDF();
-    this.carritoService.vaciarCarrito();
-    this.router.navigate(['/']);
+
+    // Datos para la reserva (en formato adecuado)
+    const reservaData = {
+      user_id: 2,  // Este es el ID del usuario, debes obtenerlo desde tu autenticación
+      code: `CO_${Math.floor(Math.random() * 1000)}`,  // Generamos un código único para la reserva
+      total: this.total(),
+      bi: this.total() - (this.total() * 0.18),  // Ejemplo: calculamos el precio base (sin IGV)
+      igv: this.total() * 0.18,  // 18% de IGV
+      details: this.items().map(item => ({
+        emprendedor_service_id: item.id,  // ID del servicio (esto depende de tu estructura)
+        reserva_id: `${Math.floor(Math.random() * 100000)}`,  // ID único para el detalle
+        costo: item.precio,
+        cantidad: item.cantidad,
+        IGV: (item.precio * 0.18).toFixed(2),
+        BI: item.precio.toFixed(2),
+        total: (item.precio * item.cantidad).toFixed(2),
+        lugar: 'Lima',  // Esto lo puedes obtener de algún input si es necesario
+        description: `${item.titulo} - ${item.descripcion}`,
+      }))
+    };
+
+    // Llamada al servicio para crear la reserva
+    this.reservaService.crearReserva(reservaData).subscribe(response => {
+      console.log('Reserva creada con éxito:', response);
+      alert('Reserva finalizada. Generando voucher PDF...');
+      this.generarPDF();  // Generamos el PDF
+      this.carritoService.vaciarCarrito();
+      this.router.navigate(['/']);
+    }, error => {
+      console.error('Error al crear la reserva:', error);
+      alert('Hubo un problema al procesar la reserva');
+    });
   }
 
   // Metodo para cancelar y ocultar el formulario de pago

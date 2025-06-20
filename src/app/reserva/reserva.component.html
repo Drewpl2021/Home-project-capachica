@@ -1,56 +1,56 @@
-<div class="reserva-container">
-  <h2>Confirmar Reserva</h2>
+<div class="reserva-container" style="padding: 40px 20px; background-color: #f4f7fb; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+  <h2 style="text-align: center; font-size: 24px; font-weight: 600; color: #333; margin-bottom: 30px;">Confirmar Reserva</h2>
 
   <!-- Vista previa de la reserva y botón Confirmar -->
   <ng-container *ngIf="!mostrarFormularioPago()">
-    <div *ngIf="items().length === 0">
+    <div *ngIf="items().length === 0" style="text-align: center; color: #777;">
       <p>No hay productos en la reserva.</p>
     </div>
 
-    <div *ngIf="items().length > 0" class="reserva-grid">
+    <div *ngIf="items().length > 0" class="reserva-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
       <!-- Carrito a la izquierda -->
-      <div class="carrito-resumen">
-        <h3>Productos en tu reserva</h3>
-        <ul>
-          <li *ngFor="let item of items()">
-            <img [src]="item.imagen" alt="{{ item.titulo }}" width="80" />
-            <div>
-              <h4>{{ item.titulo }}</h4>
-              <p>{{ item.descripcion }}</p>
-              <p>Cantidad: {{ item.cantidad }}</p>
-              <p>Precio: S/ {{ item.precio | number:'1.2-2' }}</p>
-              <p>Subtotal: S/ {{ (item.precio * item.cantidad) | number:'1.2-2' }}</p>
+      <div class="carrito-resumen" style="background-color: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+        <h3 style="font-size: 20px; color: #333; font-weight: 600;">Productos en tu reserva</h3>
+        <ul style="list-style-type: none; padding-left: 0;">
+          <li *ngFor="let item of items()" style="display: flex; align-items: center; margin-bottom: 20px;">
+            <img [src]="item.imagen" alt="{{ item.titulo }}" width="80" style="border-radius: 8px; margin-right: 15px;" />
+            <div style="flex: 1;">
+              <h4 style="font-size: 16px; color: #333; margin-bottom: 5px;">{{ item.titulo }}</h4>
+              <p style="color: #777; font-size: 14px; margin-bottom: 5px;">{{ item.descripcion }}</p>
+              <p style="font-size: 14px; color: #333;">Cantidad: {{ item.cantidad }}</p>
+              <p style="font-size: 14px; color: #333;">Precio: S/ {{ item.precio | number:'1.2-2' }}</p>
+              <p style="font-size: 14px; color: #333;">Subtotal: S/ {{ (item.precio * item.cantidad) | number:'1.2-2' }}</p>
             </div>
           </li>
-          <div class="total-reserva" *ngIf="items().length > 0">
-            <h3>Total a pagar: S/ {{ total() | number:'1.2-2' }}</h3>
+          <div class="total-reserva" *ngIf="items().length > 0" style="border-top: 1px solid #f0f0f0; padding-top: 15px; text-align: right;">
+            <h3 style="font-size: 20px; color: #333; font-weight: 600;">Total a pagar: S/ {{ total() | number:'1.2-2' }}</h3>
           </div>
         </ul>
       </div>
 
       <!-- Métodos de pago a la derecha -->
-      <div class="metodos-pago">
-        <h3>Opciones de pago</h3>
-        <ul>
-          <li>
-            <img src="assets/images/yape-logo.png" alt="Yape" class="metodo-icon" height="60" width="60"/>
+      <div class="metodos-pago" style="background-color: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+        <h3 style="font-size: 20px; color: #333; font-weight: 600; margin-bottom: 20px;">Opciones de pago</h3>
+        <ul style="list-style-type: none; padding-left: 0;">
+          <li style="display: flex; align-items: center; margin-bottom: 20px;">
+            <img src="assets/images/yape-logo.png" alt="Yape" class="metodo-icon" height="60" width="60" style="margin-right: 15px;"/>
             <div>
-              <strong>Yape</strong>
-              <p>Envía el pago a nuestro número 999-999-999.</p>
+              <strong style="font-size: 16px; color: #333;">Yape</strong>
+              <p style="font-size: 14px; color: #777;">Envía el pago a nuestro número 999-999-999.</p>
             </div>
           </li>
-          <li>
-            <img src="assets/images/banco-logo.png" alt="Banco" class="metodo-icon" />
+          <li style="display: flex; align-items: center; margin-bottom: 20px;">
+            <img src="assets/images/banco-logo.png" alt="Banco" class="metodo-icon" style="margin-right: 15px;"/>
             <div>
-              <strong>Transferencia bancaria</strong>
-              <p>Cuenta en el Banco XYZ: 1234567890.</p>
+              <strong style="font-size: 16px; color: #333;">Transferencia bancaria</strong>
+              <p style="font-size: 14px; color: #777;">Cuenta en el Banco XYZ: 1234567890.</p>
             </div>
           </li>
-          <li>
-            <img src="assets/images/visa-logo.png" alt="Tarjeta" class="metodo-icon" />
+          <li style="display: flex; align-items: center;">
+            <img src="assets/images/visa-logo.png" alt="Tarjeta" class="metodo-icon" style="margin-right: 15px;"/>
             <div>
-              <strong>Tarjeta de crédito/débito</strong>
-              <p>Aceptamos Visa, Mastercard y American Express.</p>
+              <strong style="font-size: 16px; color: #333;">Tarjeta de crédito/débito</strong>
+              <p style="font-size: 14px; color: #777;">Aceptamos Visa, Mastercard y American Express.</p>
             </div>
           </li>
         </ul>
@@ -61,31 +61,31 @@
       [disabled]="items().length === 0"
       (click)="confirmarReserva()"
       class="confirm-btn"
-    >
+      style="background-color: #28a745; color: #fff; padding: 12px 25px; border-radius: 30px; border: none; font-size: 16px; cursor: pointer; margin-top: 20px; transition: background-color 0.3s ease;">
       Confirmar Reserva
     </button>
   </ng-container>
 
   <!-- Formulario de datos cliente y tipo de pago -->
   <ng-container *ngIf="mostrarFormularioPago()">
-    <h3>Complete sus datos para finalizar</h3>
-    <form (submit)="finalizarReserva($event)">
-      <label>
+    <h3 style="font-size: 20px; color: #333; font-weight: 600; margin-bottom: 20px; text-align: center;">Complete sus datos para finalizar</h3>
+    <form (submit)="finalizarReserva($event)" style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto; background-color: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+      <label style="font-size: 16px; color: #333;">
         Nombre completo:
-        <input type="text" [(ngModel)]="nombreCliente" name="nombreCliente" required />
+        <input type="text" [(ngModel)]="nombreCliente" name="nombreCliente" required style="padding: 12px; font-size: 14px; border-radius: 8px; border: 1px solid #ccc; margin-top: 8px;"/>
       </label>
-      <label>
+      <label style="font-size: 16px; color: #333;">
         Email:
-        <input type="email" [(ngModel)]="emailCliente" name="emailCliente" required />
+        <input type="email" [(ngModel)]="emailCliente" name="emailCliente" required style="padding: 12px; font-size: 14px; border-radius: 8px; border: 1px solid #ccc; margin-top: 8px;"/>
       </label>
-      <label>
+      <label style="font-size: 16px; color: #333;">
         Teléfono:
-        <input type="tel" [(ngModel)]="telefonoCliente" name="telefonoCliente" />
+        <input type="tel" [(ngModel)]="telefonoCliente" name="telefonoCliente" style="padding: 12px; font-size: 14px; border-radius: 8px; border: 1px solid #ccc; margin-top: 8px;"/>
       </label>
 
-      <label>
+      <label style="font-size: 16px; color: #333;">
         Método de pago:
-        <select [(ngModel)]="tipoPago" name="tipoPago" required>
+        <select [(ngModel)]="tipoPago" name="tipoPago" required style="padding: 12px; font-size: 14px; border-radius: 8px; border: 1px solid #ccc; margin-top: 8px;">
           <option value="" disabled selected>Seleccione un método</option>
           <option value="yape">Yape</option>
           <option value="banco">Transferencia bancaria</option>
@@ -93,9 +93,12 @@
           <option value="tarjeta">Efectivo en Caja</option>
         </select>
       </label>
-      <button  type="submit" class="confirm-btn" >Finalizar Reserva Y Descargar Voucher</button>
-      <button type="button" class="cancel-btn" (click)="cancelar()">Cancelar</button>
-
+      <button type="submit" class="confirm-btn" style="background-color: #28a745; color: #fff; padding: 12px 25px; border-radius: 30px; border: none; font-size: 16px; cursor: pointer; margin-top: 20px; transition: background-color 0.3s ease;">
+        Finalizar Reserva Y Descargar Voucher
+      </button>
+      <button type="button" class="cancel-btn" (click)="cancelar()" style="background-color: #dc3545; color: #fff; padding: 12px 25px; border-radius: 30px; border: none; font-size: 16px; cursor: pointer; margin-top: 10px;">
+        Cancelar
+      </button>
     </form>
   </ng-container>
 </div>

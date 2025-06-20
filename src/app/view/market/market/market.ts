@@ -19,7 +19,8 @@ export interface EmprendedorServicio {
     razon_social: string;
     address: string;
     lugar: string,
-
+    name_family: string;
+    img_logo: string;
     // ... otros campos
   };
   service: {
