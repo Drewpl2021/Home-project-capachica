@@ -1,56 +1,265 @@
 import { Component, OnInit } from '@angular/core';
-import AOS from 'aos';  // Importar la librería AOS
-import 'aos/dist/aos.css';
-import {ActivatedRoute, RouterModule} from '@angular/router';
+import {CommonModule, NgStyle} from '@angular/common';
+import {Router, RouterLink} from '@angular/router';
+import { AsociacionService} from '../../services/asociacion.service';
+import {ApiResponse, Asociacion, EmprendedorServicio, Servicios} from './model/home';
+import {Observable} from 'rxjs';
+import {ServicioService} from '../../services/service.service';
+import {EmprendedorService} from '../../services/EmprendedorService.service';
 import {SectionsDetailService} from '../../services/sectionsDetail.service';
-import {CommonModule} from '@angular/common';  // Importar el archivo CSS de AOS
+import {SectionsDetailEndsService} from '../../services/sectionsDetailEnds.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css',
   imports: [
-    CommonModule, // Asegúrate de incluir CommonModule aquí
-    RouterModule
+    NgStyle,
+    RouterLink,
+    CommonModule
   ],
+  standalone: true,
+  templateUrl: './home.component.html',
+  styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
-  sectionId: string = '';  // Variable para almacenar el ID de la sección
-  sectionDetails: any = {};
-  constructor(private route: ActivatedRoute,
-              private sectionsDetailService: SectionsDetailService,
-              ) {}
+
+  imageList = [
+    'assets/images/inicio.png',
+    'assets/images/inicio2.png',
+    'assets/images/inicio3.png'
+  ];
+  currentImage = this.imageList[0];
+  currentIndex = 0;
+  selectedCategory: any = null;
+  asociaciones: Asociacion[] = []; // tipo any para evitar líos
+  servicios: Servicios[] = []; // tipo any para evitar líos
+  emprendedorServicios: EmprendedorServicio[] = []; // tipo any para evitar líos
+  comida: EmprendedorServicio[] = []; // tipo any para evitar líos
+  imageIndexes: number[] = []; // índice actual para la imagen de cada asociación
+
+  // Variables para títulos dinámicos
+  tituloHospedajes: string = 'Hospedajes Populares';
+  tituloComida: string = 'Mejores Lugares para Comer';
+  tituloDestinos: string = 'Destinos más populares';
+  tituloDescubrevive: string = 'Descubre - Vive - Conecta';
+  tituloDescubrecapachica: string = 'Descrubre la Península de Capachica';
+  descripcionDescubrecapachica: string = 'Sumérgete en la cultura y belleza natural de este rincón de Puno';
+  titulovacaciones: string = 'Vea nuestras ultimas ideas de vacaciones';
+  titulolomejor: string = 'Lo mejor de Capachica';
+  descripcionlomejor: string = 'Descripcion de Capachica';
+  hagasurecorrido: string = 'Haga que su recorrido sea memorable seguro con nosotros';
+
+  //Variables para opciones dentro de las secciones
+  //Descubre - Vive - Conecta
+  subtituloDescubre: string = 'Descubre en Capachica';
+  subdescripcionDescubre: string = 'Un rincón único a orillas del majestuoso Lago Titicaca, donde la naturaleza y la cultura ancestral se entrelazan. Déjate cautivar por sus impresionantes paisajes y su gente acogedora.';
+  subtituloVive: string = 'Vive la Experiencia';
+  subdescripcionVive: string = 'Sumérgete en la autenticidad de sus comunidades quechuas, disfruta de la gastronomía local y explora sus islas flotantes y naturales. Un destino lleno de historia y tradición.';
+  subtituloConecta: string = 'Conecta con la Naturaleza';
+  subdescripcionConecta: string = 'En Capachica, la tranquilidad del lago y el aire puro andino te invitan a desconectarte del estrés diario. Un lugar ideal para recargar energías y crear momentos inolvidables.';
+  //Vea nuestras ideas de vacaciones
+  subtituloPaisaje: string = 'Paisaje frente a la playa';
+  imagenPaisage: string = '';
+  subtituloVacaciones: string = 'Vacaciones en grupo';
+  imagenVacaciones: string = '';
+  subtituloArtesania: string = 'Artesana';
+  imagenArtesania: string = '';
+  //Haga que su recorrido sea memorable
+  descripcionrecorrido: string = 'Descripcion de Capachica';
+  imagenrecorrido: string = '';
+
+
+  constructor(private _asociacionService: AsociacionService,
+              private _servicioService: ServicioService,
+              private _emprendedorService: EmprendedorService,
+              private _sectionsDetailService: SectionsDetailService,
+              private _sectionsDetailEndsService: SectionsDetailEndsService,
+              private router: Router
+  ) {}
+
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.sectionId = params.get('id') || '';  // Asignar el 'id' a la variable
-      console.log(`Section ID from URL: ${this.sectionId}`);
+    this.cargarDatos();
+    this.cargarTitulosDinamicos();
+    this.cargarSuntitulosDinamicos()
+  }
 
-      // Llamar al backend con el id de la sección
-      if (this.sectionId) {
-        // Llamar al método del servicio que obtiene los detalles
-        this.sectionsDetailService.getsectionDetailsById(this.sectionId).subscribe(
-          (data) => {
-            // Ordenar los detalles por el campo 'code'
-            const orderedData = Object.keys(data)
-              .map(key => data[key])  // Convertir el objeto a un array de valores
-              .sort((a, b) => {
-                // Convertir los 'code' a números y ordenarlos
-                return Number(a.code) - Number(b.code);
-              });
+  private cargarDatos() {
+    this._asociacionService.getAsociaciones().subscribe({
+      next: (response: ApiResponse) => {
+        this.asociaciones = response.content || [];
+        this.iniciarCarruseles();
+      },
+    });
 
-            // Asignamos los datos ordenados a la variable sectionDetails
-            this.sectionDetails = orderedData;
-            console.log('Ordered Section details:', this.sectionDetails);  // Logueamos los detalles ordenados
-          },
-          (error) => {
-            console.error('Error fetching section details:', error);  // Manejo de errores
-          }
-        );
+    this._servicioService.getServicio().subscribe({
+      next: (response: ApiResponse) => {
+        this.servicios = response.content || [];
+        this.selectedCategory = this.servicios.find(item => item.code === "01") || null;
+
+        if (this.selectedCategory) {
+          this.uploadData(this.selectedCategory.id); // pasar categoría
+        }
+      }
+    });
+    this._servicioService.getServicio().subscribe({
+      next: (response: ApiResponse) => {
+        this.servicios = response.content || [];
+        this.selectedCategory = this.servicios.find(item => item.code === "03") || null;
+
+        if (this.selectedCategory) {
+          this.uploadComida(this.selectedCategory.id); // pasar categoría
+        }
       }
     });
   }
 
+  private cargarTitulosDinamicos() {
+    this._sectionsDetailService.getsectionDetails().subscribe({
+      next: (data: any[]) => {
+        // Suponiendo que data es un array plano
+        const descubrecapachica = data.find((item: any) => item.code === '01');
+        const descubrevive = data.find((item: any) => item.code === '02');
+        const vacaciones = data.find((item: any) => item.code === '03');
+        const lomejor = data.find((item: any) => item.code === '04');
+        const destinos = data.find((item: any) => item.code === '05');
+        const hospedajes = data.find((item: any) => item.code === '06');
+        const comida = data.find((item: any) => item.code === '07');
+        const recorrido = data.find((item: any) => item.code === '08');
+
+        this.tituloDescubrecapachica = descubrecapachica ? descubrecapachica.title : 'Descrubre la Península de Capachica';
+        this.descripcionDescubrecapachica = descubrecapachica ? descubrecapachica.description : 'Sumérgete en la cultura y belleza natural de este rincón de Puno';
+        this.tituloDescubrevive = descubrevive ? descubrevive.title: 'Descubre - Vive - Conecta'
+        this.titulovacaciones = vacaciones ? vacaciones.title : 'Vea nuestras ultimas ideas de vacaciones';
+        this.titulolomejor = lomejor ? lomejor.title : 'Lo mejor de Capachica';
+        this.descripcionlomejor = lomejor ? lomejor.description : 'Descripcion de Capachica';
+        this.tituloDestinos = destinos ? destinos.title : 'Destinos más populares';
+        this.tituloHospedajes = hospedajes ? hospedajes.title : 'Hospedajes Populares';
+        this.tituloComida = comida ? comida.title : 'Mejores Lugares para Comer';
+        this.hagasurecorrido = recorrido ? recorrido.title : 'Haga que su recorrido sea memorable seguro con nosotros';
+      },
+      error: (err: any) => {
+        console.error('Error cargando títulos dinámicos', err);
+        // Valores por defecto en caso de error
+        this.tituloDescubrecapachica = 'Descrubre la Península de Capachica';
+        this.tituloDescubrevive = 'Descubre - Vive - Conecta';
+        this.titulovacaciones = 'Vea nuestras ultimas ideas de vacaciones';
+        this.titulolomejor = 'Lo mejor de Capachica';
+        this.tituloDestinos = 'Destinos más populares';
+        this.tituloHospedajes = 'Hospedajes Populares';
+        this.tituloComida = 'Mejores Lugares para Comer';
+        this.hagasurecorrido = 'Haga que su recorrido sea memorable seguro con nosotros';
+      }
+    });
+  }
+
+  private cargarSuntitulosDinamicos() {
+    this._sectionsDetailEndsService.getsectionDetailsEnds().subscribe({
+      next: (data: any[]) => {
+        // Suponiendo que data es un array plano
+        //Descubre - Vive - Conecta
+        const descubrecapachica = data.find((item: any) => item.code === '02');
+        const vivecapachica = data.find((item: any) => item.code === '03');
+        const conectacapachica = data.find((item: any) => item.code === '04');
+        //Vea nuestras ideas de vacaciones
+        const paisaje = data.find((item: any) => item.code === '05');
+        const artesania = data.find((item: any) => item.code === '06');
+        const vacaciones = data.find((item: any) => item.code === '07');
+        const subrecorrido = data.find((item: any) => item.code === '22');
 
 
+        //Descubre - Vive - Conecta
+        this.subtituloDescubre =  descubrecapachica ? descubrecapachica.title: 'Descubre Capachica';
+        this.subdescripcionDescubre = descubrecapachica ? descubrecapachica.description: 'Un rincón único a orillas del majestuoso Lago Titicaca, donde la naturaleza y la cultura ancestral se entrelazan. Déjate cautivar por sus impresionantes paisajes y su gente acogedora.';
+        this.subtituloVive = vivecapachica ? vivecapachica.title: 'Vive la Experiencia';
+        this.subdescripcionVive = vivecapachica ? vivecapachica.description: 'Sumérgete en la autenticidad de sus comunidades quechuas, disfruta de la gastronomía local y explora sus islas flotantes y naturales. Un destino lleno de historia y tradición.';
+        this.subtituloConecta = conectacapachica ? conectacapachica.title: 'Conecta con la Naturaleza';
+        this.subdescripcionConecta = conectacapachica ? conectacapachica.description: 'En Capachica, la tranquilidad del lago y el aire puro andino te invitan a desconectarte del estrés diario. Un lugar ideal para recargar energías y crear momentos inolvidables.';
+        //Vea nuestras ideas de vacaciones
+        this.subtituloPaisaje = paisaje ? paisaje.title : 'Paisaje frente a la playa';
+        this.imagenPaisage = paisaje ? paisaje.image: 'https://www.peru.travel/Contenido/General/Imagen/es/836/1.1/hoteles-puno-titilaka-peru.jpg';
+        this.subtituloArtesania = artesania ? artesania.title : 'Artesana';
+        this.imagenArtesania = artesania ? artesania.image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-4eq5fVpvvOxe6weATgOFJhrS5if2-REaqQ&s';
+        this.subtituloVacaciones = vacaciones ? vacaciones.title : 'Vacaciones en grupo';
+        this.imagenVacaciones = vacaciones ? vacaciones.image: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/09/18/e2/e5.jpg'
+        //Haga que su recorrido sea memorable
+        this.descripcionrecorrido = subrecorrido ? subrecorrido.description : 'Hola';
+        this.imagenrecorrido = subrecorrido ?subrecorrido.image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAp3kUc1KTu7f1VIikOAVF6-Tt9Mdw7rv8eA&s'
+
+      },
+      error: (err: any) => {
+        console.error('Error cargando títulos dinámicos', err);
+        // Valores por defecto en caso de error
+        //Descubre - Vive - Conecta
+        this.subtituloDescubre = 'Descubre Capachica';
+        this.subdescripcionDescubre = 'Un rincón único a orillas del majestuoso Lago Titicaca, donde la naturaleza y la cultura ancestral se entrelazan. Déjate cautivar por sus impresionantes paisajes y su gente acogedora.';
+        this.subtituloVive = 'Vive la Experiencia';
+        this.subdescripcionVive = 'Sumérgete en la autenticidad de sus comunidades quechuas, disfruta de la gastronomía local y explora sus islas flotantes y naturales. Un destino lleno de historia y tradición.';
+        this.subtituloConecta = 'Vive la Experiencia';
+        this.subdescripcionConecta = 'En Capachica, la tranquilidad del lago y el aire puro andino te invitan a desconectarte del estrés diario. Un lugar ideal para recargar energías y crear momentos inolvidables.';
+        //Vea nuestras ideas de vacaciones
+        this.subtituloPaisaje = 'Paisaje frente a la playa';
+        this.imagenPaisage = 'https://www.peru.travel/Contenido/General/Imagen/es/836/1.1/hoteles-puno-titilaka-peru.jpg';
+        this.subtituloArtesania = 'Artesania';
+        this.imagenArtesania = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-4eq5fVpvvOxe6weATgOFJhrS5if2-REaqQ&s';
+        this.subtituloVacaciones = 'Vacaciones en grupo';
+        this.imagenVacaciones = 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-674x446/09/18/e2/e5.jpg'
+        //Haga que su recorrido sea memorable
+        this.descripcionrecorrido = 'Hola';
+        this.imagenrecorrido = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAp3kUc1KTu7f1VIikOAVF6-Tt9Mdw7rv8eA&s';
+      }
+    });
+  }
+
+  private uploadData(id?: string) {
+    this._emprendedorService.getServicioFilter(id).subscribe({
+      next: (response: ApiResponse) => {
+        this.emprendedorServicios = response.content || [];
+        this.selectedCategory = this.emprendedorServicios.find(item => item.code === "01") || null;
+        this.iniciarCarruseles();
+
+      },
+    });
+
+  }
+  private uploadComida(id?: string) {
+    this._emprendedorService.getServicioFilter(id).subscribe({
+      next: (response: ApiResponse) => {
+        this.comida = response.content || [];
+        this.selectedCategory = this.comida.find(item => item.code === "03") || null;
+        this.iniciarCarruseles();
+
+      },
+    });
+
+  }
+  navigateTo(servicio: any) {
+    const serviceId = servicio.id;
+    this.router.navigate(['/market', serviceId]);
+  }
+
+  private iniciarCarruseles() {
+    // Inicializar todos los índices en 0
+    this.imageIndexes = this.asociaciones.map(() => 0);
+
+    // Cada 4 segundos cambia la imagen activa de cada asociación
+    setInterval(() => {
+      this.imageIndexes = this.imageIndexes.map((currentIndex, i) => {
+        // @ts-ignore
+        if (!this.asociaciones[i]?.imagenes || this.asociaciones[i].imagenes.length === 0) {
+          return 0;
+        }
+        // @ts-ignore
+        return (currentIndex + 1) % this.asociaciones[i].imagenes.length;
+      });
+    }, 5000);
+  }
+  scrollLeft(): void {
+    const carousel = document.getElementById('carousel');
+    if (carousel) carousel.scrollLeft -= 3000;
+  }
+
+  scrollRight(): void {
+    const carousel = document.getElementById('carousel');
+    if (carousel) carousel.scrollLeft += 3000;
+  }
 }

@@ -1,0 +1,241 @@
+<div class="hero-wrap" >
+  <div class="overlay"></div>
+  <div class="container" data-aos="fade-down" data-aos-duration="1000">
+    <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
+      <div class="col-md-9 text-center">
+        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Hotel</span></p>
+        <h1 class="mb-3 bread">Hotels</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="ftco-section">
+  <div class="container">
+    <div class="row">
+
+    <h1>{{ emprendedorServicio?.emprendedor?.lugar }}</h1>
+
+      <div class="main-display">
+        <div class="left-images" style="position: relative;">
+          <!-- Contenedor para el logo y el nombre -->
+          <div class="family-info" style="display: flex; align-items: center; position: absolute; top: 10px; left: 23%; transform: translateX(-50%); z-index: 1;">
+            <!-- Logo en forma de círculo -->
+            <img
+              [src]="emprendedorServicio?.emprendedor?.img_logo"
+              alt="Logo de la familia"
+              class="family-logo"
+              style="width: 50px; height: 45px; border-radius: 50%; margin-right: 10px;">
+
+            <!-- Nombre de la familia -->
+            <p style="background-color: rgba(0, 0, 0, 0.5); color: white; font-size: 20px; padding: 5px 10px; border-radius: 8px; font-weight: bold;">
+              {{ emprendedorServicio?.emprendedor?.name_family }}
+            </p>
+          </div>
+
+          <!-- Imagen principal -->
+          <img
+            [src]="imagenPrincipal"
+            alt="Imagen principal"
+            class="main-image"
+          />
+
+          <!-- Miniaturas de imagen -->
+          <div class="thumbnail-images">
+            <img
+              *ngFor="let img of emprendedorServicio?.img_emprendedor_services"
+              [src]="img.url_image"
+              alt="Miniatura"
+              (click)="cambiarImagenPrincipal(img.url_image)"
+              [class.selected]="img.url_image === imagenPrincipal"
+            />
+          </div>
+        </div>
+
+
+
+
+      <div class="right-info">
+          <h2>{{ emprendedorServicio?.name }}</h2>
+
+          <p class="price">
+            S/.{{ emprendedorServicio?.costo }}
+            <span class="per-night">
+              {{
+                emprendedorServicio?.service?.code === '01' ? 'la noche' :
+                  emprendedorServicio?.service?.code === '02' ? 'el tour' :
+                    emprendedorServicio?.service?.code === '03' ? 'el plato' :
+                      emprendedorServicio?.service?.code === '04' ? 'la unidad' :
+                        emprendedorServicio?.service?.code === '05' ? 'el viaje' :
+                          ''
+                          }}
+            </span>
+
+
+          </p>
+
+          <p class="description">{{ emprendedorServicio?.description }}</p>
+
+          <p class="location">{{ emprendedorServicio?.emprendedor?.lugar }}</p>
+
+          <div class="actions">
+            <button (click)="disminuirCantidad()" aria-label="Disminuir cantidad">-</button>
+            <input
+              type="number"
+              min="1"
+              max="20"
+              [value]="cantidad"
+              readonly
+              aria-live="polite"
+              aria-atomic="true"
+            />
+            <button (click)="aumentarCantidad()" aria-label="Aumentar cantidad">+</button>
+          </div>
+          <br>
+          <a
+            (click)="agregarAlCarrito(emprendedorServicio?.id ?? '',
+    emprendedorServicio?.name ?? '','',
+    emprendedorServicio?.img_emprendedor_services?.[0]?.url_image ?? 'assets/images/default.png',
+    parseFloat(emprendedorServicio?.costo ?? '0')
+  )"
+            class="btn btn-primary"
+          >
+            Añadir al Carrito
+          </a>
+
+
+        </div>
+        </div>
+      <h2>Hospedaje</h2>
+      <div class="bottom-thumbnails" >
+        <div
+          class="thumbnail-card" style="width: 310px"
+          *ngFor="let servicio of hotel"
+          [class.active]="servicio.id "
+        >
+          <img [src]="servicio.imagenes?.[0]?.url_image || 'assets/images/default.png'" [alt]="servicio.name" />
+          <h4>{{ servicio.name }}</h4>
+          <p class="price">S/.{{ servicio.costo }} la noche</p>
+          <p class="location">{{ servicio.emprendedor?.address || servicio.emprendedor?.lugar }}</p>
+          <button class="btn-view" (click)="seleccionarServicio(servicio.id)">
+            Detalles de {{ servicio.name }}
+          </button>
+        </div>
+      </div>
+      <h2 style="margin-top: 75px">Tours</h2>
+      <div class="bottom-thumbnails" >
+        <div
+          class="thumbnail-card" style="width: 310px"
+          *ngFor="let servicio of tours"
+          [class.active]="servicio.id "
+        >
+          <img [src]="servicio.imagenes?.[0]?.url_image || 'assets/images/default.png'" [alt]="servicio.name" />
+          <h4>{{ servicio.name }}</h4>
+          <p class="price">S/.{{ servicio.costo }} la noche</p>
+          <p class="location">{{ servicio.emprendedor?.address || servicio.emprendedor?.lugar }}</p>
+          <button class="btn-view" (click)="seleccionarServicio(servicio.id)">
+            Detalles de {{ servicio.name }}
+          </button>
+        </div>
+      </div>
+      <h2 style="margin-top: 75px">Gastronomía</h2>
+      <div class="bottom-thumbnails" >
+        <div
+          class="thumbnail-card" style="width: 310px"
+          *ngFor="let servicio of gastronomia"
+          [class.active]="servicio.id "
+        >
+          <img [src]="servicio.imagenes?.[0]?.url_image || 'assets/images/default.png'" [alt]="servicio.name" />
+          <h4>{{ servicio.name }}</h4>
+          <p class="price">S/.{{ servicio.costo }} la noche</p>
+          <p class="location">{{ servicio.emprendedor?.address || servicio.emprendedor?.lugar }}</p>
+          <button class="btn-view" (click)="seleccionarServicio(servicio.id)">
+            Detalles de {{ servicio.name }}
+          </button>
+        </div>
+      </div>
+      <h2 style="margin-top: 75px">Artesanías</h2>
+      <div class="bottom-thumbnails" >
+        <div
+          class="thumbnail-card" style="width: 310px"
+          *ngFor="let servicio of artesanias"
+          [class.active]="servicio.id "
+        >
+          <img [src]="servicio.imagenes?.[0]?.url_image || 'assets/images/default.png'" [alt]="servicio.name" />
+          <h4>{{ servicio.name }}</h4>
+          <p class="price">S/.{{ servicio.costo }} la noche</p>
+          <p class="location">{{ servicio.emprendedor?.address || servicio.emprendedor?.lugar }}</p>
+          <button class="btn-view" (click)="seleccionarServicio(servicio.id)">
+            Detalles de {{ servicio.name }}
+          </button>
+        </div>
+      </div>
+      <h2 style="margin-top: 75px">Transporte</h2>
+      <div class="bottom-thumbnails" >
+        <div
+          class="thumbnail-card" style="width: 310px"
+          *ngFor="let servicio of transporte"
+          [class.active]="servicio.id "
+        >
+          <img [src]="servicio.imagenes?.[0]?.url_image || 'assets/images/default.png'" [alt]="servicio.name" />
+          <h4>{{ servicio.name }}</h4>
+          <p class="price">S/.{{ servicio.costo }} la noche</p>
+          <p class="location">{{ servicio.emprendedor?.address || servicio.emprendedor?.lugar }}</p>
+          <button class="btn-view" (click)="seleccionarServicio(servicio.id)">
+            Detalles de {{ servicio.name }}
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<footer class="ftco-footer ftco-bg-dark ftco-section">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-md">
+        <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2">Nuestras Redes Sociales</h2>
+          <p>Puedes seguirnos en nuestras redes sociales para estar al tanto de nuevos eventos y actividades que tenemos preparados para ti.</p>
+          <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+            <li><a href="#"><span class="icon-twitter"></span></a></li>
+            <li><a href="#"><span class="icon-facebook"></span></a></li>
+            <li><a href="#"><span class="icon-instagram"></span></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="ftco-footer-widget mb-4 ml-md-4">
+          <h2 class="ftco-heading-2">Informacion</h2>
+          <ul class="list-unstyled">
+            <li><a href="#" class="py-2 d-block">Acerca de Nosotros</a></li>
+            <li><a href="#" class="py-2 d-block">Contactanos</a></li>
+            <li><a href="#" class="py-2 d-block">Preguntas Generales</a></li>
+            <li><a href="#" class="py-2 d-block">Ternimos y Condiciones</a></li>
+            <li><a href="#" class="py-2 d-block">Politicas de Privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md">
+        <div class="ftco-footer-widget mb-4">
+          <h2 class="ftco-heading-2">¿Tienes alguna Pregunta?</h2>
+          <div class="block-23 mb-3">
+            <ul>
+              <li><span class="icon icon-map-marker"></span><span class="text">Plaza de Armas S/N - Capachica - Puno - Perú</span></li>
+              <li><a href="#"><span class="icon icon-phone"></span><span class="text">+51 950 923 204</span></a></li>
+              <li><a href="#"><span class="icon icon-envelope"></span><span class="text">municapachica2023&#64;gmail.com</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<div class="row">
+      <div class="col-md-12 text-center">
+        <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+      </div>
+    </div>-->
+  </div>
+</footer>
+

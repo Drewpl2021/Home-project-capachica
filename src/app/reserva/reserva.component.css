@@ -1,0 +1,303 @@
+.reserva-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #d4f0e2; /* verde claro */
+  border-radius: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.reserva-container h2 {
+  color: #1abc9c;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.reserva-grid {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  /* Centramos verticalmente el contenido hijo */
+  align-items: center;
+}
+
+/* Carrito resumen (izquierda) */
+.carrito-resumen {
+  flex: 1 1 350px;
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.carrito-resumen h3 {
+  margin-top: 0;
+  color: #16a085;
+  margin-bottom: 1rem;
+}
+
+.carrito-resumen ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carrito-resumen li {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.75rem;
+  align-items: center; /* centra verticalmente */
+}
+
+.carrito-resumen li img {
+  aspect-ratio: 1 / 1;    /* fuerza aspecto cuadrado */
+  width: 80px;            /* ancho fijo */
+  height: auto;           /* altura automática */
+  object-fit: cover;      /* recorta para llenar el cuadro */
+  border-radius: 12px;    /* bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  flex-shrink: 0;         /* evita que la imagen se achique */
+}
+
+.carrito-resumen li div {
+  flex: 1;                /* toma todo el espacio restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.carrito-resumen h4 {
+  margin: 0;
+  color: #117a65;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.carrito-resumen p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
+/* Métodos de pago (derecha) */
+.metodos-pago {
+  flex: 1 1 350px;
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.metodos-pago h3 {
+  margin-top: 0;
+  color: #16a085;
+  margin-bottom: 1rem;
+}
+
+.metodos-pago ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.metodos-pago li {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.metodos-pago .metodo-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.metodos-pago strong {
+  font-size: 1.1rem;
+  color: #1abc9c;
+}
+
+.metodos-pago p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Botón Confirmar */
+.confirm-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 0.8rem 2rem;
+  background-color: #1abc9c;
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.confirm-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.confirm-btn:hover:enabled {
+  background-color: #16a085;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reserva-grid {
+    flex-direction: column;
+  }
+}
+
+.total-reserva {
+  text-align: right;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1abc9c;
+}
+
+form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+form input, form select {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border-radius: 6px;
+  border: 1.5px solid #1abc9c;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus, form select:focus {
+  outline: none;
+  border-color: #16a085;
+  box-shadow: 0 0 8px rgba(22,160,133,0.3);
+}
+
+.cancel-btn {
+  background: #ccc;
+  color: #333;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #bbb;
+}
+
+.confirm-btn {
+  background-color: #1abc9c;
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.confirm-btn:hover {
+  background-color: #16a085;
+}
+/*pdf*/
+.voucher-container {
+  background: white;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  margin-bottom: 1.5rem;
+  max-width: 700px;
+}
+
+.voucher-container h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #1abc9c;
+}
+
+.datos-cliente h3,
+.detalle-productos h3 {
+  margin-bottom: 1rem;
+  color: #16a085;
+  border-bottom: 2px solid #1abc9c;
+  padding-bottom: 0.3rem;
+}
+
+.datos-cliente p {
+  font-size: 1rem;
+  margin: 0.3rem 0;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #1abc9c;
+  margin: 2rem 0;
+  opacity: 0.3;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+thead tr {
+  background-color: #1abc9c;
+  color: white;
+}
+
+thead th {
+  padding: 0.75rem;
+  font-weight: 700;
+  border: 1px solid #ddd;
+}
+
+tbody td {
+  border: 1px solid #ddd;
+  padding: 0.6rem;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f4f8f7;
+}
+
+.total-final {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-align: right;
+  color: #1abc9c;
+}
+

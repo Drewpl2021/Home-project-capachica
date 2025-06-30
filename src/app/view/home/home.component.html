@@ -1,88 +1,98 @@
-<div class="hero-wrap js-fullheight" id="{{ sectionDetails[0]?.code }}"    [ngStyle]="{
-    'background-image': 'url(' + sectionDetails[0]?.detail[0]?.image + ')',
-    'background-size': 'cover',
-    'background-position': 'center center',
-    'background-repeat': 'no-repeat',
-    'width': '100%',
-    'height': '950px',
-    'object-fit': 'cover',
-    'max-width': '100%',
-    'max-height': '1000px'
-  }">
+<div
+  class="hero-wrap js-fullheight"
+  [ngStyle]="{ 'background-image': 'url(' + currentImage + ')' }"
+  style="width: 100%; height: 760px;">
   <div class="overlay"></div>
-  <div class="container">
+  <div class="container" data-aos="fade-down" data-aos-duration="1000">
     <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start">
       <div class="col-md-9 text-center text-sm-left">
-        <h1 class="mb-4">{{ sectionDetails[0]?.title }}</h1>  <!-- Mostramos el título dinámicamente -->
-        <!--<p>{{ sectionDetails[0]?.description }}</p>-->
-        <p>{{ sectionDetails[0]?.detail[0]?.description }}</p>
-
+        <h1 class="mb-4">{{tituloDescubrecapachica}}</h1>
+        <p>{{descripcionDescubrecapachica}}</p>
       </div>
     </div>
   </div>
 </div>
 
-
-
-
 <section class="ftco-section bg-light">
-  <div class="container" id="{{ sectionDetails[1]?.code }}" >
-    <!-- Título centrado con el color de fondo -->
-    <h2 style="text-align: center; background-color: #2AD9B3; color: white; padding: 20px; border-radius: 10px; font-size: 2.5rem; font-weight: bold;">
-      {{ sectionDetails[1]?.title }}
-    </h2>
-    <br>
+  <div class="container">
     <div class="row">
-      <div class="col-md-4">
+      <div class="section-title-wrapper text-center mb-5" data-aos="zoom-in">
+        <span class="section-decorated-title">{{tituloDescubrevive}}</span>
+      </div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1000">
         <div class="intro">
-          <h3><span>01</span> {{ sectionDetails[1]?.detail[0]?.title }}</h3>
-          <p>{{ sectionDetails[1]?.detail[1]?.description }}</p>
+          <h3><span>01</span> {{subtituloDescubre}}</h3>
+          <p>{{subdescripcionDescubre}}</p>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1000">
         <div class="intro">
-          <h3><span>02</span> {{ sectionDetails[1]?.detail[1]?.title }}</h3>
-          <p>{{ sectionDetails[1]?.detail[1]?.description }}</p>
+          <h3><span>02</span> {{subtituloVive}}</h3>
+          <p>{{subdescripcionVive}}</p>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1000">
         <div class="intro">
-          <h3><span>03</span> {{ sectionDetails[1]?.detail[2]?.title }}</h3>
-          <p>{{ sectionDetails[1]?.detail[2]?.description }}</p>
+          <h3><span>03</span> {{subtituloConecta}}</h3>
+          <p>{{subdescripcionConecta}}</p>
         </div>
       </div>
     </div>
   </div>
 </section>
+<section class="section-featured">
+  <!-- Fondo superior tipo cabecera -->
+  <div class="featured-background" >
+    <img src="assets/images/fondo.png" alt="Fondo turístico">
+  </div>
 
+  <!-- Contenido superpuesto -->
+  <div class="featured-content">
+    <!-- Imagen superpuesta con sombra -->
+    <div class="featured-image-card" data-aos="flip-left" data-aos-duration="1500">
+      <img [src]="imagenrecorrido" alt="Imagen Recorrido">
+    </div>
 
-<!-- No animations added in the HTML code -->
+    <!-- Texto -->
+    <div class="featured-text" data-aos="zoom-in" data-aos-duration="1000">
+      <h2>{{hagasurecorrido}}</h2>
+      <p>
+        {{descripcionrecorrido}}
+      </p>
+      <a href="/" class="cta-button">Reserva tu destino</a>
+    </div>
+  </div>
+</section>
+<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(assets/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+  <div class="container">
+  </div>
+</section>
 <section class="ftco-section">
   <div class="container">
-    <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 heading-section text-center"  id="{{ sectionDetails[2]?.code }}" >
-        <h2 class="mb-4" style="">{{ sectionDetails[2]?.title }}</h2>
+    <div class="row justify-content-center mb-5 pb-3" data-aos="flip-left" data-aos-duration="1000">
+      <div class="col-md-7 heading-section text-center">
+        <h2 class="mb-4">{{titulovacaciones}}</h2>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-4">
-        <a href="#" class="destination-entry img"  [ngStyle]="{'background-image': 'url(' + sectionDetails[2]?.detail[1]?.image + ')'}">
+      <div class="col-md-4" data-aos="flip-left" data-aos-duration="1500">
+        <a  class="destination-entry img" [style.background-image]="'url(' + imagenPaisage + ')'">
           <div class="text text-center">
-            <h3>{{ sectionDetails[2]?.detail[1]?.title }}</h3>
+            <h3>{{subtituloPaisaje}}</h3>
           </div>
         </a>
       </div>
-      <div class="col-md-4">
-        <a href="#" class="destination-entry img" [ngStyle]="{'background-image': 'url(' + sectionDetails[2]?.detail[0]?.image + ')'}">
+      <div class="col-md-4" data-aos="zoom-in" data-aos-duration="1500">
+        <a  class="destination-entry img" [style.background-image]="'url(' + imagenArtesania + ')'">
           <div class="text text-center">
-            <h3>{{ sectionDetails[2]?.detail[0]?.title }}</h3>
+            <h3>{{subtituloArtesania}}</h3>
           </div>
         </a>
       </div>
-      <div class="col-md-4">
-        <a href="#" class="destination-entry img" [ngStyle]="{'background-image': 'url(' + sectionDetails[2]?.detail[2]?.image + ')'}">
+      <div class="col-md-4" data-aos="flip-right" data-aos-duration="1500">
+        <a  class="destination-entry img" [style.background-image]="'url(' + imagenVacaciones + ')'">
           <div class="text text-center">
-            <h3>{{ sectionDetails[2]?.detail[2]?.title }}</h3>
+            <h3>{{subtituloVacaciones}}</h3>
           </div>
         </a>
       </div>
@@ -91,112 +101,114 @@
 </section>
 
 <section class="ftco-about d-md-flex">
-  <div class="one-half img" [ngStyle]="{'background-image': 'url(' + sectionDetails[3]?.detail[0]?.image + ')'}"></div>
+  <div class="one-half img" style="background-image: url(assets/images/image08.jpg);"></div>
   <div class="one-half">
-    <div class="heading-section"  id="{{ sectionDetails[3]?.code }}">
-      <h2 class="mb-4">{{ sectionDetails[3]?.title }}</h2>
+    <div class="heading-section" data-aos="fade-right" data-aos-duration="1000">
+      <h2 class="mb-4">{{titulolomejor}}</h2>
     </div>
-    <div>
-      <p>{{ sectionDetails[3]?.description }}</p>
+    <div data-aos="fade-left" data-aos-duration="1000">
+      <p>{{descripcionlomejor}}</p>
     </div>
   </div>
 </section>
 
 
-<section class="ftco-section" >
-  <div class="container" style="background-color: #2AD9B3; color: white;">
+
+
+
+<section class="ftco-section">
+  <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 heading-section text-center" id="{{ sectionDetails[4]?.code }}">
-        <h2 class="mb-4" style="background-color: #2AD9B3; color: white;">{{ sectionDetails[4]?.title }}</h2>
+      <div class="col-md-7 heading-section text-center" data-aos="fade-right" data-aos-duration="1000">
+        <h2 class="mb-4">{{tituloDestinos}}</h2>
       </div>
     </div>
   </div>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm col-md-6 col-lg">
+      <div
+        *ngFor="let item of asociaciones; let i = index"
+        class="col-sm col-md-6 col-lg"
+        [ngClass]="{'d-md-flex flex-column-reverse': i % 2 !== 0}"
+      >
         <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[4]?.detail[0]?.image + ')'}">
+          <a
+            [routerLink]="[item.url]"
+            fragment="section-counter"
+            class="img img-2 d-flex justify-content-center align-items-center"
+            [style.background-image]="'url(' + (item.imagenes && item.imagenes.length > 0 ? item.imagenes[imageIndexes[i]].url_image : 'assets/images/default.png') + ')'"
+            data-aos="flip-left"
+            data-aos-duration="1500"
+          >
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
           </a>
-          <div class="text p-3">
+          <div class="text p-3" data-aos="zoom-in" data-aos-duration="1000">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">{{ sectionDetails[4]?.detail[0]?.title }}</a></h3>
+                <h3><a>{{ item.nombre }}</a></h3>
               </div>
             </div>
-            <p>{{ sectionDetails[4]?.detail[0]?.description }}</p>
+            <p>{{ item.descripcion }}</p>
             <hr>
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica, Puno</span>
-              <span class="ml-auto"><a href="#">Reservar</a></span>
+              <span><i class="icon-map-o"></i> {{ item.lugar || 'Capachica-Puno' }}</span>
+              <span class="ml-auto">
+                <a [routerLink]="[item.url]" fragment="section-counter">Descubre</a>
+              </span>
             </p>
           </div>
         </div>
       </div>
-      <div class="col-sm col-md-6 col-lg">
-        <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[4]?.detail[1]?.image + ')'}">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3">
-            <div class="d-flex">
-              <div class="one">
-                <h3><a href="#">{{ sectionDetails[4]?.detail[1]?.title }}</a></h3>
-              </div>
-            </div>
-            <p>{{ sectionDetails[4]?.detail[1]?.description }}</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica, Puno</span>
-              <span class="ml-auto"><a href="#">Reservar</a></span>
-            </p>
-          </div>
-        </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(assets/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+  <div class="container">
+  </div>
+</section>
+
+<section class="ftco-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5 pb-3">
+      <div class="col-md-7 heading-section text-center" data-aos="fade-right" data-aos-duration="1000">
+        <h2 class="mb-4">{{ tituloHospedajes }}</h2>
       </div>
-      <div class="col-sm col-md-6 col-lg">
-        <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[4]?.detail[2]?.image + ')'}">
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div *ngFor="let servicio of emprendedorServicios, let i = index" class="col-sm col-md-6 col-lg mb-4">
+        <div class="destination" data-aos="flip-left" data-aos-duration="9000">
+          <a (click)="navigateTo(servicio)" style="cursor: pointer;"
+             class="img img-2 d-flex justify-content-center align-items-center"
+             [style.background-image]="'url(' + (servicio.imagenes && servicio.imagenes.length > 0 ? servicio.imagenes[imageIndexes[i]].url_image : 'assets/images/default.png') + ')'"
+             data-aos="flip-left" data-aos-duration="9000">
             <div class="icon d-flex justify-content-center align-items-center">
               <span class="icon-link"></span>
             </div>
           </a>
-          <div class="text p-3">
+          <div class="text p-3" data-aos="zoom-in" data-aos-duration="9000">
             <div class="d-flex">
               <div class="one">
-                <h3><a href="#">{{ sectionDetails[4]?.detail[2]?.title }}</a></h3>
+                <h3><a>{{ servicio.name }}</a></h3>
+              </div>
+              <div class="two">
+                <span class="price per-price">S/.{{ servicio.costo }}<br><small>/noche</small></span>
               </div>
             </div>
-            <p>{{ sectionDetails[4]?.detail[2]?.description }}</p>
-            <hr>
+            <p>{{ servicio.description }}</p>
+            <hr />
             <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica, Puno</span>
-              <span class="ml-auto"><a href="#">Reservar</a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm col-md-6 col-lg">
-        <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[4]?.detail[3]?.image + ')'}">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3">
-            <div class="d-flex">
-              <div class="one">
-                <h3><a href="#">{{ sectionDetails[4]?.detail[3]?.title }}</a></h3>
-              </div>
-            </div>
-            <p>{{ sectionDetails[4]?.detail[3]?.description }}</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica, Puno</span>
-              <span class="ml-auto"><a href="#">Reservar</a></span>
+              <!--<span><i class="icon-map-o"></i> {{ servicio.emprendedor_address }}</span>-->
+              <span class="ml-auto">
+              <a (click)="navigateTo(servicio)" style="cursor: pointer;" fragment="section-counter">Reservar</a>
+            </span>
             </p>
           </div>
         </div>
@@ -207,406 +219,143 @@
 
 <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(assets/images/bg_1.jpg);" data-stellar-background-ratio="0.5">
   <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-10">
-        <div class="row">
-          <div class="col-md-3 d-flex justify-content-center counter-wrap">
-            <div class="block-18 text-center">
-              <div class="text">
-                <strong class="number" data-number="100000">0</strong>
-                <span>Happy Customers</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 d-flex justify-content-center counter-wrap">
-            <div class="block-18 text-center">
-              <div class="text">
-                <strong class="number" data-number="40000">0</strong>
-                <span>Destination Places</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 d-flex justify-content-center counter-wrap">
-            <div class="block-18 text-center">
-              <div class="text">
-                <strong class="number" data-number="87000">0</strong>
-                <span>Hotels</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-3 d-flex justify-content-center counter-wrap">
-            <div class="block-18 text-center">
-              <div class="text">
-                <strong class="number" data-number="56400">0</strong>
-                <span>Restaurant</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
 <section class="ftco-section">
-  <div class="container">
-    <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 heading-section text-center" id="{{ sectionDetails[5]?.code }}">
-        <h2 class="mb-4">{{ sectionDetails[5]?.title }} </h2>
-      </div>
-    </div>
-  </div>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm col-md-6 col-lg">
-        <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[5]?.detail[0]?.image + ')'}">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3">
-            <div class="d-flex">
-              <div class="one">
-                <h3><a href="#">{{ sectionDetails[5]?.detail[0]?.title }}</a></h3>
-              </div>
-              <div class="two">
-                <span class="price per-price">$20<br><small>/noche</small></span>
-              </div>
-            </div>
-            <p>{{ sectionDetails[5]?.detail[0]?.description }}</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica, Puno</span>
-              <span class="ml-auto"><a href="#">Reservar </a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm col-md-6 col-lg">
-        <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[5]?.detail[1]?.image + ')'}">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3">
-            <div class="d-flex">
-              <div class="one">
-                <h3><a href="#">{{ sectionDetails[5]?.detail[1]?.title }}</a></h3>
-              </div>
-              <div class="two">
-                <span class="price per-price">$15<br><small>/noche</small></span>
-              </div>
-            </div>
-            <p>{{ sectionDetails[5]?.detail[1]?.description }}</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica, Puno</span>
-              <span class="ml-auto"><a href="#">Reservar </a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm col-md-6 col-lg">
-        <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[5]?.detail[2]?.image + ')'}">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3">
-            <div class="d-flex">
-              <div class="one">
-                <h3><a href="#">{{ sectionDetails[5]?.detail[2]?.title }}</a></h3>
-              </div>
-              <div class="two">
-                <span class="price per-price">$18<br><small>/noche</small></span>
-              </div>
-            </div>
-            <p>{{ sectionDetails[5]?.detail[2]?.description }}</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica, Puno</span>
-              <span class="ml-auto"><a href="#">Reservar </a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm col-md-6 col-lg">
-        <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[5]?.detail[3]?.image + ')'}">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3">
-            <div class="d-flex">
-              <div class="one">
-                <h3><a href="#">{{ sectionDetails[5]?.detail[3]?.title }}</a></h3>
-              </div>
-              <div class="two">
-                <span class="price per-price">$18<br><small>/noche</small></span>
-              </div>
-            </div>
-            <p>{{ sectionDetails[5]?.detail[3]?.description }}</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica, Puno</span>
-              <span class="ml-auto"><a href="#">Reservar </a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm col-md-6 col-lg">
-        <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[5]?.detail[4]?.image + ')'}">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3">
-            <div class="d-flex">
-              <div class="one">
-                <h3><a href="#">{{ sectionDetails[5]?.detail[4]?.title }}</a></h3>
-              </div>
-              <div class="two">
-                <span class="price per-price">$20<br><small>/noche</small></span>
-              </div>
-            </div>
-            <p>{{ sectionDetails[5]?.detail[4]?.description }}</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica, Puno</span>
-              <span class="ml-auto"><a href="#">Reservar </a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="ftco-section testimony-section">
-  <div class="container">
-    <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 text-center heading-section heading-section-white">
-        <h2 class="mb-4">Our satisfied customer says</h2>
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <div class="carousel-testimony owl-carousel">
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div class="user-img mb-5" style="background-image: url(assets/images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-              </div>
-              <div class="text">
-                <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <p class="name">Mark Web</p>
-                <span class="position">Marketing Manager</span>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div class="user-img mb-5" style="background-image: url(assets/images/person_2.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-              </div>
-              <div class="text">
-                <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <p class="name">Mark Web</p>
-                <span class="position">Interface Designer</span>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="testimony-wrap p-4 pb-5">
-              <div class="user-img mb-5" style="background-image: url(assets/images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-              </div>
-              <div class="text">
-                <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                <p class="name">Mark Web</p>
-                <span class="position">UI Designer</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="ftco-section">
-  <div class="container">
-    <div class="row justify-content-center mb-5 pb-3">
-      <div class="col-md-7 heading-section text-center" id="{{ sectionDetails[6]?.code }}">
-        <h2 class="mb-4">{{ sectionDetails[6]?.title }}</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-lg-3">
-        <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center"  [ngStyle]="{'background-image': 'url(' + sectionDetails[6]?.detail[0]?.image + ')'}">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3">
-            <h3><a href="#">{{ sectionDetails[5]?.detail[0]?.title }}</a></h3>
-            <p>{{ sectionDetails[5]?.detail[0]?.description }}</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica, Puno</span>
-              <span class="ml-auto"><a href="#">Reservar</a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[6]?.detail[1]?.image + ')'}">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3">
-            <h3><a href="#">{{ sectionDetails[5]?.detail[1]?.title }}</a></h3>
-            <p>{{ sectionDetails[5]?.detail[1]?.description }}</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica, Puno</span>
-              <span class="ml-auto"><a href="#">Reservar</a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="destination">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[6]?.detail[2]?.image + ')'}">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3">
-            <h3><a href="#">{{ sectionDetails[5]?.detail[2]?.title }}</a></h3>
-            <p>{{ sectionDetails[5]?.detail[2]?.description }}</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica, Puno</span>
-              <span class="ml-auto"><a href="#">Reservar</a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-3">
-        <div class="destination d-md-flex flex-column-reverse">
-          <a href="#" class="img img-2 d-flex justify-content-center align-items-center" [ngStyle]="{'background-image': 'url(' + sectionDetails[6]?.detail[3]?.image + ')'}">
-            <div class="icon d-flex justify-content-center align-items-center">
-              <span class="icon-link"></span>
-            </div>
-          </a>
-          <div class="text p-3">
-            <h3><a href="#">{{ sectionDetails[5]?.detail[3]?.title }}</a></h3>
-            <p>{{ sectionDetails[5]?.detail[3]?.description }}</p>
-            <hr>
-            <p class="bottom-area d-flex">
-              <span><i class="icon-map-o"></i> Capachica, Puno</span>
-              <span class="ml-auto"><a href="#">Reservar</a></span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!--
-<section class="ftco-section bg-light">
   <div class="container">
     <div class="row justify-content-center mb-5 pb-3">
       <div class="col-md-7 heading-section text-center">
-        <h2><strong>Tips</strong> &amp; Articles</h2>
+        <h2 class="mb-4">{{tituloComida}}</h2>
       </div>
     </div>
-    <div class="row d-flex">
-      <div class="col-md-4 d-flex">
-        <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20" style="background-image: url('assets/images/image_1.jpg');">
-          </a>
-          <div class="text">
-            <span class="tag">Tips, Travel</span>
-            <h3 class="heading mt-3"><a href="#">8 Best homestay in Philippines that you don't miss out</a></h3>
-            <div class="meta mb-3">
-              <div><a href="#">October 3, 2018</a></div>
-              <div><a href="#">Admin</a></div>
-              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 d-flex">
-        <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20" style="background-image: url('assets/images/image_2.jpg');">
-          </a>
-          <div class="text">
-            <span class="tag">Culture</span>
-            <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-            <div class="meta mb-3">
-              <div><a href="#">October 3, 2018</a></div>
-              <div><a href="#">Admin</a></div>
-              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 d-flex">
-        <div class="blog-entry align-self-stretch">
-          <a href="blog-single.html" class="block-20" style="background-image: url('assets/images/image_3.jpg');">
-          </a>
-          <div class="text">
-            <span class="tag">Tips, Travel</span>
-            <h3 class="heading mt-3"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
-            <div class="meta mb-3">
-              <div><a href="#">October 3, 2018</a></div>
-              <div><a href="#">Admin</a></div>
-              <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>-->
-
-<section class="ftco-section-parallax">
-  <div class="parallax-img d-flex align-items-center">
-    <div class="container">
-      <div class="row d-flex justify-content-center">
-        <div class="col-md-7 text-center heading-section heading-section-white">
-          <h2>Subcribe to our Newsletter</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-          <div class="row d-flex justify-content-center mt-5">
-            <div class="col-md-8">
-              <form action="#" class="subscribe-form">
-                <div class="form-group d-flex">
-                  <input type="text" class="form-control" placeholder="Enter email address">
-                  <input type="submit" value="Subscribe" class="submit px-3">
+    <div class="container-fluid">
+      <div class="row">
+        <div *ngFor="let servicio of comida, let i = index" class="col-sm col-md-6 col-lg mb-4">
+          <div class="destination" data-aos="flip-left" data-aos-duration="9000">
+            <a (click)="navigateTo(servicio)" style="cursor: pointer;"
+               class="img img-2 d-flex justify-content-center align-items-center"
+               [style.background-image]="'url(' + (servicio.imagenes && servicio.imagenes.length > 0 ? servicio.imagenes[imageIndexes[i]].url_image : 'assets/images/default.png') + ')'"
+               data-aos="flip-left" data-aos-duration="9000">
+              <div class="icon d-flex justify-content-center align-items-center">
+                <span class="icon-link"></span>
+              </div>
+            </a>
+            <div class="text p-3" data-aos="zoom-in" data-aos-duration="9000">
+              <div class="d-flex">
+                <div class="one">
+                  <h3><a>{{ servicio.name }}</a></h3>
                 </div>
-              </form>
+                <div class="two">
+                  <span class="price per-price">S/.{{ servicio.costo }}<br><small>/el plato</small></span>
+                </div>
+              </div>
+              <p>{{ servicio.description }}</p>
+              <hr />
+              <p class="bottom-area d-flex">
+                <!--<span><i class="icon-map-o"></i> {{ servicio.emprendedor_address }}</span>-->
+                <span class="ml-auto">
+              <a (click)="navigateTo(servicio)" style="cursor: pointer;" fragment="section-counter">Reservar</a>
+            </span>
+              </p>
             </div>
           </div>
         </div>
       </div>
+    </div>
+
+
+
+  </div>
+</section>
+<section class="testimonials-section">
+  <div class="container text-center">
+    <p class="sub-title">Testimonial</p>
+    <h2 class="title">Comentarios de los turistas</h2>
+    <div class="testimonials-carousel-wrapper">
+      <button class="carousel-btn left" (click)="scrollLeft()">&lt;</button>
+      <div class="testimonials-carousel" id="carousel">
+        <div class="testimonial-card" data-aos="flip-left" data-aos-duration="1500">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">Desde el primer contacto, la agencia nos ayudó a planificar una visita perfecta a Capachica. ¡Un servicio excepcional!</p>
+          <div class="user-info">
+            <img src="assets/images/person_1.jpg" alt="Sapito" />
+            <div>
+              <p class="name">Sapito</p>
+              <p class="role">Visitante</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-aos="flip-left" data-aos-duration="1500">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">Llachón fue simplemente mágico. La vista del lago al amanecer y la amabilidad de los lugareños lo hicieron...</p>
+          <div class="user-info">
+            <img src="assets/images/person_2.jpg" alt="Alessandro Pastor" />
+            <div>
+              <p class="name">Alessandro Pastor</p>
+              <p class="role">Viajero de Estados Unidos</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-aos="flip-left" data-aos-duration="1500">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">La playa de Chifrón es una joya escondida. Aguas cristalinas y un ambiente tranquilo; no podría pedir más.</p>
+          <div class="user-info">
+            <img src="assets/images/person_3.jpg" alt="Andrés Lino" />
+            <div>
+              <p class="name">Andrés Lino</p>
+              <p class="role">Fotógrafo de Argentina</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-aos="flip-left" data-aos-duration="1500">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">La playa de Chifrón es una joya escondida. Aguas cristalinas y un ambiente tranquilo; no podría pedir más.</p>
+          <div class="user-info">
+            <img src="assets/images/person_3.jpg" alt="Andrés Lino" />
+            <div>
+              <p class="name">Andrés Lino</p>
+              <p class="role">Fotógrafo de Argentina</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-aos="flip-left" data-aos-duration="1500">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">La playa de Chifrón es una joya escondida. Aguas cristalinas y un ambiente tranquilo; no podría pedir más.</p>
+          <div class="user-info">
+            <img src="assets/images/person_3.jpg" alt="Andrés Lino" />
+            <div>
+              <p class="name">Andrés Lino</p>
+              <p class="role">Fotógrafo de Argentina</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card" data-aos="flip-left" data-aos-duration="1500">
+          <div><p class="rate"><span><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i><i class="icon-star"></i></span></p>
+          </div>
+          <p class="message">La playa de Chifrón es una joya escondida. Aguas cristalinas y un ambiente tranquilo; no podría pedir más.</p>
+          <div class="user-info">
+            <img src="assets/images/person_3.jpg" alt="Andrés Lino" />
+            <div>
+              <p class="name">Andrés Lino</p>
+              <p class="role">Fotógrafo de Argentina</p>
+            </div>
+          </div>
+        </div>
+        <!-- Puedes añadir más tarjetas aquí -->
+      </div>
+
+      <button class="carousel-btn right" (click)="scrollRight()">&gt;</button>
     </div>
   </div>
 </section>
@@ -616,8 +365,8 @@
     <div class="row mb-5">
       <div class="col-md">
         <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Adventure</h2>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          <h2 class="ftco-heading-2">Nuestras Redes Sociales</h2>
+          <p>Puedes seguirnos en nuestras redes sociales para estar al tanto de nuevos eventos y actividades que tenemos preparados para ti.</p>
           <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
             <li><a href="#"><span class="icon-twitter"></span></a></li>
             <li><a href="#"><span class="icon-facebook"></span></a></li>
@@ -627,68 +376,33 @@
       </div>
       <div class="col-md">
         <div class="ftco-footer-widget mb-4 ml-md-4">
-          <h2 class="ftco-heading-2">Information</h2>
+          <h2 class="ftco-heading-2">Informacion</h2>
           <ul class="list-unstyled">
-            <li><a href="#" class="py-2 d-block">About Us</a></li>
-            <li><a href="#" class="py-2 d-block">Online enquiry</a></li>
-            <li><a href="#" class="py-2 d-block">Call Us</a></li>
-            <li><a href="#" class="py-2 d-block">General enquiries</a></li>
-            <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-            <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-            <li><a href="#" class="py-2 d-block">Refund policy</a></li>
+            <li><a href="#" class="py-2 d-block">Acerca de Nosotros</a></li>
+            <li><a href="#" class="py-2 d-block">Contactanos</a></li>
+            <li><a href="#" class="py-2 d-block">Preguntas Generales</a></li>
+            <li><a href="#" class="py-2 d-block">Ternimos y Condiciones</a></li>
+            <li><a href="#" class="py-2 d-block">Politicas de Privacidad</a></li>
           </ul>
         </div>
       </div>
       <div class="col-md">
         <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Experience</h2>
-          <ul class="list-unstyled">
-            <li><a href="#" class="py-2 d-block">Beach</a></li>
-            <li><a href="#" class="py-2 d-block">Adventure</a></li>
-            <li><a href="#" class="py-2 d-block">Wildlife</a></li>
-            <li><a href="#" class="py-2 d-block">Honeymoon</a></li>
-            <li><a href="#" class="py-2 d-block">Nature</a></li>
-            <li><a href="#" class="py-2 d-block">Party</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col-md">
-        <div class="ftco-footer-widget mb-4">
-          <h2 class="ftco-heading-2">Have a Questions?</h2>
+          <h2 class="ftco-heading-2">¿Tienes alguna Pregunta?</h2>
           <div class="block-23 mb-3">
             <ul>
-              <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-              <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-              <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info&#64;yourdomain.com</span></a></li>
+              <li><span class="icon icon-map-marker"></span><span class="text">Plaza de Armas S/N - Capachica - Puno - Perú</span></li>
+              <li><a href="#"><span class="icon icon-phone"></span><span class="text">+51 950 923 204</span></a></li>
+              <li><a href="#"><span class="icon icon-envelope"></span><span class="text">municapachica2023&#64;gmail.com</span></a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
+    <!--<div class="row">
       <div class="col-md-12 text-center">
         <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
       </div>
-    </div>
+    </div>-->
   </div>
 </footer>
-
-
-
-<!--<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery-migrate-3.0.1.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/jquery.easing.1.3.js"></script>
-<script src="assets/js/jquery.waypoints.min.js"></script>
-<script src="assets/js/jquery.stellar.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/jquery.magnific-popup.min.js"></script>
-<script src="assets/js/aos.js"></script>
-<script src="assets/js/jquery.animateNumber.min.js"></script>
-<script src="assets/js/bootstrap-datepicker.js"></script>
-<script src="assets/js/jquery.timepicker.min.js"></script>
-<script src="assets/js/scrollax.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-<script src="assets/js/google-map.js"></script>
-<script src="assets/js/main.js"></script>-->

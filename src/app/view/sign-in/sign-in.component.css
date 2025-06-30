@@ -1,0 +1,75 @@
+/* Fondo verde claro y centrado absoluto */
+.signin-background {
+  background-color: #1abc9c; /* verde claro */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Tarjeta centrada */
+.signin-card {
+  background: white;
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  width: 350px;
+  max-width: 90%;
+  text-align: center;
+}
+
+.signin-card h2 {
+  margin-bottom: 1.5rem;
+  color: black; /* verde agua */
+  font-weight: 700;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border: 1.5px solid black;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #16a085; /* verde agua más oscuro */
+  box-shadow: 0 0 8px rgba(22,160,133,0.3);
+}
+
+button {
+  margin-top: 2rem;
+  width: 100%;
+  padding: 0.7rem;
+  background-color: #f1c40f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e0a800;
+}
+
+.error {
+  margin-top: 1rem;
+  color: #e74c3c;
+  font-weight: 600;
+}
