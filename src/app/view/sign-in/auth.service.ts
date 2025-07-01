@@ -11,7 +11,7 @@ export class AuthService {
   private _loggedIn = signal(false);
   private _userData = signal<{name: string, last_name: string} | null>(null);
   private authState = new BehaviorSubject<boolean>(false);
-  private apiUrl = 'http://localhost:8000';
+  private apiUrl = 'http://34.201.243.186';
 
   authState$ = this.authState.asObservable();
   userData = this._userData.asReadonly();
