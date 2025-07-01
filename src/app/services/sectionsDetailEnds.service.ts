@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class SectionsDetailEndsService {
-  private apiUrl = 'http://localhost:8000/sectionDetailEnds';
+  private apiUrl = 'http://34.201.243.186/sectionDetailEnds';
 
   constructor(private http: HttpClient) {}
 
