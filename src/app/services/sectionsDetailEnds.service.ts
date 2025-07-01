@@ -16,7 +16,7 @@ export class SectionsDetailEndsService {
   }
 
   getsectionDetailsEndsById(id: string): Observable<any> {
-    const url = `http://localhost:8000/sectionDetails/byId/${id}`; // Construir la URL con el id
+    const url = `http://34.201.243.186/sectionDetails/byId/${id}`; // Construir la URL con el id
     return this.http.get<any>(url);  // Realiza la solicitud GET a la URL dinámica
   }
   // Método para agregar una nueva municipalidad
